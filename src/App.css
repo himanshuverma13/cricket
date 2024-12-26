@@ -544,3 +544,19 @@ button.btn:hover:not(:disabled) {
   background-color: #19454b !important;
   color: white !important;
 }
+
+/* ---------------Teams Section css ------------------ */
+.team_name{
+  color: #19454b;
+}
+.team_flag img {
+width: 40px;
+border-radius: 2px;
+margin: 0px 10px;
+}
+.team_container .col-lg-6{
+  border: 1px solid rgb(223, 218, 218);
+  border-radius: 2px;
+  padding: 8px;
+  
+}
