@@ -1,253 +1,129 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../Common/Footer";
+import { GetNewsAPI } from "../../APIs/api";
+import moment from "moment";
 
 const NewsPage = () => {
-  const itemsPerPage = 8; // Number of items per page
-  const [currentPage, setCurrentPage] = useState(1);
+  // const itemsPerPage = 8; // Number of items per page
+  // const [currentPage, setCurrentPage] = useState(1);
+  const [SportsNews, setSportsNews] = useState();
 
-  const featuredNews = [
-    {
-      title:
-        "BCB introduces national contracts for 30 more women in Bangladesh",
-      description:
-        "The 18 centrally-contracted Bangladesh women will also see an increased pay for the period between October 2024 and June 2025",
-      date: "22-Dec-2024",
-      time: "51 mins ago",
-      author: "Mohammad Isam",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/388500/388510.6.jpg",
-    },
-    {
-      title: "Konstas won't overthink Bumrah challenge as MCG debut looms",
-      description:
-        "The 19-year-old is the favourite to come in at the top of the order for the Boxing Day Test",
-      date: "22-Dec-2024",
-      time: "1 hr ago",
-      author: "AAP",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/392000/392041.6.jpg",
-    },
-    {
-      title: "Konstas won't overthink Bumrah challenge as MCG debut looms",
-      description:
-        "The 19-year-old is the favourite to come in at the top of the order for the Boxing Day Test",
-      date: "22-Dec-2024",
-      time: "1 hr ago",
-      author: "AAP",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/392000/392041.6.jpg",
-    },
-    {
-      title: "Konstas won't overthink Bumrah challenge as MCG debut looms",
-      description:
-        "The 19-year-old is the favourite to come in at the top of the order for the Boxing Day Test",
-      date: "22-Dec-2024",
-      time: "1 hr ago",
-      author: "AAP",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/392000/392041.6.jpg",
-    },
+  const sportsData = [
+    { name: "CRICKET", value: 3520 },
+    { name: "FOOTBALL", value: 2044 },
+    { name: "TENNIS", value: 635 },
   ];
 
-  const mostRead = [
-    {
-      title: "McSweeney 'devastated' by Test omission",
-      date: "21-Dec-2024",
-      author: "ESPNcricinfo staff",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/393200/393290.6.jpg",
-    },
-    {
-      title: "Bumrah at one end, Ilford Seconds at the other?",
-      date: "21-Dec-2024",
-      time: "17 hrs ago",
-      author: "Alagappan Muthu",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/393200/393290.6.jpg",
-    },
-    {
-      title: "Bumrah at one end, Ilford Seconds at the other?",
-      date: "21-Dec-2024",
-      time: "17 hrs ago",
-      author: "Alagappan Muthu",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/393200/393290.6.jpg",
-    },
-    {
-      title: "Bumrah at one end, Ilford Seconds at the other?",
-      date: "21-Dec-2024",
-      time: "17 hrs ago",
-      author: "Alagappan Muthu",
-      image:
-        "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_1280,q_70/lsci/db/PICTURES/CMS/393200/393290.6.jpg",
-    },
-  ];
-
-  const newsData = [
-    {
-      category: "Cricket",
-      title:
-        "Jasprit Bumrah Gets A Captaincy Push In Australia Against Rohit Sharma",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "Cricket Addictor",
-      time: "2 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "HEA Vs STR Match Prediction, Match 9",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "CricTracker",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "KL Rahul Gets Hit On Finger In Fresh Injury Scare",
-      image:
-        "https://static.cricketaddictor.com/images/posts/2024/Jasprit-Bumrah-Rohit-Sharma-1-.jpg?q=80",
-      source: "Hindustan Times",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "'Shocking': Ravichandran Ashwin's Spin Twin",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "Times Now",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "Watch: KL Rahul Suffers Freak Injury Scare",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "InsideSport",
-      time: "4 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "HEA Vs STR Match Prediction, Match 9",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "CricTracker",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "KL Rahul Gets Hit On Finger In Fresh Injury Scare",
-      image:
-        "https://static.cricketaddictor.com/images/posts/2024/Jasprit-Bumrah-Rohit-Sharma-1-.jpg?q=80",
-      source: "Hindustan Times",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "'Shocking': Ravichandran Ashwin's Spin Twin",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "Times Now",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "Watch: KL Rahul Suffers Freak Injury Scare",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "InsideSport",
-      time: "4 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "KL Rahul Gets Hit On Finger In Fresh Injury Scare",
-      image:
-        "https://static.cricketaddictor.com/images/posts/2024/Jasprit-Bumrah-Rohit-Sharma-1-.jpg?q=80",
-      source: "Hindustan Times",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "'Shocking': Ravichandran Ashwin's Spin Twin",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "Times Now",
-      time: "3 hours ago",
-    },
-    {
-      category: "Cricket",
-      title: "Watch: KL Rahul Suffers Freak Injury Scare",
-      image:
-        "https://static.tnn.in/thumb/msid-116523856,width-1280,height-720,resizemode-75/116523856.jpg",
-      source: "InsideSport",
-      time: "4 hours ago",
-    },
-  ];
-
-  // Calculate pagination logic
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentNews = newsData.slice(indexOfFirstItem, indexOfLastItem);
-
-  const totalPages = Math.ceil(newsData.length / itemsPerPage);
-
-  // Handle pagination navigation
-  const handlePrevPage = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  const FetchNews = async () => {
+    try {
+      const response = await GetNewsAPI();
+      console.log("response: ", response);
+      setSportsNews(response);
+    } catch (error) {
+      console.log("error: ", error);
+    }
   };
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-  };
+  useEffect(() => {
+    FetchNews();
+  }, []);
+
+  // // Calculate pagination logic
+  // const indexOfLastItem = currentPage * itemsPerPage;
+  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  // const currentNews = SportsNews?.slice(indexOfFirstItem, indexOfLastItem);
+
+  // const totalPages = Math?.ceil(SportsNews?.length / itemsPerPage);
+
+  // // Handle pagination navigation
+  // const handlePrevPage = () => {
+  //   if (currentPage > 1) setCurrentPage(currentPage - 1);
+  // };
+
+  // const handleNextPage = () => {
+  //   if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  // };
 
   return (
     <>
       <div className="news-page">
-        <div className="d-flex" style={{ gap: "20px" }}>
-          <div className="news-list">
+        <div className="text-center fw-bold"><h2>N E W S</h2></div>
+        <div className="row">
+          <div className="news-list col-lg-8">
             <h3>Cricket News</h3>
-            {featuredNews.map((news, index) => (
+            {SportsNews?.map((news, index) => (
               <div key={index} className="news-item">
-                <img src={news.image} alt={news.title} />
+                <img src={news?.image} alt={news?.title} />
                 <div className="news-details">
-                  <h4>{news.title}</h4>
-                  <p>{news.description}</p>
+                  <h4>{news?.title}</h4>
+                  <p>{news?.description}</p>
                   <span>
-                    {news.date} • {news.time} • {news.author}
+                    {moment(news?.publishedAt)
+                      ?.subtract(10, "days")
+                      ?.calendar()}{" "}
+                    • {moment(news?.publishedAt)?.format("LT")} •{" "}
+                    {news?.source?.name}
                   </span>
                 </div>
               </div>
             ))}
           </div>
-          <aside className="sidebar">
+          <aside className="sidebar col-lg-3">
             <h4>Most Read</h4>
-            {mostRead.map((item, index) => (
+            {SportsNews?.map((item, index) => (
               <div key={index} className="most-read-item">
-                <img src={item.image} alt={item.title} />
+                <img src={item?.image} alt={item?.title} />
                 <div>
-                  <h6>{item.title}</h6>
+                  <h6>{item?.title}</h6>
                   <span>
-                    {item.date} • {item.author}
+                    {moment(item?.publishedAt).subtract(10, "days").calendar()}{" "}
+                    • {item?.source?.name}
                   </span>
                 </div>
               </div>
             ))}
+            <div className="container  py-4 border-top border-primary">
+              {/* Header */}
+              <div className="d-flex align-items-center mb-2">
+                <div className="px-3 py-1 bg-secondary text-white">SPORTS</div>
+                <hr className="border border-dark w-100" />
+              </div>
+
+              {/* Table */}
+              <div className="border rounded p-3 bg-white shadow-sm">
+                {sportsData.map((sport, index) => (
+                  <div
+                    key={index}
+                    className="d-flex justify-content-between align-items-center border-bottom py-2"
+                  >
+                    <span className="fw-bold">{sport.name}</span>
+                    <span className="">{sport.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </aside>
         </div>
         <div className="sidebar mt-4">
           <div className="row g-4">
-            {currentNews.map((news, index) => (
+            {SportsNews?.map((news, index) => (
               <div className="col-md-3" key={index}>
                 <div className="news-card">
                   <img
-                    src={news.image}
-                    alt={news.title}
+                    src={news?.image}
+                    alt={news?.title}
                     className="img-fluid"
                   />
                   <div className="news-overlay">
-                    <div className="news-category">{news.category}</div>
-                    <div className="news-title">{news.title}</div>
+                    <div className="news-category">SPORTS</div>
+                    <div className="news-title text-truncate">
+                      {news?.title}
+                    </div>
                     <div className="news-meta">
-                      {news.source} - {news.time}
+                      {news?.source?.name} -{" "}
+                      {moment(news?.publishedAt)
+                        ?.subtract(10, "days")
+                        ?.calendar()}
                     </div>
                   </div>
                 </div>
@@ -255,7 +131,7 @@ const NewsPage = () => {
             ))}
           </div>
         </div>
-        {/* Pagination Controls */}
+        {/* Pagination Controls
 
         <div className="pagination-controls">
           <button
@@ -275,7 +151,7 @@ const NewsPage = () => {
           >
             Next
           </button>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>

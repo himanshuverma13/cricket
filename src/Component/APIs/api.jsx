@@ -13,8 +13,7 @@ export const GetMatchCardAPI = async()=>{
 
 export const GetNewsAPI = async()=>{
     try {
-        let response = await axios.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=10308ea6f51d479491f051fdd598aa9b')
-        console.log('response?.data?.articles: ', response?.data?.articles);
+        let response = await axios.get('https://gnews.io/api/v4/top-headlines?country=in&category=sports&apikey=31b16f3534fa964d8146ee81beaa7b6f')
         return  response?.data?.articles 
     } catch (error) {
         console.log('error: ', error);

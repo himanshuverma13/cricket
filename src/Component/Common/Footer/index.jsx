@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
-import Logo from "../../asset/img/Logo/cricket-logo-removebg-preview.png"
+import Logo from "../../asset/img/Logo/logo.png"
  
 const Footer = () => {
   return (

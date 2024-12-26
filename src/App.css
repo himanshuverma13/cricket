@@ -28,6 +28,10 @@ img {
   max-height: 50px;
 }
 
+.navbar {
+  background-color: #333333;
+}
+
 /* ===========================  Home  ================================= */
 .background-img {
   background-image: url(./Component/asset/img/Home/Stadium.jpg);
