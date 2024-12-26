@@ -28,6 +28,11 @@ img {
   max-height: 50px;
 }
 
+.navbar {
+  background-color: #333333;
+  /* background: linear-gradient(90deg, rgba(30,61,80,1) 0%, rgba(255,255,255,1) 100%); */
+}
+
 /* ===========================  Home  ================================= */
 .background-img {
   background-image: url(./Component/asset/img/Home/Stadium.jpg);

@@ -206,9 +206,9 @@ const Schedule = () => {
                           <td>
                             <div>{matchDetail?.matchDesc}</div>
                             <div>
-                              {matchDetail?.venueInfo.ground},{" "}
-                              {matchDetail?.venueInfo.city},{" "}
-                              {matchDetail?.venueInfo.country}
+                              {matchDetail?.venueInfo?.ground},{" "}
+                              {matchDetail?.venueInfo?.city},{" "}
+                              {matchDetail?.venueInfo?.country}
                             </div>
                           </td>
                           <td>

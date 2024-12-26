@@ -1,13 +1,13 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 // Image
-import Logo from "../../asset/img/Logo/cricket-logo-removebg-preview.png";
+import Logo from "../../asset/img/Logo/logo.png";
 import { NavLink } from "react-router-dom";
  
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -40,13 +40,13 @@ const Navbar = () => {
                 <li className="nav-item" key={path}>
                   <NavLink
                     className={({ isActive }) =>
-                      `nav-link fonst-size-18 fw-bold  ${isActive ? "active" : ""}`
+                      `nav-link fonst-size-18 text-white fw-bold  ${isActive ? "active" : ""}`
                     }
                     to={path}
                     style={({ isActive }) =>
                       isActive
                         ? {
-                            borderBottom: "2px solid #19454b",
+                            borderBottom: "2px solid #fff",
                             paddingBottom: "2px",
                             color:"#19454b",
                             fontWeight:"700"
@@ -62,13 +62,13 @@ const Navbar = () => {
  
             <div className="d-flex align-items-center" style={{ gap: "2rem", paddingRight:"10px" }}>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-pantone">
-                <FaFacebook size={24} />
+                <FaFacebook className="text-white" size={24} />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-pantone">
-                <FaTwitter size={24} />
+                <FaTwitter className="text-white" size={24} />
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-pantone">
-                <FaInstagram size={24} />
+                <FaInstagram className="text-white" size={24} />
               </a>
             </div>
           </div>
