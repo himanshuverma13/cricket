@@ -8,6 +8,7 @@ import News from "./Component/Pages/News/index";
 import Navbar from "./Component/Common/Navbar/index";
 import { GetMatchCardAPI } from "./Component/APIs/api";
 import { useEffect } from "react";
+import TeamDetails from "./Component/Pages/Team/teamDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/series" element={<Series />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/team-details/:id" element={<TeamDetails />} />
         <Route path="/news" element={<News />} />
       </Routes>
     </Router>
