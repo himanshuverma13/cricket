@@ -29,12 +29,12 @@ img {
 }
 
 .navbar {
-  background-color: #333333;
+  background-color: #000;
 }
 
 /* ===========================  Home  ================================= */
 .background-img {
-  background-image: url(./Component/asset/img/Home/Stadium.jpg);
+  background-image: url(./Component/asset/img/Home/Stadium-Image.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -563,4 +563,9 @@ margin: 0px 10px;
   border-radius: 2px;
   padding: 8px;
   
+}
+.team-details img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
