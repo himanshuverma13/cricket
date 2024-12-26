@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import Footer from "../../Common/Footer";
 import { GetNewsAPI } from "../../APIs/api";
 import moment from "moment";
-
+import { IoFootball } from "react-icons/io5";
+import { FaTableTennis } from "react-icons/fa";
+import { MdSportsCricket } from "react-icons/md";
 const NewsPage = () => {
   // const itemsPerPage = 8; // Number of items per page
   // const [currentPage, setCurrentPage] = useState(1);
   const [SportsNews, setSportsNews] = useState();
 
   const sportsData = [
-    { name: "CRICKET", value: 3520 },
-    { name: "FOOTBALL", value: 2044 },
-    { name: "TENNIS", value: 635 },
+    { name: "CRICKET", value:<MdSportsCricket className="text-danger" /> },
+    { name: "FOOTBALL", value: <IoFootball /> },
+    { name: "TENNIS", value: <FaTableTennis  className="text-info"/> },
   ];
 
   const FetchNews = async () => {
@@ -47,8 +49,10 @@ const NewsPage = () => {
   return (
     <>
       <div className="news-page">
-        <div className="text-center fw-bold"><h2>N E W S</h2></div>
-        <div className="row">
+      <div className="text-center mb-4">
+        <span className="text-white bg fs-3 heading rounded-2 px-3 py-2">N E W S</span>
+        </div>
+        <div className="row gap-3">
           <div className="news-list col-lg-8">
             <h3>Cricket News</h3>
             {SportsNews?.map((news, index) => (
@@ -69,6 +73,28 @@ const NewsPage = () => {
             ))}
           </div>
           <aside className="sidebar col-lg-3">
+          <div className="container py-2">
+              {/* Header */}
+              <div className="d-flex align-items-center mb-2">
+              <hr className="border border-dark w-100" />
+                
+                <div className="px-3 py-1 bg-secondary text-white">SPORTS</div>
+                <hr className="border border-dark w-100" />
+              </div>
+
+              {/* Table */}
+              <div className="border rounded p-3 bg-white shadow-sm">
+                {sportsData.map((sport, index) => (
+                  <div
+                    key={index}
+                    className="d-flex justify-content-between align-items-center border-bottom py-2"
+                  >
+                    <span className="fw-bold">{sport.name}</span>
+                    <span className="fs-3">{sport.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>  
             <h4>Most Read</h4>
             {SportsNews?.map((item, index) => (
               <div key={index} className="most-read-item">
@@ -82,26 +108,7 @@ const NewsPage = () => {
                 </div>
               </div>
             ))}
-            <div className="container  py-4 border-top border-primary">
-              {/* Header */}
-              <div className="d-flex align-items-center mb-2">
-                <div className="px-3 py-1 bg-secondary text-white">SPORTS</div>
-                <hr className="border border-dark w-100" />
-              </div>
-
-              {/* Table */}
-              <div className="border rounded p-3 bg-white shadow-sm">
-                {sportsData.map((sport, index) => (
-                  <div
-                    key={index}
-                    className="d-flex justify-content-between align-items-center border-bottom py-2"
-                  >
-                    <span className="fw-bold">{sport.name}</span>
-                    <span className="">{sport.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            
           </aside>
         </div>
         <div className="sidebar mt-4">

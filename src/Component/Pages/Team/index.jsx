@@ -50,7 +50,7 @@ const Team = () => {
                     {Tabs.map((tab) => (
                         <li className="nav-item" role="presentation" key={tab.id}>
                             <button
-                                className={`btn-tab mx-1 nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                                className={`btn-tab mx-1 text-uppercase fw-bold nav-link ${activeTab === tab.id ? 'active' : ''}`}
                                 aria-selected={activeTab === tab.id}
                                 onClick={() => handleTabChange(tab.id)}
                             >
@@ -405,7 +405,7 @@ const Team = () => {
 
 
                         <div className={`tab-pane fade  border px-2 shadow ${activeTab === 'league' ? 'show active' : ''}`} id="league" role="tabpanel" aria-labelledby="league-tab">
-                            <div className="row team_container">
+                            <div className="row team_container p-4">
 
                                 <div className="col-lg-6 my-3">
 
@@ -2408,10 +2408,11 @@ const Team = () => {
 
                             </div>
                         </div>
+                        
 
 
                         <div className={`tab-pane fade border px-2 shadow ${activeTab === 'domestic' ? 'show active' : ''}`} id="domestic" role="tabpanel" aria-labelledby="domestic-tab">
-                            <div className="row team_container">
+                            <div className="row team_container p-4">
 
                                 <div className="col-lg-6 my-3">
 
@@ -5398,7 +5399,7 @@ const Team = () => {
 
 
                         <div className={`tab-pane fade border px-2 shadow ${activeTab === 'women' ? 'show active' : ''}`} id="women" role="tabpanel" aria-labelledby="women-tab">
-                            <div className="row team_container">
+                            <div className="row team_container p-4">
 
                                 <div className="col-lg-6 my-3">
 
