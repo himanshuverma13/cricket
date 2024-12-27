@@ -69,3 +69,14 @@ export const GetCommentariesAPI = async(payload)=>{
     }
 } 
 
+
+//  get live Score Card Data API data 
+export const GetScoreCardDataAPI = async(payload)=>{
+    try {
+        let response = await axiosInstance.get(`${URL}/matches/getScore?matchId=${payload}`)
+        return  response?.data?.data 
+    } catch (error) {
+        console.log('error: ', error);
+    }
+} 
+
