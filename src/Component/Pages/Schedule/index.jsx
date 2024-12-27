@@ -172,7 +172,7 @@ const Schedule = () => {
             {Tabs?.map((tab) => (
               <li className="nav-item" key={tab}>
                 <button
-                  className={`nav-link ${activeTab === tab ? "active" : ""}`}
+                  className={`nav-link fw-bold ${activeTab === tab ? "active" : ""}`}
                   onClick={() => handleTab(tab)}
                 >
                   {tab?.toUpperCase()}

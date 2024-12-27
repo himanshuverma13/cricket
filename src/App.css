@@ -27,8 +27,24 @@ body{
 .logo-position img {
   max-width: 100%;
   max-height: 50px;
+  /* animation: animationGradient 1.2s infinite;
+  background-position: 0;
+  background: linear-gradient(60deg, #000000, #434343, #ffffff, #666666, #000000);  
+  background-size: 300% 300%;
+  transition: 0.4s linear; */
 }
 
+/* @keyframes animationGradient {
+  0% {
+    background-position: 0% 40%;
+  }
+  50% {
+    background-position: 100% 40%;
+  }
+  100% {
+    background-position: 0% 40%;
+  }
+} */
 .navbar {
   background-color: #000;
 }
@@ -338,7 +354,8 @@ body{
 }
 
 .matches-table th {
-  background-color: #36454F !important;
+  /* background-color: background-color: #f5f5f1; */
+  background-image: linear-gradient(to top left, #f5f5f1 0%, #e50914 74%) !important;
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
@@ -474,7 +491,7 @@ button.btn:hover:not(:disabled) {
 /* ===========================  Footer  ================================= */  
 
 .footer {
-  background-color: #36454F; /* Dark blue */
+  background-color: black; /* Dark blue */
   color: #ffffff;
   text-align: center;
   /* padding: 20px 0; */
@@ -538,19 +555,23 @@ button.btn:hover:not(:disabled) {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .schedule-box-heading{
-  background: #19454b !important;
+  /* background: #19454b !important; */
+  background-image: linear-gradient(to left top, #f5f5f1 0%, #e50914 74%) !important;
+  
 }
 
 /* -------------- series-section css --------------  */
-.bg{
-  background-color:  #19454b;
+.bg-heading{
+  background-color: red;
+  text-shadow: 5px 5px 10px white;
+
 }
 .nav-link{
   color: #19454b !important;
 }
 .nav-tabs .nav-link.active{
-  background-color: #36454F !important;
-  color: red !important;
+  background-color: red !important;
+  color: white !important;
 }
 
 /* ---------------Teams Section css ------------------ */
@@ -571,11 +592,7 @@ margin: 0px 10px;
   font-size: large;
   /* text-shadow: 5px 5px 10px blue; */
 }
-.heading{
-  text-shadow: 5px 5px 10px white;
 
-  
-}
 .team-details img{
   width: 50px;
   height: 50px;

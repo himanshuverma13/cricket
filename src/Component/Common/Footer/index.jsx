@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import Logo from "../../asset/img/Logo/logo.png"
- 
+
 const Footer = () => {
   return (
     <footer className="footer text-white">
@@ -13,30 +13,15 @@ const Footer = () => {
             className="footer-logo ms-5"
           />
         </div>
-        <div className="social-icons d-flex mb-2">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <FaFacebookF size={20} />
+        <div className="d-flex align-items-center" style={{ gap: "2rem", paddingRight: "10px" }}>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-pantone">
+            <FaFacebook className="text-white" size={24} />
           </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <FaInstagram size={20} />
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-pantone">
+            <FaTwitter className="text-white" size={24} />
           </a>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="YouTube"
-          >
-            <FaYoutube size={20} />
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-pantone">
+            <FaInstagram className="text-white" size={24} />
           </a>
         </div>
       </div>
@@ -44,10 +29,10 @@ const Footer = () => {
         <p className="text-sm">
           &copy; 2024. All rights reserved by MG Lion News.
         </p>
-       
+
       </div>
     </footer>
   );
 };
- 
+
 export default Footer;

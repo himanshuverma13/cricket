@@ -50,7 +50,7 @@ const NewsPage = () => {
     <>
       <div className="news-page min-vh-100">
       <div className="text-center mb-4">
-        <span className="text-white bg fs-3 heading rounded-2 px-3 py-2">N E W S</span>
+        <span className="text-white bg-heading fs-3 text-uppercase rounded-2 px-3 py-2">N E W S</span>
         </div>
         <div className="row gap-3">
           <div className="news-list col-lg-8">
@@ -76,21 +76,21 @@ const NewsPage = () => {
           <div className="container py-2">
               {/* Header */}
               <div className="d-flex align-items-center mb-2">
-              <hr className="border border-dark w-100" />
+               <hr className="border border-dark w-100" />
                 
                 <div className="px-3 py-1 bg-secondary text-white">SPORTS</div>
                 <hr className="border border-dark w-100" />
               </div>
 
               {/* Table */}
-              <div className="border rounded p-3 bg-white shadow-sm">
+              <div className="d-flex border rounded py-2 bg-white shadow-sm">
                 {sportsData.map((sport, index) => (
                   <div
                     key={index}
-                    className="d-flex justify-content-between align-items-center border-bottom py-2"
+                    className="d-flex align-items-center justify-content-center mx-2 border-end"
                   >
                     <span className="fw-bold">{sport.name}</span>
-                    <span className="fs-3">{sport.value}</span>
+                    <span className="fs-4">{sport.value}</span>
                   </div>
                 ))}
               </div>
