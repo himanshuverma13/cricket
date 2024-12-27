@@ -3,7 +3,7 @@ import Footer from "../../Common/Footer";
 import { GetNewsAPI } from "../../APIs/api";
 import moment from "moment";
 import { IoFootball } from "react-icons/io5";
-import { FaTableTennis } from "react-icons/fa";
+import { MdOutlineSportsTennis } from "react-icons/md";
 import { MdSportsCricket } from "react-icons/md";
 const NewsPage = () => {
   // const itemsPerPage = 8; // Number of items per page
@@ -13,7 +13,7 @@ const NewsPage = () => {
   const sportsData = [
     { name: "CRICKET", value:<MdSportsCricket className="text-danger" /> },
     { name: "FOOTBALL", value: <IoFootball /> },
-    { name: "TENNIS", value: <FaTableTennis  className="text-info"/> },
+    { name: "TENNIS", value: <MdOutlineSportsTennis className="text-info"/> },
   ];
 
   const FetchNews = async () => {
@@ -48,7 +48,7 @@ const NewsPage = () => {
 
   return (
     <>
-      <div className="news-page">
+      <div className="news-page min-vh-100">
       <div className="text-center mb-4">
         <span className="text-white bg fs-3 heading rounded-2 px-3 py-2">N E W S</span>
         </div>

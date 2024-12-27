@@ -123,6 +123,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { GetsheduleDataAPI } from "../../APIs/api";
 import moment from "moment";
+import Footer from "../../Common/Footer";
 
 const Schedule = () => {
   const [Schedule, setSchedule] = useState();
@@ -149,84 +150,87 @@ const Schedule = () => {
   let Tabs = ["international", "league", "domestic", "women"];
 
   return (
-    <div className="container-fluid schedule-section">
+    <>
+      <div className="container-fluid schedule-section min-vh-100">
 
-    <div className="container">
-      {/* Tabs */}
-      {/* <div className="btn-group mb-4" role="group">
-        {Tabs?.map((tab) => (
-          <button
-            key={tab}
-            className={`btn ${
-              activeTab === tab ? "btn-warning" : "btn-outline-secondary"
-            }`}
-            onClick={() => handleTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </div> */}
-      <ul className="nav nav-tabs mb-4 pt-3">
-        {Tabs?.map((tab) => (
-          <li className="nav-item" key={tab}>
-            <button
-              className={`nav-link ${activeTab === tab ? "active" : ""}`}
-              onClick={() => handleTab(tab)}
-            >
-              {tab?.toUpperCase()}
-            </button>
-          </li>
-        ))}
-      </ul>
+        <div className="container">
+          {/* Tabs */}
+          {/* <div className="btn-group mb-4" role="group">
+    {Tabs?.map((tab) => (
+      <button
+        key={tab}
+        className={`btn ${
+          activeTab === tab ? "btn-warning" : "btn-outline-secondary"
+        }`}
+        onClick={() => handleTab(tab)}
+      >
+        {tab}
+      </button>
+    ))}
+  </div> */}
+          <ul className="nav nav-tabs mb-4 pt-3">
+            {Tabs?.map((tab) => (
+              <li className="nav-item" key={tab}>
+                <button
+                  className={`nav-link ${activeTab === tab ? "active" : ""}`}
+                  onClick={() => handleTab(tab)}
+                >
+                  {tab?.toUpperCase()}
+                </button>
+              </li>
+            ))}
+          </ul>
 
-      {/* Tab Content */}
-      {Schedule?.length === 0 ? (
-        <p className="text-muted">No matches available.</p>
-      ) : (
-        Schedule?.map((schdl, index) => {
-          if (schdl?.scheduleAdWrapper) {
-            return [schdl?.scheduleAdWrapper]?.map((item, itemIndex) => (
-              <div className="schedule-box mb-4 p-3 bg-white" key={itemIndex}>
-                <h5 className="schedule-box-heading text-white p-2">{item?.date}</h5>
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col"></th>
-                      <th scope="col">Series</th>
-                      <th scope="col">Match</th>
-                      <th scope="col">Time</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {item?.matchScheduleList?.map((match, matchIndex) =>
-                      match.matchInfo.map((matchDetail) => (
-                        <tr key={matchDetail?.matchId}>
-                          <th scope="row">{matchIndex + 1}</th>
-                          <td>{match.seriesName}</td>
-                          <td>
-                            <div>{matchDetail?.matchDesc}</div>
-                            <div>
-                              {matchDetail?.venueInfo?.ground},{" "}
-                              {matchDetail?.venueInfo?.city},{" "}
-                              {matchDetail?.venueInfo?.country}
-                            </div>
-                          </td>
-                          <td>
-                            {moment(matchDetail?.startDt)?.format("LT")}
-                          </td>
+          {/* Tab Content */}
+          {Schedule?.length === 0 ? (
+            <p className="text-muted">No matches available.</p>
+          ) : (
+            Schedule?.map((schdl, index) => {
+              if (schdl?.scheduleAdWrapper) {
+                return [schdl?.scheduleAdWrapper]?.map((item, itemIndex) => (
+                  <div className="schedule-box mb-4 p-3 bg-white" key={itemIndex}>
+                    <h5 className="schedule-box-heading text-white p-2">{item?.date}</h5>
+                    <table className="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Series</th>
+                          <th scope="col">Match</th>
+                          <th scope="col">Time</th>
                         </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            ));
-          }
-          return null;
-        })
-      )}
-    </div>
-    </div>
+                      </thead>
+                      <tbody>
+                        {item?.matchScheduleList?.map((match, matchIndex) =>
+                          match.matchInfo.map((matchDetail) => (
+                            <tr key={matchDetail?.matchId}>
+                              <th scope="row">{matchIndex + 1}</th>
+                              <td>{match.seriesName}</td>
+                              <td>
+                                <div>{matchDetail?.matchDesc}</div>
+                                <div>
+                                  {matchDetail?.venueInfo?.ground},{" "}
+                                  {matchDetail?.venueInfo?.city},{" "}
+                                  {matchDetail?.venueInfo?.country}
+                                </div>
+                              </td>
+                              <td>
+                                {moment(matchDetail?.startDt)?.format("LT")}
+                              </td>
+                            </tr>
+                          ))
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                ));
+              }
+              return null;
+            })
+          )}
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 

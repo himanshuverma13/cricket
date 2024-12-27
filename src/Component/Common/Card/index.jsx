@@ -118,18 +118,18 @@ const CourseSlider = () => {
 
   return (
     <>
-      <div className="background-img">
-        <div
-          className="text-center fs-1 text-white"
+      <div className="background-img d-flex flex-column align-items-center justify-content-center">
+        <span
+          className="home-text text-center fs-1  fw-bold text-white px-4"
           style={{
-            height: "45vh",
+            // height: "45vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
          Are You Ready For Upcoming Match
-        </div>
+        </span>
 
         <div className="d-flex align-items-end" style={{ height: "45vh" }}>
           <div className="slider-container">

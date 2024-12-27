@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../../Common/Footer";
 
 // Sample data
 const playersData = [
@@ -44,7 +45,7 @@ const Team = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container mt-5 min-vh-100">
 
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                     {Tabs.map((tab) => (
@@ -407,7 +408,7 @@ const Team = () => {
                         <div className={`tab-pane fade  border px-2 shadow ${activeTab === 'league' ? 'show active' : ''}`} id="league" role="tabpanel" aria-labelledby="league-tab">
                             <div className="row team_container p-4">
 
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/58`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -416,16 +417,16 @@ const Team = () => {
                                         <h4 className="team_name">Chennai Super Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/61`} className="team_box d-flex align-items-center text-decoration-none">
-                                        <div className="team_flag my-3">
+                                        <div className="team_flag">
                                             <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAEsAY8DASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAEFAwQGAv/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAAGpHpyBIExImJhMSJiQCQSCQJiYBQAAAAAAAAABjPWKIsCgJAmJExMCRMSCQCQSBMTAKAAAAAAAAAecVk+CgAAJAmJExMATMSJiQCQSB78bUXPjecdckyY+0AAAAAAAY/PiyYKAAAAkCYkTEwBMxIJAJBIG1q7UdIOGuWx5MfeAAAAADwTiiLAoAAAACQJiRMTAEzEgkAkEgW+l0fOyOdp6rrOb6TXGwAABGGz1jKAAAAAAAkCYkTEwBMxImJAJBIN+ypdvnducCNyr9adYxsAA8ecdkwUAAAAAAABIExImJgCZgTMSASbUeLraycrEmaAiRXU3VYNTmWXX6vWGIsCgAAAAAAAAJAmJExMASCZgSDL02jZ8aGaAAABq8r2lD0lOOsAAAAAAAAAAkCYkTEwBIJBPvxvxf+jhoAAAABr7A4qNjX9GQoAAAAAAAACQJiRMTAEgkE21T7l6zHzHvDoPFP7iziv9G550ore9V3ktslF4Olycj4N2u9+OkCgAAAAAAAAJAmJExMASCQbHRVNzyvueWuIsSM3Bk5Cw6ToxzuFzfjpOtHOopq7c6HmOw5mtAdYAAAAAAAABIExImJgCQSC0taq05XmbikuNrqJjjeLsK+w756UcNcnjyY++ewHDXPVVrVd89nzfSc3zugO0AAAAAAAAAkCYkTEwBIJJLHfocmLp2nj3Vj50/WVPtWHrT28sqjxc+dNj1p+ctfQtMe15Q+cUYHrzuAAAAAAAAASBMSJiYAm2qbrNsss4+NyOZudTdPGbM8db7l2MXE5jL0nTjnYjn9Pc64YpXVmp0eHNObzdbb1HfIaAAAAAAASBMSJhEogXtDfZtxp7mnyvK31DfdZcYsuLjeOtqm2756AcNchlxZe+eqHDXMaW7pd89oOGqKmuabvnscuLLw1QVFvUd8hoAAAAAABIEwJhAAvqG+xbjT3NPleVvqG/6y3xZcfG8bbVdx3l4OF5DL6yd50g4XmNKx0e+exHDVFTXVL3z2OXFl4aoKi3qO+Q0AAAAAAAkBAAAX1Dd4t35x+eN0bLDGpttPzLsZdGEsFdBYq4WStk3/GpJvtH0ubQ2ps2Z1/WbTVFrVd8hoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//EACsQAAEDAgUDBQACAwAAAAAAAAMAAQIEFAUQETNQMjRAEhMgMDEiIyEkcP/aAAgBAQABBQLkHfTkXlyLvyDvov3zIt6pDBCDGp4zj4Ly86n38p9f3u/n0+/lPr+130TvrwFPv5T6/sd+Cpqd86im0+x34Knh6zfA8PQX6HfRO+vB0mjEeqEyvBq7GmqROqvRy/N34WApzTUc1ZKyUqQjKUJQ+bvwgxSI46aEPl+otLGSlF4Pk76J314QAXLKMWhH6CDiSJBuOTvwo4POcINCP1HF7o3bR+Eoh6Q+yvFpLg4x9UmbRvsPD3BcHRx1P9x4+k3BUH6vcgy98SuRK6ErsavBMr4SvRK9CrsKuBJiQfKtb/Y4JpOy/lJMIjq3KrUqtCKzIrEisSKxKrIqszK2MycRGX8oqUnlwQR+6SIoRb4TMMbwnGbZTJAaGWBPiQAyMSDjnwFDuzl6YTLOb0ZHnHKTvKVA/wDflVPrUU8nifKuLKLhPMclW9zwFDun2FQZP+Kh7jKp7gO9liG8o9Nb3PAUO6fYd1h2T/ioe4yqe4DvZYhvKPTW9zwFE7MQ5RuFUZoCV6FPWiypyMIt/BX8EWXrLB/SS9Er0KqyRKRRMPSsfWo8/wDyvaJJNSmdWZlYkVhNWDqwVgysIqwirBlYKwdWE1YlVmZPTGZOIjLTTzaMUJsw4N8ndm+EyRGoTjNsvxM7P8nEN1WjiOflYf0qcmhGVYV5UxveGpP6Yzm85YfN9cqiTyPRydqjKum7lCRxkyqzuKIqwkZfuWIbnlYd0qq7ZYf0Im0sP3cjb1J3OVb3LdWWI9SHtrENzysO6VVdssO6ETaWH7uRt6k7nKt7lurLEepD21iG55WHdKqu2WHdCJtLD93I29SdzlW9y3VliPUh7axDc8rDulVXbrD2/rU21g7aPh8H1yqhygWiHKRcq6DsYcXkTLEf1D21iG55WHdKdmdrCHqjFoRykKEn/Pm7NJojhDMg4ljGhg0ssQ3PKoJRjH3Rr3xK4ErkKugq7CrwKvAq9Cr0SvRK9Er0SvQq8CrwKuwq6CrkKuBL3xL3Rqvdnn/1X//EABQRAQAAAAAAAAAAAAAAAAAAAID/2gAIAQMBAT8Bbf8A/8QAIhEAAQQCAgIDAQAAAAAAAAAAAQACEDEREiFAMEEgIlAy/9oACAECAQE/Af3s9g9lxhp65AX1QA6xdn4B3Ucfkw+ukeyRlaLULDVhqw1atWiHRceUW4gs4jTiAzhMPRd/SdUOqPUNpMvokDOUSCsNWwX0WwWGoEIADzuqC0iCzAjTiNOIDSYbXlfSFp9Q6o9QKhtQ2vK+kLT6h1R6gVDahteV9RyVgrBWpWpWpWCsFchYTa/Z/8QALRAAAQIDBgUEAwEBAAAAAAAAAQACEBFxITEyQVCREiIzUaEgMEBCA2GBcCP/2gAIAQEABj8C/wBfAGaume5XKJO1BsXV09sXV09sXV08fkd/BEvZ/RpwB9JGmlzjKxXzVzl9liUwZiWm8rSrSAsfhY/CskVzNlpcmhW8x9c2WFScNI/WZUm3ezIqR0YNCDR7cs8lI6Lxm8+6PyDO/RA3upD3XN0SnvvH70N5hiG6xhYledlms19l9tlnssfhdQKxw3gaaHYSFmVgdssCu8rJXtWJqxNV7V9d1h8rAVax2yzC5jPQg1WNHpk51qm0zjzukuR0/Ta0VCLTloJoi7splxRDrZRJOal3EXJku8QxpkpzJGYg7QXUT6Qf6P5F9UysRSATtBdRPpB/o/kX1TKxFIBO0EzMrE8B7Zy7wdxm9Z7L7Q4isLlhcnOGaaTkV9ledkCztAf9G7oy0CwLA7ZYFcN1e1Ywup4XU8LqeFjKxldTwup4XU8LGFe1XDdYCrWO2+c4ubNWMG3qtMvRzOkptM42qw+q1jdk3gErPlvgXHJTBkOymbxAnsuJxtTmZXxdPum/uPDkECIgNvK5zxCLafLfB8H1g6kHUi+qZEoRZBtINp8t8HwfWDqQdSL6pkShFkG0g2ny3wfB9YOpB1IvqmRKEWQbSDafLfB8HVgR3CkU5+V0XHI5oPyEeLIoARZBtINp8t8JG5YjLsuFosjNzAT7EiJrlaBHhcpkk/qLafLfMgLG3ddRu66gWMLGsfhYvCvOyz2Wey+2y+2yz2WeyvOyxeFj8LGsYXUC6jd1jbumyM7P9W//xAArEAEAAQMBBgYDAQEBAAAAAAABABARMaEhQVBRYXEwQIGxwfAgkfHR4XD/2gAIAQEAAT8h4gEKueIbg4gtsy724gEK5ecXIlYln274IsQLFt/kuR57X11zx1tLuMef19dc8YITgDX11zxbOOBEU231MwJnwzEu44EWCG1/ED8ZPBCE4GZgBvM3x7CP/Ahyx6TlPuRBEmQ+BZxmZ4Jlgc43/ehzSeSWURzx+a7jgnrcO4lsR1XH5ICyXJdOxbps7GoQnBHIRgcKw8G2ns8o39N5yzjMW/BMiLC52Hhk2JyiMFk2JwW7Bye3i2IbNju4IxmVaEeALHi81E2d+CWJ5F8fobwMPSBFDMcg4Q/3ifP6NIfeRzNM6H6TpwE3mBeTuoPHIPtGZa6weBnoY5sz6F5gIB971hy5H3s/qRXP7Gf3GP8A0aYjuPoj8SmFUXwOhErqsbXgSAbDe9Jb3fWmMfhbDOTMstjpU24XQFsWfgg5LxSAeRZmQ5cB+31gNbl56BAcRbLt+jiKFdV4pYdiXq9+4bEQFkDV5gS6m+C+aRg3LzQHtwH7PWsfD80yUwd34VoPvX6fVpopoD24D9nrSOTMPT80yUwd34VoPvX6fVpopoD24CqkOdjhS2AoBvDYtsnUlZY/SltalrbJ9Yn1iGSQV9sPAgWHL/SgHquFmKNLaWgEoSxtO3ALLIvQhjNG8PqkG3ED5L1hvIm+EHPHrI/lT+VOsh5Yu6EO4ihhPWJb7tHwlMKoVkJ50mSHZeY8wFsfjhTuZnFQrl3yzmelVBdWOsBuCdPxQcl5nVAVZNz5tX7xTCSLzpYwI1gs1mnRVeJrhRaG4LOlXVYsICDs2Gu3vZmyNjv2nMr3kflAPUdkEAmHzdXpqimk+aaRTW/an2etdR95qPiuhPaayuhaaf7eaq9dUU0nzTQKa37U+z1rqPvNR8V0J7TWV0LTT/bztaoppPmmgU1v2p9nrXUfeaj4roT2msroWmn+3na1RTTUa7uaEKyhEQLJkgUFrLOtVYN+5Fkib/nXZDscwF7q1Dd3baaf52tUUZhdbEmRMOWAr1MIkAFgsFUvmYrbCHJJpGlWI3PaEhp55WYsMssf5KA/q0Lo/wBM+pTqv2pDqfjNmN1KVOq/afUp0f6aF/VoC5/ki+XQf/Vv/9oADAMBAAIAAwAAABD31WmuOtVVVWsIIIIIIIIIII6f31WmvOtFVVWsIIIIIIIIIIn3331WmtesFVVW2CIIIIIIIL933331WmtetFVVX0AAIIIIIKf333331WmtetFVVXYAsIIIIF33333331WmtesFVVXa04IIIV333333331Wmte8FVcuAABc5/3333333331Wmtf8VVMAAAACH33333333331Wmtf9VMAAAAAAJ/3333333331WmtddVBXeuCarJX3333333331WmtddVesQEA0A3X3333333331WmtddUUABcD8BX/3333333331WmtddHaY0jFTnTDX333333331WmtcbY0RsBEBcA1Lf33333330WmcMpSoL0BcD8D0JX33333330G1X2pSobQBQD8D0pX33333330E3324JkQMdMsMiWJ333333333333333333333333333333333333333333333333333333333//xAAfEQACAgIDAQEBAAAAAAAAAAABEAARIUAgMDFQQWD/2gAIAQMBAT8Q/rwEdcTOvXCtQcj8y5ZmZmZlmXpCWrVq4dEeQIcDDpZmZRmZRmZmHvCtWrVq0e0IIcCj6j2hBBfqKPqPaFh3LlvCP2f/xAAhEQEAAgICAwADAQAAAAAAAAABABEQMSFhIDBAQVCxUf/aAAgBAgEBPxD6A+cPctFy13fpD36ODXmHwV8GHeHxD4mtrKkjY+AfCoFsfTwc4Yc6gfFe15UtviVC+Y03Bsv4alShtnbOyds75ZplXTBQHwtwii8AWvFOV84RtGuviDzxswfzjT8SqxgVLO2LlLhx1c7YEoY5Y+9pwnLBLccheHZeBNrwJZLSKx7nRhNzfh/nGrGuO5r9zowm4+eFOeHxxrjua/c0x/NOqdc6J0zonXOqCVEt/k0/uf/EACsQAQABAQUHBQEBAQEAAAAAAAERABAhMVHwQEFhcaGx0SAwgZHB4fFQcP/aAAgBAQABPxD3D/iGZuVOyvbLD/hxZudKrL7x6TbAEqCnul3d7x6Sw2sS+9ypyV8bIWnpDGSBxaIKExBeU4UQ0JRg4EpEUSE3bCRdfc6VWW92I9vV8G0ARh+z74CVgp7tzu2o9PW+zbr2b7wl+OVIS/W1np612bdezfdO5fc8qVWVl2Y9tHDLhjhi+LUF7Ci9M09tQSsFPduHfaij1gpLRZho9GNEbE4Mhv8AZAvxypC/Dcf8N1PyYr1PDScDOO0HBPh5pWPOHzW4j4xRpJwJN/sHcvdlKqVl2osLSj0QKo3iD7aNngMqofB/dP5v6q9OHDD1p+ONJd9+pQJWCnuXTPPbCw9V4kGLdzGj4Y3Nx4FABBcelwJMRJGjoP3vin6jz38TO0CV+KUvwy209JRUcv8A84caJLhA7+yzv25xXCgjvLwwGZR3b3ZSKVl24sPQGV7E7g3rUTY8d6719uUUCcty5NPeWoxHbywotDdoz3Dy/nuhA2DfR+Ttt5YUWYRpHzQ7QYOB7oQ0peVeddvLC2YyT53A7+/HFwqcm877cemfKfYXxQEoDNamruzFYp8Eu1M9hvyk8G5KmXe140RI+vzX+P8ANDbn4eaxDnPCo3eZD8rC/kY710PxoQSInCiYEfMXR+bcWFuBoExPOpclfdjTHd8isJHmD9pGPNChcY68Kyh5rxS8pdG6tSflCWG+fikcJcv4rBOS81Y03MPZprqCh958FoPJiCyxltx6FKkvyhjQYmDEFea0AIAGR6DylfEUcwrdbNVhzytO7ghvXkF9JG8QXJ8N/oNghkk0kdFwA+av24U5m5+v+CSXf4KBCR0ZxS+cW5AchSdUkPFGbn6sUJyJp2SiWkyLqbmLy2aZi4QFM0LlbxYS2Qg/IbyBOV1A6YJBE80ADBJK1nJtpYWajgrrdjEG8bLoGnF9PE0fJb0+w6X2rWcm2no1HBXW63H3rrbLoGnF9PE0fJb0+w6X2rWcm2nou/sSQYmdPwSAKtk8irhMxM4c6QwblSWBZMvmnGhge4Rm/nWl8q0vlUeA4xFEssdYwM0rEOZ80JiPNUok1Ki+V387DjCAiDdSf3Ckjc20tLhkZGnp+eFYEPId2sc5sfld6o/lKwPIWtzPJ+aG6XjH9V/m/Nf4OmC6fl81/m/NXO94/wBVvJ5o/a3o8xK6Y7PysL5E/axJuYezTXUtNQ5kkbaWpZI3XUDHKhQCABw9Jxf2EBNCAUI3ib7Sopwle8ikQ4wqw52vQBiqArihJCekWCGSTXZ4UORoBWWeO1SBfWo2DZI9OUY0hFNcCBxkvpUO4PB4ll0Uyxzgmm9Mxd3AyKQPCrvTDH3axhmJcAYCmLEp5kL3LZHYgBuVJlp7oIN1JeNsPhNCJgYvO+r0JbqBDMSnKkJHMs6/32lBSrjWnZNnQ+yzUMrNVzWafgt1/NXUu63VcldI726DmWa7ks6/32hyW6dk2dD7LNAys1XNZp+C3X81dS7rdVyV0jvboOZZpuSzr/fZ1n0adk2dD7LNAys1XNZp+C3X81dS7rdVyV0jvboOZZpuSzr/AH2WYqZ9OnZNl7l+5YBJcQc4P7Zhvg5pFJgdCEI04xZDvTLH1a5cmNcyzHOr001ZcoiD7tm5RY3JCEp9g+G6/G25FuGeN1ggG5/Es6/32SfXp2TYK4qjBKVhCc3CeU0To8AWlyLcVoyYEAEBaAgCZJQAgADcWpEXESNOqk4pC2y1VkS5WY03VpEAPPOgAgILOv8Afa70tijNznTjj1Z0jj9ek5pJkvxy/lJN/wAfipJjQ+KvNd9V/vqZMaieC+X9Vqf1Wp/VD4p50EcL5Ve/ookjXcqGY0PihsPnL8ock+efFC0hcPr0YRdWdGxh3k7+H/q3/9k=" data-id="225644" />
                                         </div>
                                         <h4 className="team_name">Delhi Capitals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/65`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -434,7 +435,7 @@ const Team = () => {
                                         <h4 className="team_name">Punjab Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/63`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -443,7 +444,7 @@ const Team = () => {
                                         <h4 className="team_name">Kolkata Knight Riders</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/62`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -452,7 +453,7 @@ const Team = () => {
                                         <h4 className="team_name">Mumbai Indians</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/59`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -461,7 +462,7 @@ const Team = () => {
                                         <h4 className="team_name">Royal Challengers Bangalore</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/64`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -470,7 +471,7 @@ const Team = () => {
                                         <h4 className="team_name">Rajasthan Royals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/255`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -479,7 +480,7 @@ const Team = () => {
                                         <h4 className="team_name">Sunrisers Hyderabad</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/597`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -488,7 +489,7 @@ const Team = () => {
                                         <h4 className="team_name">Deccan Gladiators</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/608`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -497,7 +498,7 @@ const Team = () => {
                                         <h4 className="team_name">London Spirit</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/607`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -506,7 +507,7 @@ const Team = () => {
                                         <h4 className="team_name">Birmingham Phoenix</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/606`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -515,7 +516,7 @@ const Team = () => {
                                         <h4 className="team_name">Welsh Fire</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/605`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -524,7 +525,7 @@ const Team = () => {
                                         <h4 className="team_name">Oval Invincibles</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/602`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -533,7 +534,7 @@ const Team = () => {
                                         <h4 className="team_name">Pune Devils</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/601`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -542,7 +543,7 @@ const Team = () => {
                                         <h4 className="team_name">Team Abu Dhabi</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/600`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -551,7 +552,7 @@ const Team = () => {
                                         <h4 className="team_name">Bangla Tigers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/599`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -560,7 +561,7 @@ const Team = () => {
                                         <h4 className="team_name">Qalandars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/577`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -569,7 +570,7 @@ const Team = () => {
                                         <h4 className="team_name">Belfast Titans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/598`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -578,7 +579,7 @@ const Team = () => {
                                         <h4 className="team_name">Delhi Bulls</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/609`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -587,7 +588,7 @@ const Team = () => {
                                         <h4 className="team_name">Manchester Originals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/610`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -596,7 +597,7 @@ const Team = () => {
                                         <h4 className="team_name">Northern Superchargers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/630`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -605,7 +606,7 @@ const Team = () => {
                                         <h4 className="team_name">Desert Riders</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/629`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -614,7 +615,7 @@ const Team = () => {
                                         <h4 className="team_name">Flying Oryx</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/628`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -623,7 +624,7 @@ const Team = () => {
                                         <h4 className="team_name">Falcon Hunters</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/627`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -632,7 +633,7 @@ const Team = () => {
                                         <h4 className="team_name">Khulna Tigers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/626`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -641,7 +642,7 @@ const Team = () => {
                                         <h4 className="team_name">Rajshahi Royals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/625`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -650,7 +651,7 @@ const Team = () => {
                                         <h4 className="team_name">Dhaka Platoon</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/624`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -659,7 +660,7 @@ const Team = () => {
                                         <h4 className="team_name">Rangpur Rangers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/623`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -668,7 +669,7 @@ const Team = () => {
                                         <h4 className="team_name">Cumilla Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/622`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -677,7 +678,7 @@ const Team = () => {
                                         <h4 className="team_name">Chattogram Challengers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/621`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -686,7 +687,7 @@ const Team = () => {
                                         <h4 className="team_name">Sylhet Thunder</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/612`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -695,7 +696,7 @@ const Team = () => {
                                         <h4 className="team_name">Trent Rockets</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/611`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -704,7 +705,7 @@ const Team = () => {
                                         <h4 className="team_name">Southern Brave</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/576`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -713,7 +714,7 @@ const Team = () => {
                                         <h4 className="team_name">Dublin Chiefs</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/575`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -722,7 +723,7 @@ const Team = () => {
                                         <h4 className="team_name">Glasgow Giants</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/477`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -731,7 +732,7 @@ const Team = () => {
                                         <h4 className="team_name">Jozi Stars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/476`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -740,7 +741,7 @@ const Team = () => {
                                         <h4 className="team_name">Durban Heat</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/475`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -749,7 +750,7 @@ const Team = () => {
                                         <h4 className="team_name">Cape Town Blitz</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/474`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -758,7 +759,7 @@ const Team = () => {
                                         <h4 className="team_name">Balkh Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/473`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -767,7 +768,7 @@ const Team = () => {
                                         <h4 className="team_name">Nangarhar Leopards</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/472`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -776,7 +777,7 @@ const Team = () => {
                                         <h4 className="team_name">Kandahar Knights</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/471`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -785,7 +786,7 @@ const Team = () => {
                                         <h4 className="team_name">Paktia Panthers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/470`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -794,7 +795,7 @@ const Team = () => {
                                         <h4 className="team_name">Kabul Zwanan</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/459`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -803,7 +804,7 @@ const Team = () => {
                                         <h4 className="team_name">India Women Green</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/458`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -812,7 +813,7 @@ const Team = () => {
                                         <h4 className="team_name">India Women Blue</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/457`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -821,7 +822,7 @@ const Team = () => {
                                         <h4 className="team_name">India Women Red</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/478`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -830,7 +831,7 @@ const Team = () => {
                                         <h4 className="team_name">Nelson Mandela Bay Giants</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/479`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -839,7 +840,7 @@ const Team = () => {
                                         <h4 className="team_name">Paarl Rocks</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/480`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -848,7 +849,7 @@ const Team = () => {
                                         <h4 className="team_name">Tshwane Spartans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/574`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -857,7 +858,7 @@ const Team = () => {
                                         <h4 className="team_name">Edinburgh Rocks</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/573`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -866,7 +867,7 @@ const Team = () => {
                                         <h4 className="team_name">Rotterdam Rhinos</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/572`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -875,7 +876,7 @@ const Team = () => {
                                         <h4 className="team_name">Amsterdam Knights</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/517`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -884,7 +885,7 @@ const Team = () => {
                                         <h4 className="team_name">Sindhis</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/516`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -893,7 +894,7 @@ const Team = () => {
                                         <h4 className="team_name">Rajputs</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/515`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -902,7 +903,7 @@ const Team = () => {
                                         <h4 className="team_name">Punjabi Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/514`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -911,7 +912,7 @@ const Team = () => {
                                         <h4 className="team_name">Pakhtoons</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/513`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -920,7 +921,7 @@ const Team = () => {
                                         <h4 className="team_name">Northern Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/512`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -929,7 +930,7 @@ const Team = () => {
                                         <h4 className="team_name">Maratha Arabians</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/511`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -938,7 +939,7 @@ const Team = () => {
                                         <h4 className="team_name">Kerala Knights</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/510`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -947,7 +948,7 @@ const Team = () => {
                                         <h4 className="team_name">Bengal Tigers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/455`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -956,7 +957,7 @@ const Team = () => {
                                         <h4 className="team_name">VB Kanchi Veerans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/631`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -965,7 +966,7 @@ const Team = () => {
                                         <h4 className="team_name">Pearl Gladiators</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1419`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -974,7 +975,7 @@ const Team = () => {
                                         <h4 className="team_name">Dhaka Dominators</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1228`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -983,7 +984,7 @@ const Team = () => {
                                         <h4 className="team_name">MI Cape Town</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1223`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -992,7 +993,7 @@ const Team = () => {
                                         <h4 className="team_name">New York Strikers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1216`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1001,7 +1002,7 @@ const Team = () => {
                                         <h4 className="team_name">Morrisville Samp Army</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1123`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1010,7 +1011,7 @@ const Team = () => {
                                         <h4 className="team_name">Gulbarga Mystics</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1116`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1019,7 +1020,7 @@ const Team = () => {
                                         <h4 className="team_name">Kandy Falcons</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/996`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1028,7 +1029,7 @@ const Team = () => {
                                         <h4 className="team_name">World Giants</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/991`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1037,7 +1038,7 @@ const Team = () => {
                                         <h4 className="team_name">Asia Lions</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/986`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1046,7 +1047,7 @@ const Team = () => {
                                         <h4 className="team_name">India Maharajas</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/981`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1055,7 +1056,7 @@ const Team = () => {
                                         <h4 className="team_name">Sylhet Sunrisers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/976`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1064,7 +1065,7 @@ const Team = () => {
                                         <h4 className="team_name">Minister Group Dhaka</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/971`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1073,7 +1074,7 @@ const Team = () => {
                                         <h4 className="team_name">Gujarat Titans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1235`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1082,7 +1083,7 @@ const Team = () => {
                                         <h4 className="team_name">Paarl Royals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1242`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1091,7 +1092,7 @@ const Team = () => {
                                         <h4 className="team_name">Durban Super Giants</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1412`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1100,7 +1101,7 @@ const Team = () => {
                                         <h4 className="team_name">Sylhet Strikers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1326`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1109,7 +1110,7 @@ const Team = () => {
                                         <h4 className="team_name">Desert Vipers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1319`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1118,7 +1119,7 @@ const Team = () => {
                                         <h4 className="team_name">Gulf Giants</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1312`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1127,7 +1128,7 @@ const Team = () => {
                                         <h4 className="team_name">Sharjah Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1307`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1136,7 +1137,7 @@ const Team = () => {
                                         <h4 className="team_name">MI Emirates</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1300`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1145,7 +1146,7 @@ const Team = () => {
                                         <h4 className="team_name">Abu Dhabi Knight Riders</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1298`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1154,7 +1155,7 @@ const Team = () => {
                                         <h4 className="team_name">Dubai Capitals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1291`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1163,7 +1164,7 @@ const Team = () => {
                                         <h4 className="team_name">NSW/ACT</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1263`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1172,7 +1173,7 @@ const Team = () => {
                                         <h4 className="team_name">Pretoria Capitals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1256`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1181,7 +1182,7 @@ const Team = () => {
                                         <h4 className="team_name">Sunrisers Eastern Cape</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1249`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1190,7 +1191,7 @@ const Team = () => {
                                         <h4 className="team_name">Joburg Super Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/966`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1199,7 +1200,7 @@ const Team = () => {
                                         <h4 className="team_name">Lucknow Super Giants</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/953`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1208,7 +1209,7 @@ const Team = () => {
                                         <h4 className="team_name">Kandy Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/948`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1217,7 +1218,7 @@ const Team = () => {
                                         <h4 className="team_name">Jaffna Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/805`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1226,7 +1227,7 @@ const Team = () => {
                                         <h4 className="team_name">Kandy Tuskers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/800`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1235,7 +1236,7 @@ const Team = () => {
                                         <h4 className="team_name">Jaffna Stallions</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/799`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1244,7 +1245,7 @@ const Team = () => {
                                         <h4 className="team_name">Galle Gladiators</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/794`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1253,7 +1254,7 @@ const Team = () => {
                                         <h4 className="team_name">Dambulla Viiking</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/789`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1262,7 +1263,7 @@ const Team = () => {
                                         <h4 className="team_name">Colombo Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/718`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1271,7 +1272,7 @@ const Team = () => {
                                         <h4 className="team_name">South Africa Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/709`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1280,7 +1281,7 @@ const Team = () => {
                                         <h4 className="team_name">Sri Lanka Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/700`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1289,7 +1290,7 @@ const Team = () => {
                                         <h4 className="team_name">Australia Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/691`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1298,7 +1299,7 @@ const Team = () => {
                                         <h4 className="team_name">West Indies Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/682`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1307,7 +1308,7 @@ const Team = () => {
                                         <h4 className="team_name">India Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/633`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1316,7 +1317,7 @@ const Team = () => {
                                         <h4 className="team_name">Swift Gallopers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/807`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1325,7 +1326,7 @@ const Team = () => {
                                         <h4 className="team_name">Fortune Barishal</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/812`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1334,7 +1335,7 @@ const Team = () => {
                                         <h4 className="team_name">Gemcon Khulna</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/946`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1343,7 +1344,7 @@ const Team = () => {
                                         <h4 className="team_name">Dambulla Aura</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/943`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1352,7 +1353,7 @@ const Team = () => {
                                         <h4 className="team_name">Colombo Stars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/941`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1361,7 +1362,7 @@ const Team = () => {
                                         <h4 className="team_name">The Chennai Braves</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/867`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1370,7 +1371,7 @@ const Team = () => {
                                         <h4 className="team_name">Salem Spartans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/866`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1379,7 +1380,7 @@ const Team = () => {
                                         <h4 className="team_name">Nellai Royal Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/861`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1388,7 +1389,7 @@ const Team = () => {
                                         <h4 className="team_name">IDream Tiruppur Tamizhans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/853`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1397,7 +1398,7 @@ const Team = () => {
                                         <h4 className="team_name">England Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/848`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1406,7 +1407,7 @@ const Team = () => {
                                         <h4 className="team_name">Bangladesh Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/827`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1415,7 +1416,7 @@ const Team = () => {
                                         <h4 className="team_name">Beximco Dhaka</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/822`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1424,7 +1425,7 @@ const Team = () => {
                                         <h4 className="team_name">Gazi Group Chattogram</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/817`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1433,7 +1434,7 @@ const Team = () => {
                                         <h4 className="team_name">Minister Group Rajshahi</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/632`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1442,7 +1443,7 @@ const Team = () => {
                                         <h4 className="team_name">Heat Stormers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/333`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1451,7 +1452,7 @@ const Team = () => {
                                         <h4 className="team_name">Lahore Qalandars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/302`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1460,7 +1461,7 @@ const Team = () => {
                                         <h4 className="team_name">St Kitts and Nevis Patriots</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/271`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1469,7 +1470,7 @@ const Team = () => {
                                         <h4 className="team_name">Trinbago Knight Riders</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/270`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1478,7 +1479,7 @@ const Team = () => {
                                         <h4 className="team_name">Faisalabad Wolves</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/265`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1487,7 +1488,7 @@ const Team = () => {
                                         <h4 className="team_name">Antigua Hawksbills</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/264`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1496,7 +1497,7 @@ const Team = () => {
                                         <h4 className="team_name">Jamaica  Tallawahs</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/263`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1505,7 +1506,7 @@ const Team = () => {
                                         <h4 className="team_name">Saint Lucia Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/262`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1514,7 +1515,7 @@ const Team = () => {
                                         <h4 className="team_name">Barbados Royals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/256`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1523,7 +1524,7 @@ const Team = () => {
                                         <h4 className="team_name">Rangpur Riders</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/206`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1532,7 +1533,7 @@ const Team = () => {
                                         <h4 className="team_name">Sylhet Royals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/205`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1541,7 +1542,7 @@ const Team = () => {
                                         <h4 className="team_name">Khulna Royal Bengals</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/204`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1550,7 +1551,7 @@ const Team = () => {
                                         <h4 className="team_name">Duronto Rajshahi</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/307`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1559,7 +1560,7 @@ const Team = () => {
                                         <h4 className="team_name">Mysore Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/308`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1568,7 +1569,7 @@ const Team = () => {
                                         <h4 className="team_name">Bellary Tuskers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/332`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1577,7 +1578,7 @@ const Team = () => {
                                         <h4 className="team_name">Karachi Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/331`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1586,7 +1587,7 @@ const Team = () => {
                                         <h4 className="team_name">Quetta Gladiators</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/330`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1595,7 +1596,7 @@ const Team = () => {
                                         <h4 className="team_name">Islamabad United</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/322`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1604,7 +1605,7 @@ const Team = () => {
                                         <h4 className="team_name">Barisal Bulls</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/321`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1613,7 +1614,7 @@ const Team = () => {
                                         <h4 className="team_name">Chittagong Vikings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/320`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1622,7 +1623,7 @@ const Team = () => {
                                         <h4 className="team_name">Sylhet Super Stars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/319`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1631,7 +1632,7 @@ const Team = () => {
                                         <h4 className="team_name">Comilla Victorians</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/318`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1640,7 +1641,7 @@ const Team = () => {
                                         <h4 className="team_name">Dhaka Dynamites</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/311`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1649,7 +1650,7 @@ const Team = () => {
                                         <h4 className="team_name">Rock Stars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/310`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1658,7 +1659,7 @@ const Team = () => {
                                         <h4 className="team_name">Hubli Tigers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/309`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1667,7 +1668,7 @@ const Team = () => {
                                         <h4 className="team_name">Shivamogga Strikers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/203`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1676,7 +1677,7 @@ const Team = () => {
                                         <h4 className="team_name">Dhaka Gladiators</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/202`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1685,7 +1686,7 @@ const Team = () => {
                                         <h4 className="team_name">Chittagong Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/201`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1694,7 +1695,7 @@ const Team = () => {
                                         <h4 className="team_name">Barisal Burners</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/155`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1703,7 +1704,7 @@ const Team = () => {
                                         <h4 className="team_name">Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/125`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1712,7 +1713,7 @@ const Team = () => {
                                         <h4 className="team_name">Bijapur Bulls</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/123`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1721,7 +1722,7 @@ const Team = () => {
                                         <h4 className="team_name">Belagavi Panthers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/122`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1730,7 +1731,7 @@ const Team = () => {
                                         <h4 className="team_name">Mangalore United</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/105`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1739,7 +1740,7 @@ const Team = () => {
                                         <h4 className="team_name">Otago</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/104`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1748,7 +1749,7 @@ const Team = () => {
                                         <h4 className="team_name">New South Wales</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/103`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1757,7 +1758,7 @@ const Team = () => {
                                         <h4 className="team_name">Wayamba Elevens</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/101`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1766,7 +1767,7 @@ const Team = () => {
                                         <h4 className="team_name">Cape Cobras</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/90`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1775,7 +1776,7 @@ const Team = () => {
                                         <h4 className="team_name">Dolphins</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/89`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1784,7 +1785,7 @@ const Team = () => {
                                         <h4 className="team_name">Titans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/88`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1793,7 +1794,7 @@ const Team = () => {
                                         <h4 className="team_name">Sialkot Stallions</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/156`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1802,7 +1803,7 @@ const Team = () => {
                                         <h4 className="team_name">Central Stags</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/157`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1811,7 +1812,7 @@ const Team = () => {
                                         <h4 className="team_name">Lions</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/199`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1820,7 +1821,7 @@ const Team = () => {
                                         <h4 className="team_name">Adelaide Strikers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/198`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1829,7 +1830,7 @@ const Team = () => {
                                         <h4 className="team_name">Sydney Sixers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/197`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1838,7 +1839,7 @@ const Team = () => {
                                         <h4 className="team_name">Perth Scorchers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/196`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1847,7 +1848,7 @@ const Team = () => {
                                         <h4 className="team_name">Melbourne Stars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/195`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1856,7 +1857,7 @@ const Team = () => {
                                         <h4 className="team_name">Melbourne Renegades</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/194`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1865,7 +1866,7 @@ const Team = () => {
                                         <h4 className="team_name">Hobart Hurricanes</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/193`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1874,7 +1875,7 @@ const Team = () => {
                                         <h4 className="team_name">Brisbane Heat</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/192`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1883,7 +1884,7 @@ const Team = () => {
                                         <h4 className="team_name">Sydney Thunder</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/184`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1892,7 +1893,7 @@ const Team = () => {
                                         <h4 className="team_name">Kochi Tuskers Kerala</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/183`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1901,7 +1902,7 @@ const Team = () => {
                                         <h4 className="team_name">Pune Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/159`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1910,7 +1911,7 @@ const Team = () => {
                                         <h4 className="team_name">Guyana Amazon Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/84`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1919,7 +1920,7 @@ const Team = () => {
                                         <h4 className="team_name">Trinidad and Tobago</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/334`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1928,7 +1929,7 @@ const Team = () => {
                                         <h4 className="team_name">Peshawar Zalmi</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/437`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1937,7 +1938,7 @@ const Team = () => {
                                         <h4 className="team_name">Multan Sultans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/419`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1946,7 +1947,7 @@ const Team = () => {
                                         <h4 className="team_name">Yorkshire Diamonds</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/418`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1955,7 +1956,7 @@ const Team = () => {
                                         <h4 className="team_name">Western Storm</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/417`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1964,7 +1965,7 @@ const Team = () => {
                                         <h4 className="team_name">Southern Vipers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/416`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1973,7 +1974,7 @@ const Team = () => {
                                         <h4 className="team_name">Ajmer Panthers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/415`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1982,7 +1983,7 @@ const Team = () => {
                                         <h4 className="team_name">Bhilwara Wolves</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/414`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -1991,7 +1992,7 @@ const Team = () => {
                                         <h4 className="team_name">Jodhpur Lions</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/413`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2000,7 +2001,7 @@ const Team = () => {
                                         <h4 className="team_name">Jaipur Tigers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/412`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2009,7 +2010,7 @@ const Team = () => {
                                         <h4 className="team_name">Udaipur Eagles</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/411`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2018,7 +2019,7 @@ const Team = () => {
                                         <h4 className="team_name">Sikar Bulls</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/410`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2027,7 +2028,7 @@ const Team = () => {
                                         <h4 className="team_name">Ruby Trichy Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/401`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2036,7 +2037,7 @@ const Team = () => {
                                         <h4 className="team_name">Galaxy Gladiators Lantau</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/420`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2045,7 +2046,7 @@ const Team = () => {
                                         <h4 className="team_name">Lancashire Thunder</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/421`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2054,7 +2055,7 @@ const Team = () => {
                                         <h4 className="team_name">Loughborough Lightning</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/434`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2063,7 +2064,7 @@ const Team = () => {
                                         <h4 className="team_name">Sylhet Sixers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/433`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2072,7 +2073,7 @@ const Team = () => {
                                         <h4 className="team_name">Stellenbosch Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/432`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2081,7 +2082,7 @@ const Team = () => {
                                         <h4 className="team_name">Pretoria Mavericks</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/431`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2090,7 +2091,7 @@ const Team = () => {
                                         <h4 className="team_name">Nelson Mandela Bay Stars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/430`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2099,7 +2100,7 @@ const Team = () => {
                                         <h4 className="team_name">Joburg Giants</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/429`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2108,7 +2109,7 @@ const Team = () => {
                                         <h4 className="team_name">Durban Qalandars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/428`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2117,7 +2118,7 @@ const Team = () => {
                                         <h4 className="team_name">Cape Town Knight Riders</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/427`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2126,7 +2127,7 @@ const Team = () => {
                                         <h4 className="team_name">Bloem City Blazers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/426`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2135,7 +2136,7 @@ const Team = () => {
                                         <h4 className="team_name">Benoni Zalmi</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/423`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2144,7 +2145,7 @@ const Team = () => {
                                         <h4 className="team_name">Bengaluru Blasters</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/422`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2153,7 +2154,7 @@ const Team = () => {
                                         <h4 className="team_name">Surrey Stars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/400`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2162,7 +2163,7 @@ const Team = () => {
                                         <h4 className="team_name">HKI United</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/399`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2171,7 +2172,7 @@ const Team = () => {
                                         <h4 className="team_name">City Kaitak</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/397`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2180,7 +2181,7 @@ const Team = () => {
                                         <h4 className="team_name">Gurugram Gladiators</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/368`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2189,7 +2190,7 @@ const Team = () => {
                                         <h4 className="team_name">Lyca Kovai Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/367`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2198,7 +2199,7 @@ const Team = () => {
                                         <h4 className="team_name">Chepauk Super Gillies</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/366`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2207,7 +2208,7 @@ const Team = () => {
                                         <h4 className="team_name">TUTI Patriots</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/351`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2216,7 +2217,7 @@ const Team = () => {
                                         <h4 className="team_name">Hung Hom JD Jaguars</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/344`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2225,7 +2226,7 @@ const Team = () => {
                                         <h4 className="team_name">Sagittarius Strikers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/340`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2234,7 +2235,7 @@ const Team = () => {
                                         <h4 className="team_name">Leo Lions</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/339`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2243,7 +2244,7 @@ const Team = () => {
                                         <h4 className="team_name">Capricorn Commanders</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/338`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2252,7 +2253,7 @@ const Team = () => {
                                         <h4 className="team_name">Virgo Super Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/337`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2261,7 +2262,7 @@ const Team = () => {
                                         <h4 className="team_name">Sagittarius Soldiers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/336`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2270,7 +2271,7 @@ const Team = () => {
                                         <h4 className="team_name">Gemini Arabians</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/369`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2279,7 +2280,7 @@ const Team = () => {
                                         <h4 className="team_name">Madurai Panthers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/370`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2288,7 +2289,7 @@ const Team = () => {
                                         <h4 className="team_name">Ruby Kanchi Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/396`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2297,7 +2298,7 @@ const Team = () => {
                                         <h4 className="team_name">Rohtak Blasters</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/395`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2306,7 +2307,7 @@ const Team = () => {
                                         <h4 className="team_name">Hisar Bulls</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/394`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2315,7 +2316,7 @@ const Team = () => {
                                         <h4 className="team_name">Kurukshetra Tigers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/393`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2324,7 +2325,7 @@ const Team = () => {
                                         <h4 className="team_name">Sirsa Warriors</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/392`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2333,7 +2334,7 @@ const Team = () => {
                                         <h4 className="team_name">Panchkula Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/379`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2342,7 +2343,7 @@ const Team = () => {
                                         <h4 className="team_name">Rajshahi Kings</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/378`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2351,7 +2352,7 @@ const Team = () => {
                                         <h4 className="team_name">Khulna Titans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/373`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2360,7 +2361,7 @@ const Team = () => {
                                         <h4 className="team_name">Karaikudi Kaalai</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/372`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2369,7 +2370,7 @@ const Team = () => {
                                         <h4 className="team_name">VB Thiruvallur Veerans</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/371`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2378,7 +2379,7 @@ const Team = () => {
                                         <h4 className="team_name">Dindigul Dragons</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/335`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2387,7 +2388,7 @@ const Team = () => {
                                         <h4 className="team_name">Libra Legends</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/345`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2396,7 +2397,7 @@ const Team = () => {
                                         <h4 className="team_name">Gujarat Lions</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/346`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2414,7 +2415,7 @@ const Team = () => {
                         <div className={`tab-pane fade border px-2 shadow ${activeTab === 'domestic' ? 'show active' : ''}`} id="domestic" role="tabpanel" aria-labelledby="domestic-tab">
                             <div className="row team_container p-4">
 
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/522`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2423,7 +2424,7 @@ const Team = () => {
                                         <h4 className="team_name">Malta</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/536`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2432,7 +2433,7 @@ const Team = () => {
                                         <h4 className="team_name">Nigeria</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/537`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2441,7 +2442,7 @@ const Team = () => {
                                         <h4 className="team_name">Luxembourg</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/538`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2450,7 +2451,7 @@ const Team = () => {
                                         <h4 className="team_name">Philippines</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/539`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2459,7 +2460,7 @@ const Team = () => {
                                         <h4 className="team_name">France</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/540`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2468,7 +2469,7 @@ const Team = () => {
                                         <h4 className="team_name">Belize</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/542`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2477,7 +2478,7 @@ const Team = () => {
                                         <h4 className="team_name">Peru</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/543`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2486,7 +2487,7 @@ const Team = () => {
                                         <h4 className="team_name">Bahrain</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/544`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2495,7 +2496,7 @@ const Team = () => {
                                         <h4 className="team_name">Mexico</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/535`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2504,7 +2505,7 @@ const Team = () => {
                                         <h4 className="team_name">Tanzania</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/534`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2513,7 +2514,7 @@ const Team = () => {
                                         <h4 className="team_name">Sweden</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/523`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2522,7 +2523,7 @@ const Team = () => {
                                         <h4 className="team_name">Spain</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/524`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2531,7 +2532,7 @@ const Team = () => {
                                         <h4 className="team_name">China</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/525`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2540,7 +2541,7 @@ const Team = () => {
                                         <h4 className="team_name">Qatar</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/526`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2549,7 +2550,7 @@ const Team = () => {
                                         <h4 className="team_name">Estonia</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/528`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2558,7 +2559,7 @@ const Team = () => {
                                         <h4 className="team_name">Zimbabwe Chairmans XI</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/531`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2567,7 +2568,7 @@ const Team = () => {
                                         <h4 className="team_name">Ghana</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/532`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2576,7 +2577,7 @@ const Team = () => {
                                         <h4 className="team_name">Austria</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/533`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2585,7 +2586,7 @@ const Team = () => {
                                         <h4 className="team_name">Guernsey</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/545`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2594,7 +2595,7 @@ const Team = () => {
                                         <h4 className="team_name">Samoa</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/546`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2603,7 +2604,7 @@ const Team = () => {
                                         <h4 className="team_name">Panama</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/547`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2612,7 +2613,7 @@ const Team = () => {
                                         <h4 className="team_name">Japan</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/558`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2621,7 +2622,7 @@ const Team = () => {
                                         <h4 className="team_name">Bulgaria</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/559`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2630,7 +2631,7 @@ const Team = () => {
                                         <h4 className="team_name">Sierra Leone</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/560`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2639,7 +2640,7 @@ const Team = () => {
                                         <h4 className="team_name">Brazil</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/561`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2648,7 +2649,7 @@ const Team = () => {
                                         <h4 className="team_name">Czech Republic</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/562`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2657,7 +2658,7 @@ const Team = () => {
                                         <h4 className="team_name">Saint Helena</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/563`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2666,7 +2667,7 @@ const Team = () => {
                                         <h4 className="team_name">Maldives</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/564`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2675,7 +2676,7 @@ const Team = () => {
                                         <h4 className="team_name">Gibraltar</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/565`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2684,7 +2685,7 @@ const Team = () => {
                                         <h4 className="team_name">Myanmar</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/557`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2693,7 +2694,7 @@ const Team = () => {
                                         <h4 className="team_name">Isle of Man</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/556`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2702,7 +2703,7 @@ const Team = () => {
                                         <h4 className="team_name">Finland</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/548`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2711,7 +2712,7 @@ const Team = () => {
                                         <h4 className="team_name">Costa Rica</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/549`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2720,7 +2721,7 @@ const Team = () => {
                                         <h4 className="team_name">Argentina</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/550`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2729,7 +2730,7 @@ const Team = () => {
                                         <h4 className="team_name">Hungary</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/551`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2738,7 +2739,7 @@ const Team = () => {
                                         <h4 className="team_name">Mozambique</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/552`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2747,7 +2748,7 @@ const Team = () => {
                                         <h4 className="team_name">Chile</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/553`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2756,7 +2757,7 @@ const Team = () => {
                                         <h4 className="team_name">Malawi</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/554`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2765,7 +2766,7 @@ const Team = () => {
                                         <h4 className="team_name">Israel</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/555`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2774,7 +2775,7 @@ const Team = () => {
                                         <h4 className="team_name">Bhutan</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/566`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2783,7 +2784,7 @@ const Team = () => {
                                         <h4 className="team_name">Indonesia</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/387`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2792,7 +2793,7 @@ const Team = () => {
                                         <h4 className="team_name">Singapore U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/425`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2801,7 +2802,7 @@ const Team = () => {
                                         <h4 className="team_name">World XI</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/435`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2810,7 +2811,7 @@ const Team = () => {
                                         <h4 className="team_name">Ireland A</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/436`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2819,7 +2820,7 @@ const Team = () => {
                                         <h4 className="team_name">Western Australia XI</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/438`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -2828,7 +2829,7 @@ const Team = () => {
                                         <h4 className="team_name">Hong Kong Island United</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/439`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag ">
@@ -5401,7 +5402,7 @@ const Team = () => {
                         <div className={`tab-pane fade border px-2 shadow ${activeTab === 'women' ? 'show active' : ''}`} id="women" role="tabpanel" aria-labelledby="women-tab">
                             <div className="row team_container p-4">
 
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/503`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5410,7 +5411,7 @@ const Team = () => {
                                         <h4 className="team_name">Namibia Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/619`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5419,7 +5420,7 @@ const Team = () => {
                                         <h4 className="team_name">Northern Superchargers Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/620`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5428,7 +5429,7 @@ const Team = () => {
                                         <h4 className="team_name">Southern Brave Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/639`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5437,7 +5438,7 @@ const Team = () => {
                                         <h4 className="team_name">India C Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/648`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5446,7 +5447,7 @@ const Team = () => {
                                         <h4 className="team_name">India B Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/720`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5455,7 +5456,7 @@ const Team = () => {
                                         <h4 className="team_name">Rwanda Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/775`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5464,7 +5465,7 @@ const Team = () => {
                                         <h4 className="team_name">Austria Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/838`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5473,7 +5474,7 @@ const Team = () => {
                                         <h4 className="team_name">New Zealand XI Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/902`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5482,7 +5483,7 @@ const Team = () => {
                                         <h4 className="team_name">Turkey Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/961`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5491,7 +5492,7 @@ const Team = () => {
                                         <h4 className="team_name">India D Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1011`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5500,7 +5501,7 @@ const Team = () => {
                                         <h4 className="team_name">Barbados Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1032`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5509,7 +5510,7 @@ const Team = () => {
                                         <h4 className="team_name">Jersey Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1034`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5518,7 +5519,7 @@ const Team = () => {
                                         <h4 className="team_name">Spain Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/618`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5527,7 +5528,7 @@ const Team = () => {
                                         <h4 className="team_name">Trent Rockets Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/617`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5536,7 +5537,7 @@ const Team = () => {
                                         <h4 className="team_name">Manchester Originals Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/616`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5545,7 +5546,7 @@ const Team = () => {
                                         <h4 className="team_name">London Spirit Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/504`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5554,7 +5555,7 @@ const Team = () => {
                                         <h4 className="team_name">Germany Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/505`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5563,7 +5564,7 @@ const Team = () => {
                                         <h4 className="team_name">Oman Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/506`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5572,7 +5573,7 @@ const Team = () => {
                                         <h4 className="team_name">Vanuatu Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/507`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5581,7 +5582,7 @@ const Team = () => {
                                         <h4 className="team_name">South Korea Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/508`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5590,7 +5591,7 @@ const Team = () => {
                                         <h4 className="team_name">Denmark Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/509`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5599,7 +5600,7 @@ const Team = () => {
                                         <h4 className="team_name">Singapore Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/530`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5608,7 +5609,7 @@ const Team = () => {
                                         <h4 className="team_name">Velocity</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/592`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5617,7 +5618,7 @@ const Team = () => {
                                         <h4 className="team_name">United States Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/594`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5626,7 +5627,7 @@ const Team = () => {
                                         <h4 className="team_name">India Women Board President XI</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/613`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5635,7 +5636,7 @@ const Team = () => {
                                         <h4 className="team_name">Oval Invincibles Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/614`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5644,7 +5645,7 @@ const Team = () => {
                                         <h4 className="team_name">Welsh Fire Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/615`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5653,7 +5654,7 @@ const Team = () => {
                                         <h4 className="team_name">Birmingham Phoenix Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1048`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5662,7 +5663,7 @@ const Team = () => {
                                         <h4 className="team_name">Sweden Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1055`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5671,7 +5672,7 @@ const Team = () => {
                                         <h4 className="team_name">Norway Women </h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1083`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5680,7 +5681,7 @@ const Team = () => {
                                         <h4 className="team_name">Bahrain Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1347`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5689,7 +5690,7 @@ const Team = () => {
                                         <h4 className="team_name">United Arab Emirates Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1354`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5698,7 +5699,7 @@ const Team = () => {
                                         <h4 className="team_name">South Africa Women	U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1356`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5707,7 +5708,7 @@ const Team = () => {
                                         <h4 className="team_name">India Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1361`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5716,7 +5717,7 @@ const Team = () => {
                                         <h4 className="team_name">Sri Lanka Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1363`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5725,7 +5726,7 @@ const Team = () => {
                                         <h4 className="team_name">Pakistan Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1368`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5734,7 +5735,7 @@ const Team = () => {
                                         <h4 className="team_name">Rwanda Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1375`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5743,7 +5744,7 @@ const Team = () => {
                                         <h4 className="team_name">Ireland Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1382`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5752,7 +5753,7 @@ const Team = () => {
                                         <h4 className="team_name">West Indies Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1384`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5761,7 +5762,7 @@ const Team = () => {
                                         <h4 className="team_name">Indonesia Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1391`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5770,7 +5771,7 @@ const Team = () => {
                                         <h4 className="team_name">New Zealand Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1398`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5779,7 +5780,7 @@ const Team = () => {
                                         <h4 className="team_name">England Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1403`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5788,7 +5789,7 @@ const Team = () => {
                                         <h4 className="team_name">Zimbabwe Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1342`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5797,7 +5798,7 @@ const Team = () => {
                                         <h4 className="team_name">Scotland Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1335`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5806,7 +5807,7 @@ const Team = () => {
                                         <h4 className="team_name">Bangladesh Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1328`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5815,7 +5816,7 @@ const Team = () => {
                                         <h4 className="team_name">Australia Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1090`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5824,7 +5825,7 @@ const Team = () => {
                                         <h4 className="team_name">Bhutan Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1097`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5833,7 +5834,7 @@ const Team = () => {
                                         <h4 className="team_name">Kuwait Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1104`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5842,7 +5843,7 @@ const Team = () => {
                                         <h4 className="team_name">Guernsey Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1125`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5851,7 +5852,7 @@ const Team = () => {
                                         <h4 className="team_name">Italy Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1137`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5860,7 +5861,7 @@ const Team = () => {
                                         <h4 className="team_name">Barbados Royals Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1139`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5869,7 +5870,7 @@ const Team = () => {
                                         <h4 className="team_name">Trinbago Knight Riders Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1144`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5878,7 +5879,7 @@ const Team = () => {
                                         <h4 className="team_name">Guyana Amazon Warriors Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1181`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5887,7 +5888,7 @@ const Team = () => {
                                         <h4 className="team_name">Fiji Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1188`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5896,7 +5897,7 @@ const Team = () => {
                                         <h4 className="team_name">International XI Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1195`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5905,7 +5906,7 @@ const Team = () => {
                                         <h4 className="team_name">Trinidad &amp; Tobago Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1200`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5914,7 +5915,7 @@ const Team = () => {
                                         <h4 className="team_name">Jamaica Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1207`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5923,7 +5924,7 @@ const Team = () => {
                                         <h4 className="team_name">Young England Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/1405`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5932,7 +5933,7 @@ const Team = () => {
                                         <h4 className="team_name">United States Women U19</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/502`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5941,7 +5942,7 @@ const Team = () => {
                                         <h4 className="team_name">Hong Kong Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/97`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5950,7 +5951,7 @@ const Team = () => {
                                         <h4 className="team_name">India Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/360`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5959,7 +5960,7 @@ const Team = () => {
                                         <h4 className="team_name">Perth Scorchers Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/361`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5968,7 +5969,7 @@ const Team = () => {
                                         <h4 className="team_name">Sydney Sixers Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/362`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5977,7 +5978,7 @@ const Team = () => {
                                         <h4 className="team_name">Sydney Thunder Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/382`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5986,7 +5987,7 @@ const Team = () => {
                                         <h4 className="team_name">Thailand Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/383`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -5995,7 +5996,7 @@ const Team = () => {
                                         <h4 className="team_name">Nepal Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/388`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6004,7 +6005,7 @@ const Team = () => {
                                         <h4 className="team_name">Zimbabwe Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/389`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6013,7 +6014,7 @@ const Team = () => {
                                         <h4 className="team_name">Scotland Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/390`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6022,7 +6023,7 @@ const Team = () => {
                                         <h4 className="team_name">Papua New Guinea Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/359`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6031,7 +6032,7 @@ const Team = () => {
                                         <h4 className="team_name">Melbourne Stars Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/358`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6040,7 +6041,7 @@ const Team = () => {
                                         <h4 className="team_name">Melbourne Renegades Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/357`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6049,7 +6050,7 @@ const Team = () => {
                                         <h4 className="team_name">Hobart Hurricanes Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/98`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6058,7 +6059,7 @@ const Team = () => {
                                         <h4 className="team_name">New Zealand Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/99`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6067,7 +6068,7 @@ const Team = () => {
                                         <h4 className="team_name">England Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/100`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6076,7 +6077,7 @@ const Team = () => {
                                         <h4 className="team_name">Australia Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/188`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6085,7 +6086,7 @@ const Team = () => {
                                         <h4 className="team_name">Netherlands Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/189`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6094,7 +6095,7 @@ const Team = () => {
                                         <h4 className="team_name">Ireland Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/257`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6103,7 +6104,7 @@ const Team = () => {
                                         <h4 className="team_name">West Indies Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/258`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6112,7 +6113,7 @@ const Team = () => {
                                         <h4 className="team_name">Sri Lanka Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/259`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6121,7 +6122,7 @@ const Team = () => {
                                         <h4 className="team_name">Pakistan Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/260`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6130,7 +6131,7 @@ const Team = () => {
                                         <h4 className="team_name">South Africa Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/329`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6139,7 +6140,7 @@ const Team = () => {
                                         <h4 className="team_name">Bangladesh Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/355`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6148,7 +6149,7 @@ const Team = () => {
                                         <h4 className="team_name">Adelaide Strikers Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/356`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6157,7 +6158,7 @@ const Team = () => {
                                         <h4 className="team_name">Brisbane Heat Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/440`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6166,7 +6167,7 @@ const Team = () => {
                                         <h4 className="team_name">India A Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/489`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6175,7 +6176,7 @@ const Team = () => {
                                         <h4 className="team_name">Argentina Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/490`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6184,7 +6185,7 @@ const Team = () => {
                                         <h4 className="team_name">Sierra Leone Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/491`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6193,7 +6194,7 @@ const Team = () => {
                                         <h4 className="team_name">Brazil Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/492`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6202,7 +6203,7 @@ const Team = () => {
                                         <h4 className="team_name">France Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/493`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6211,7 +6212,7 @@ const Team = () => {
                                         <h4 className="team_name">Mozambique Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/494`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6220,7 +6221,7 @@ const Team = () => {
                                         <h4 className="team_name">Zambia Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/495`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6229,7 +6230,7 @@ const Team = () => {
                                         <h4 className="team_name">Malawi Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/496`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6238,7 +6239,7 @@ const Team = () => {
                                         <h4 className="team_name">Belgium Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/497`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6247,7 +6248,7 @@ const Team = () => {
                                         <h4 className="team_name">Chile Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/498`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6256,7 +6257,7 @@ const Team = () => {
                                         <h4 className="team_name">Peru Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/499`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6265,7 +6266,7 @@ const Team = () => {
                                         <h4 className="team_name">Lesotho Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/500`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6274,7 +6275,7 @@ const Team = () => {
                                         <h4 className="team_name">Swaziland Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/488`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6283,7 +6284,7 @@ const Team = () => {
                                         <h4 className="team_name">Botswana Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/487`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6292,7 +6293,7 @@ const Team = () => {
                                         <h4 className="team_name">Japan Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/486`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6301,7 +6302,7 @@ const Team = () => {
                                         <h4 className="team_name">China Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/445`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6310,7 +6311,7 @@ const Team = () => {
                                         <h4 className="team_name">Malaysia Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/446`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6319,7 +6320,7 @@ const Team = () => {
                                         <h4 className="team_name">Trailblazers</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/447`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6328,7 +6329,7 @@ const Team = () => {
                                         <h4 className="team_name">Supernovas</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/448`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6337,7 +6338,7 @@ const Team = () => {
                                         <h4 className="team_name">Uganda Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/449`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6346,7 +6347,7 @@ const Team = () => {
                                         <h4 className="team_name">United Arab Emirates Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/482`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6355,7 +6356,7 @@ const Team = () => {
                                         <h4 className="team_name">Samoa Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/483`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6364,7 +6365,7 @@ const Team = () => {
                                         <h4 className="team_name">Tanzania Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/484`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6373,7 +6374,7 @@ const Team = () => {
                                         <h4 className="team_name">Indonesia Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/485`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6382,7 +6383,7 @@ const Team = () => {
                                         <h4 className="team_name">Qatar Women</h4>
                                     </Link>
                                 </div>
-                                <div className="col-lg-6 my-3">
+                                <div className="col-lg-6">
 
                                     <Link to={`/team-details/501`} className="team_box d-flex align-items-center text-decoration-none">
                                         <div className="team_flag">
@@ -6402,7 +6403,7 @@ const Team = () => {
                         Teams?.map((item, index) => (
                             <div key={index} className="row">
                                 <div className="col-lg-6">
-                                    <div class="col-lg-6 my-3">
+                                    <div class="col-lg-6">
 
                                         <Link to={`/team-details/2`} class="team_box d-flex align-items-center text-decoration-none">
                                             <div class="team_flag">
@@ -6420,6 +6421,7 @@ const Team = () => {
                 </div>
 
             </div>
+            <Footer/>
         </>
     )
 }

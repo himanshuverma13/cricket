@@ -9,6 +9,7 @@ import Navbar from "./Component/Common/Navbar/index";
 import { GetMatchCardAPI } from "./Component/APIs/api";
 import { useEffect } from "react";
 import TeamDetails from "./Component/Pages/Team/teamDetails";
+import LiveScore from "./Component/Pages/livescore/livescore";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/team-details/:id" element={<TeamDetails />} />
         <Route path="/news" element={<News />} />
+        <Route path="/livescore" element={<LiveScore />} />
+
       </Routes>
     </Router>
     </>

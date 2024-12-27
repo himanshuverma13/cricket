@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { GetSeriesDataAPI } from "../../APIs/api";
+import Footer from "../../Common/Footer";
 
 const Series = () => {
   const [Series, setSeries] = useState();
@@ -27,7 +28,8 @@ const Series = () => {
   let Tabs = ["international", "league", "domestic", "women"];
 
   return (
-    <div className="container-fluid schedule-section">
+   <>
+    <div className="container-fluid schedule-section min-vh-100">
       <div className="container">
         <div className="text-center mb-4 pt-3">
           <span className="text-white bg fs-3 rounded-2 px-3 py-2">
@@ -83,6 +85,8 @@ const Series = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+   </>
   );
 };
 
