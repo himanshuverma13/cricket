@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import CourseSlider from "../../Common/Card";
 import Footer from "../../Common/Footer";
-
-const Home = () => {
+import { IoFootball } from "react-icons/io5";
+import { MdOutlineSportsTennis } from "react-icons/md";
+import { MdSportsCricket } from "react-icons/md";
+const Home = () => {  
+    const sportsData = [
+      { name: "CRICKET", value:<MdSportsCricket className="text-danger" /> },
+      { name: "FOOTBALL", value: <IoFootball /> },
+      { name: "TENNIS", value: <MdOutlineSportsTennis className="text-info"/> },
+    ];
   const newsData = [
     {
       category: "Cricket",
@@ -115,7 +122,18 @@ const Home = () => {
         <CourseSlider />
         {/* News */}
         <div className="container-fluid background-color">
-          <div className="container py-4">
+          <div className="container py-4 d-flex flex-column justify-content-center">
+            <div className="d-flex border w-25 rounded py-2 bg-white shadow-sm mb-3">
+                {sportsData.map((sport, index) => (
+                  <div
+                    key={index}
+                    className="d-flex align-items-center justify-content-center mx-2 border-end"
+                  >
+                    <span className="fw-bold">{sport.name}</span>
+                    <span className="fs-4">{sport.value}</span>
+                  </div>
+                ))}
+              </div>
             <div className="row g-4">
               {/* Smaller News */}
               {news.map((news, index) => (

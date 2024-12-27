@@ -115,14 +115,13 @@ const CourseSlider = () => {
   let colorPattern = [0, 1, 2]; // This denotes 1st color, 2nd color, 3rd color
 
 
-
   return (
     <>
-      <div className="background-img d-flex flex-column align-items-center justify-content-center">
+      <div className="background-img">
         <span
-          className="home-text text-center fs-1  fw-bold text-white px-4"
+          className="text-center fs-1 fw-bold text-white px-4"
           style={{
-            // height: "45vh",
+            height: "40vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
