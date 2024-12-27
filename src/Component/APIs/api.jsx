@@ -49,10 +49,20 @@ export const GetMatchDetailsAPI = async(payload)=>{
         console.log('error: ', error);
     }
 } 
-//  get live Score API data 
+//  get Teams Details API data 
 export const GetTeamsDetailsAPI = async(payload)=>{
     try {
         let response = await axiosInstance.get(`${URL}/matches/getTeamsById?teamId=${payload}`)
+        return  response?.data?.data 
+    } catch (error) {
+        console.log('error: ', error);
+    }
+} 
+
+//  get live API data 
+export const GetCommentariesAPI = async(payload)=>{
+    try {
+        let response = await axiosInstance.get(`${URL}/matches/commentaries?matchId=${payload}`)
         return  response?.data?.data 
     } catch (error) {
         console.log('error: ', error);
