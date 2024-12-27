@@ -32,7 +32,7 @@ const Series = () => {
     <div className="container-fluid schedule-section min-vh-100">
       <div className="container">
         <div className="text-center mb-4 pt-3">
-          <span className="text-white bg fs-3 rounded-2 px-3 py-2">
+          <span className="text-white bg-heading text-uppercase fs-3 rounded-2 px-3 py-2">
             Upcoming Series
           </span>
         </div>
@@ -40,7 +40,7 @@ const Series = () => {
           {Tabs?.map((tab) => (
             <li className="nav-item" key={tab}>
               <button
-                className={`nav-link ${activeTab === tab ? "active" : ""}`}
+                className={`nav-link fw-bold ${activeTab === tab ? "active" : ""}`}
                 onClick={() => handleTab(tab)}
               >
                 {tab?.toUpperCase()}
