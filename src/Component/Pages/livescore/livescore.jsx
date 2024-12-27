@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 // Images
 import Logo from "../../asset/img/icon/IND.png";
 import { useParams } from "react-router-dom";
-import { GetCommentariesAPI, GetScoreCardDataAPI } from "../../APIs/api";
+import {
+  GetCommentariesAPI,
+  GetMatchDetailsAPI,
+  GetScoreCardDataAPI,
+} from "../../APIs/api";
 const LiveScore = () => {
   const BatterData = [
     {
@@ -145,6 +149,7 @@ const LiveScore = () => {
 
   const [Commentries, setCommentries] = useState();
   const [ScoreCard, setScoreCard] = useState();
+  const [MatchInfo, setMatchInfo] = useState();
 
   const params = useParams();
 
@@ -152,12 +157,15 @@ const LiveScore = () => {
     try {
       const response = await GetCommentariesAPI(91805);
       const scoreCardData = await GetScoreCardDataAPI(91805);
+      const matchInfo = await GetMatchDetailsAPI(91805);
+
       console.log(
         "response: ",
-        scoreCardData?.scoreCard[0]?.batTeamDetails?.batsmenData
+        scoreCardData?.scoreCard[0]?.bowlTeamDetails?.bowlersData
       );
       setCommentries(response);
       setScoreCard(scoreCardData);
+      setMatchInfo(matchInfo);
     } catch (error) {
       console.log("error: ", error);
     }
@@ -466,7 +474,12 @@ const LiveScore = () => {
 
                     <div className="container my-5">
                       <h1 className="text-center mb-4">Batsmen Data</h1>
-                        <h3>{ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[0]?.inningsId} Innings {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[1]?.scoreDetails?.wickets} </h3>
+                      <h3>
+                        {ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} :{" "}
+                        {ScoreCard?.scoreCard[0]?.inningsId} Innings{" "}
+                        {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
+                        {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
+                      </h3>
                       <table className="table table-bordered table-striped">
                         <thead className="thead-dark">
                           <tr>
@@ -482,30 +495,41 @@ const LiveScore = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {Object?.values(
-                            ScoreCard?.scoreCard[0]?.batTeamDetails?.batsmenData
-                          )?.map((bat, index) => (
-                            <tr key={index}>
-                              <td>{bat?.batName}</td>
-                              <td>{bat?.runs}</td>
-                              <td>{bat?.balls}</td>
-                              <td>{bat?.fours}</td>
-                              <td>{bat?.sixes}</td>
-                              <td>{bat?.strikeRate}</td>
-                              <td>{bat?.outDesc || "Not Out"}</td>
-                              <td>{bat?.isCaptain ? "Yes" : "No"}</td>
-                              <td>{bat?.isKeeper ? "Yes" : "No"}</td>
-                            </tr>
-                          ))}
+                          {ScoreCard ? (
+                            <>
+                              {Object?.values(
+                                ScoreCard?.scoreCard[0]?.batTeamDetails
+                                  ?.batsmenData || {}
+                              )?.map((bat, index) => (
+                                <tr key={index}>
+                                  <td>{bat?.batName}</td>
+                                  <td>{bat?.runs}</td>
+                                  <td>{bat?.balls}</td>
+                                  <td>{bat?.fours}</td>
+                                  <td>{bat?.sixes}</td>
+                                  <td>{bat?.strikeRate}</td>
+                                  <td>{bat?.outDesc || "Not Out"}</td>
+                                  <td>{bat?.isCaptain ? "Yes" : "No"}</td>
+                                  <td>{bat?.isKeeper ? "Yes" : "No"}</td>
+                                </tr>
+                              ))}
+                            </>
+                          ) : (
+                            <p>Loading...</p>
+                          )}
                         </tbody>
                       </table>
                     </div>
-
 
                     {/* ------------ */}
                     <div className="container my-5">
                       <h1 className="text-center mb-4">Bowler Data</h1>
-                        <h3>{ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[0]?.inningsId} Innings {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[1]?.scoreDetails?.wickets} </h3>
+                      <h3>
+                        {ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} :{" "}
+                        {ScoreCard?.scoreCard[0]?.inningsId} Innings{" "}
+                        {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
+                        {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
+                      </h3>
                       <table className="table table-bordered table-striped">
                         <thead className="thead-dark">
                           <tr>
@@ -518,27 +542,33 @@ const LiveScore = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {Object?.values(
-                            ScoreCard?.scoreCard[0]?.bowlTeamDetails?.bowlersData
-                          )?.map((bat, index) => (
-                            <tr key={index}>
-                              <td>{bat?.bowlName}</td>
-                              <td>{bat?.overs}</td>
-                              <td>{bat?.maidens}</td>
-                              <td>{bat?.runs}</td>
-                              <td>{bat?.wickets}</td>
-                              <td>{bat?.economy}</td>
-                            </tr>
-                          ))}
+                          {ScoreCard ? (
+                            <>
+                              {Object?.values(
+                                ScoreCard?.scoreCard[0]?.bowlTeamDetails
+                                  ?.bowlersData
+                              )?.map((bat, index) => (
+                                <tr key={index}>
+                                  <td>{bat?.bowlName}</td>
+                                  <td>{bat?.overs}</td>
+                                  <td>{bat?.maidens}</td>
+                                  <td>{bat?.runs}</td>
+                                  <td>{bat?.wickets}</td>
+                                  <td>{bat?.economy}</td>
+                                </tr>
+                              ))}
+                            </>
+                          ) : (
+                            <p>Loading...</p>
+                          )}
                         </tbody>
                       </table>
                     </div>
-                 
 
-                 {/* ---------------- */}
-                 <div className="container my-5">
+                    {/* ---------------- */}
+                    <div className="container my-5">
                       <h1 className="text-center mb-4">Batsmen Data</h1>
-                        {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
+                      {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
                       <table className="table table-bordered table-striped">
                         <thead className="thead-dark">
                           <tr>
@@ -554,28 +584,35 @@ const LiveScore = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {Object?.values(
-                            ScoreCard?.scoreCard[1]?.batTeamDetails?.batsmenData
-                          )?.map((bat, index) => (
-                            <tr key={index}>
-                              <td>{bat?.batName}</td>
-                              <td>{bat?.runs}</td>
-                              <td>{bat?.balls}</td>
-                              <td>{bat?.fours}</td>
-                              <td>{bat?.sixes}</td>
-                              <td>{bat?.strikeRate}</td>
-                              <td>{bat?.outDesc || "Not Out"}</td>
-                              <td>{bat?.isCaptain ? "Yes" : "No"}</td>
-                              <td>{bat?.isKeeper ? "Yes" : "No"}</td>
-                            </tr>
-                          ))}
+                          {ScoreCard ? (
+                            <>
+                              {Object?.values(
+                                ScoreCard?.scoreCard[1]?.batTeamDetails
+                                  ?.batsmenData || {}
+                              )?.map((bat, index) => (
+                                <tr key={index}>
+                                  <td>{bat?.batName}</td>
+                                  <td>{bat?.runs}</td>
+                                  <td>{bat?.balls}</td>
+                                  <td>{bat?.fours}</td>
+                                  <td>{bat?.sixes}</td>
+                                  <td>{bat?.strikeRate}</td>
+                                  <td>{bat?.outDesc || "Not Out"}</td>
+                                  <td>{bat?.isCaptain ? "Yes" : "No"}</td>
+                                  <td>{bat?.isKeeper ? "Yes" : "No"}</td>
+                                </tr>
+                              ))}
+                            </>
+                          ) : (
+                            <p>Loading...</p>
+                          )}
                         </tbody>
                       </table>
                     </div>
 
                     <div className="container my-5">
                       <h1 className="text-center mb-4">Bowler Data</h1>
-                        {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
+                      {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
                       <table className="table table-bordered table-striped">
                         <thead className="thead-dark">
                           <tr>
@@ -588,23 +625,141 @@ const LiveScore = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {Object?.values(
-                            ScoreCard?.scoreCard[1]?.bowlTeamDetails?.bowlersData
-                          )?.map((bat, index) => (
-                            <tr key={index}>
-                              <td>{bat?.bowlName}</td>
-                              <td>{bat?.overs}</td>
-                              <td>{bat?.maidens}</td>
-                              <td>{bat?.runs}</td>
-                              <td>{bat?.wickets}</td>
-                              <td>{bat?.economy}</td>
-                            </tr>
-                          ))}
+                          {ScoreCard ? (
+                            <>
+                              {Object?.values(
+                                ScoreCard?.scoreCard[1]?.bowlTeamDetails 
+                                  ?.bowlersData
+                              )?.map((bat, index) => (
+                                <tr key={index}>
+                                  <td>{bat?.bowlName}</td>
+                                  <td>{bat?.overs}</td>
+                                  <td>{bat?.maidens}</td>
+                                  <td>{bat?.runs}</td>
+                                  <td>{bat?.wickets}</td>
+                                  <td>{bat?.economy}</td>
+                                </tr>
+                              ))}
+                            </>
+                          ) : (
+                            <p>Loading...</p>
+                          )}
                         </tbody>
                       </table>
                     </div>
 
+                    <div className="container mt-4">
+                      <div className="card">
+                        <div className="card-header bg-light">
+                          <h5 className="mb-0">Match Info</h5>
+                        </div>
+                        <div className="card-body">
+                          {/* Match Details */}
+                          <div className="mb-4">
+                            <h6 className="fw-bold">Match:</h6>
+                            <p>
+                              Australia vs India, 4th Test, India tour of
+                              Australia, 2024-25
+                            </p>
+                          </div>
 
+                          {/* Date and Time */}
+                          <div className="row mb-4">
+                            <div className="col-md-6">
+                              <h6 className="fw-bold">Date:</h6>
+                              <p>
+                                Thursday, December 26, 2024 - Monday, December
+                                30, 2024
+                              </p>
+                            </div>
+                            <div className="col-md-6">
+                              <h6 className="fw-bold">Time:</h6>
+                              <p>5:00 AM</p>
+                            </div>
+                          </div>
+
+                          {/* Toss and Venue */}
+                          <div className="row mb-4">
+                            <div className="col-md-6">
+                              <h6 className="fw-bold">Toss:</h6>
+                              <p>Australia won the toss and opt Batting</p>
+                            </div>
+                            <div className="col-md-6">
+                              <h6 className="fw-bold">Venue:</h6>
+                              <p>Melbourne Cricket Ground, Melbourne</p>
+                            </div>
+                          </div>
+
+                          {/* Umpires */}
+                          <div className="row mb-4">
+                            <div className="col-md-6">
+                              <h6 className="fw-bold">Umpires:</h6>
+                              <p>Joel Wilson, Michael Gough</p>
+                            </div>
+                            <div className="col-md-6">
+                              <h6 className="fw-bold">Third Umpire:</h6>
+                              <p>Sharfuddoula</p>
+                            </div>
+                          </div>
+
+                          {/* Match Referee */}
+                          <div className="mb-4">
+                            <h6 className="fw-bold">Match Referee:</h6>
+                            <p>Andy Pycroft</p>
+                          </div>
+
+                          {/* Australia Squad */}
+                          <div className="mb-4">
+                            <h6 className="fw-bold">Australia Squad:</h6>
+                            <div className="ms-3">
+                              <div className="mb-2">
+                                <strong>Playing: </strong>
+                                <p className="mb-1">
+                                  Usman Khawaja, Sam Konstas, Marnus
+                                  Labuschagne, Steven Smith, Travis Head,
+                                  Mitchell Marsh, Alex Carey (wk), Pat Cummins
+                                  (c), Mitchell Starc, Nathan Lyon, Scott Boland
+                                </p>
+                              </div>
+                              <div>
+                                <strong>Bench: </strong>
+                                <p className="mb-0">
+                                  Beau Webster, Sean Abbott, Josh Inglis, Jhye
+                                  Richardson, Andrew McDonald, Andre Borovec,
+                                  Daniel Vettori, Michael Di Venuto, Clint McKay
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* India Squad */}
+                          <div>
+                            <h6 className="fw-bold">India Squad:</h6>
+                            <div className="ms-3">
+                              <div className="mb-2">
+                                <strong>Playing: </strong>
+                                <p className="mb-1">
+                                  Yashasvi Jaiswal, KL Rahul, Rohit Sharma (c),
+                                  Virat Kohli, Rishabh Pant (wk), Ravindra
+                                  Jadeja, Nitish Kumar Reddy, Washington Sundar,
+                                  Jasprit Bumrah, Mohammed Siraj, Akash Deep
+                                </p>
+                              </div>
+                              <div>
+                                <strong>Bench: </strong>
+                                <p className="mb-0">
+                                  Shubman Gill, Tanush Kotian, Dhruv Jurel,
+                                  Devdutt Padikkal, Sarfaraz Khan, Abhimanyu
+                                  Easwaran, Prasidh Krishna, Harshit Rana,
+                                  Gautam Gambhir, Abhishek Nayar, Ryan ten
+                                  Doeschate, T Dilip, Morne Morkel
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
