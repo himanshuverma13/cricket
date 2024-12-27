@@ -188,8 +188,8 @@ const Schedule = () => {
             Schedule?.map((schdl, index) => {
               if (schdl?.scheduleAdWrapper) {
                 return [schdl?.scheduleAdWrapper]?.map((item, itemIndex) => (
-                  <div className="schedule-box mb-4 p-3 bg-white" key={itemIndex}>
-                    <h5 className="schedule-box-heading text-white p-2">{item?.date}</h5>
+                  <div className="schedule-box rounded-2 mb-4 p-3 bg-white" key={itemIndex}>
+                    <h5 className="schedule-box-heading rounded-2 text-white p-2">{item?.date}</h5>
                     <table className="table table-striped">
                       <thead>
                         <tr>
