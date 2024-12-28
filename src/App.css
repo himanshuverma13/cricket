@@ -584,3 +584,24 @@ margin: 0px 10px;
   display: block;
   margin: 0px 7px;
 }
+
+.bg-sport{
+  background-color:#dd968d;
+}
+
+.news-item, .most-read-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+@media (max-width : 768px) {
+  .news-item {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .news-item img{
+    margin: auto;
+  }
+}
