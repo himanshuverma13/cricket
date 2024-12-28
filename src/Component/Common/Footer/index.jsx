@@ -27,7 +27,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom flex flex-col md:flex-row items-center justify-between p-2">
         <p className="text-sm">
-          &copy; 2024. All rights reserved by MG Lion News.
+          &copy; 2024. All rights reserved by SportsEye.
         </p>
 
       </div>

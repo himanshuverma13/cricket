@@ -13,6 +13,9 @@ img {
 .text-pantone {
   color: #19454b !important;
 }
+.text-red{
+  color: red !important;
+}
 .fonst-size-18 {
   font-size: 18px;
 }
@@ -64,35 +67,6 @@ body{
 .home-text{
   background-color: rgba(0, 0, 0, 0.7);
 }
-/* Main container of the slider */
-.slider-container {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  padding: 0 30px; /* Added padding to ensure there is space on the sides */
-}
-.slick-prev:before,
-.slick-next:before {
-  font-size: 24px !important;
-}
-
-/* Slick slider layout and center alignment */
-.slick-slider {
-  margin: 0 auto;
-  padding: 0;
-}
-
-.slick-track {
-  display: flex;
-}
-
-.slick-slide {
-  display: flex;
-  justify-content: center; /* Center items in the slide */
-  align-items: stretch;
-  padding: 0 10px; /* Added padding between slides */
-}
-
 /* Cards (items) */
 .ag-courses_item {
   padding: 15px;
@@ -122,8 +96,7 @@ body{
 }
 
 /* Hover Effects */
-.ag-courses-item_link:hover,
-.ag-courses-item_link:hover .ag-courses-item_date {
+.ag-courses-item_link:hover{
   text-decoration: none;
   color: #fff;
 }
@@ -143,7 +116,6 @@ body{
   border-radius: 50%;
   transition: all 0.5s ease;
 }
-
 /* Responsive Media Queries */
 @media only screen and (max-width: 979px) {
   .ag-courses_item {
@@ -607,3 +579,8 @@ margin: 0px 10px;
 }
 
 
+/* 0----------------------------- our css */
+.slick-initialized .slick-slide {
+  display: block;
+  margin: 0px 7px;
+}

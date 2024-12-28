@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import CourseSlider from "../../Common/Card";
+import React from "react";
 import Footer from "../../Common/Footer";
 import { IoFootball } from "react-icons/io5";
 import { MdOutlineSportsTennis } from "react-icons/md";
 import { MdSportsCricket } from "react-icons/md";
+import CardSlider from "../../Common/Card";
 const Home = () => {  
     const sportsData = [
       { name: "CRICKET", value:<MdSportsCricket className="text-danger" /> },
@@ -119,7 +119,7 @@ const Home = () => {
   return (
     <>
       <div>
-        <CourseSlider />
+        <CardSlider />
         {/* News */}
         <div className="container-fluid background-color">
           <div className="container py-4 d-flex flex-column justify-content-center">
@@ -135,6 +135,7 @@ const Home = () => {
                 ))}
               </div>
             <div className="row g-4">
+
               {/* Smaller News */}
               {news.map((news, index) => (
                 <div className="col-lg-3 col-md-6 col-sm-12 mb-4" key={index}>
@@ -199,8 +200,9 @@ const Home = () => {
         </div>
         {/* Upcoming Match */}
         <div className="upcoming-matches">
-          <h3>Upcoming Matches</h3>
-          <table className="matches-table">
+          <h3 className="text-uppercase text-red">Upcoming Matches</h3>   
+        <div className="table-responsive">
+        <table className="matches-table">
             <thead>
               <tr>
                 <th>Team 1</th>
@@ -222,6 +224,7 @@ const Home = () => {
               ))}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
       <Footer />
