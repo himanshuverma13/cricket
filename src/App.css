@@ -590,7 +590,7 @@ margin: 0px 10px;
 }
 
 .bg-sport{
-  background-color:#dd968d;
+  background-color:#dd968d !important;
 }
 
 .news-item, .most-read-item {
@@ -608,4 +608,13 @@ margin: 0px 10px;
   .news-item img{
     margin: auto;
   }
+}
+
+th{
+  background-color:#dd968d !important;
+}
+
+/* ---------------- Livescore Css------------------ */
+.livescore-img{
+  height: 35px;
 }

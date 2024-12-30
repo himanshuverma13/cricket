@@ -5,6 +5,7 @@ import { GetMatchCardAPI } from "../../APIs/api";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CardSlider = () => {
   const [Matches, setMatches] = useState([]);
@@ -82,6 +83,7 @@ const CardSlider = () => {
                 const color = colr[colorIndex];
 
                 return (
+                  <Link to="/livescore" className="text-decoration-none text-dark">
                   <div className="ag-courses_item" key={index}>
                     <div className="ag-courses-item_link">
                       <div className="ag-courses-item_bg" style={{ backgroundColor: color }}></div>
@@ -114,6 +116,7 @@ const CardSlider = () => {
                       </div>
                     </div>
                   </div>
+              </Link>
                 );
               })}
             </Slider>
