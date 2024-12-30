@@ -11,7 +11,7 @@ const LiveScore = () => {
         setActiveTab(tab);
     };
 
-    let Tabs = ["commentry", "scorecard", "squads", "points table", "match facts", "overs", "venue info"];
+    let Tabs = ["commentry", "scorecard", "squads", "points table", "match facts", "venue info"];
 
     // const BatterData = [
     //     {
@@ -204,11 +204,12 @@ const LiveScore = () => {
                     </ul>
 
                     <div className="tab-content">
-                        <div class={`tab-pane fade border px-2 shadow ${activeTab === 'commentry' ? 'show active' : ''}`} id="commentry" role="tabpanel" aria-labelledby="commentry-tab">
+                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'commentry' ? 'show active' : ''}`} id="commentry" role="tabpanel" aria-labelledby="commentry-tab">
                             <div className="tab p-3">
-                                <div className="border border-1 border-secondary p-2 rounded-2">
-                                    <div className="d-flex">
-                                        <div className="d-flex">
+                                <div className=" p-2 rounded-2 mb-3">
+                                    <div className="d-flex align-items-center mb-2">
+                                        <div className="d-flex align-items-center">
+                                            <img src={Logo} className="livescore-img me-3 rounded-circle" alt="Loading" />
                                             <div className="fw-bold w-100 me-4">
                                                 {
                                                     Commentries?.miniscore?.matchScoreDetails
@@ -232,8 +233,9 @@ const LiveScore = () => {
                                             }
                                         </div>
                                     </div>
-                                    <div className="d-flex">
-                                        <div className="d-flex">
+                                    <div className="d-flex align-items-center mb-2">
+                                        <div className="d-flex align-items-center">
+                                            <img src={Logo} className="livescore-img me-3 rounded-circle" alt="Loading" />
                                             <div className="fw-bold w-100 me-4">
                                                 {
                                                     Commentries?.miniscore?.matchScoreDetails
@@ -273,7 +275,7 @@ const LiveScore = () => {
                                         <table className="table table-responsive table-sm border border-2 border-light rounded">
                                             <thead className="table-secondary">
                                                 <tr>
-                                                    <th scope="col">Batter</th>
+                                                    <th scope="col" className="ps-3">Batter</th>
                                                     <th scope="col">R </th>
                                                     <th scope="col">B</th>
                                                     <th scope="col">4s</th>
@@ -355,7 +357,7 @@ const LiveScore = () => {
                                         <table className="table table-responsive table-sm border border-2 border-light rounded">
                                             <thead className="table-secondary">
                                                 <tr>
-                                                    <th scope="col">Bowler</th>
+                                                    <th scope="col" className="ps-3">Bowler</th>
                                                     <th scope="col">O</th>
                                                     <th scope="col">M</th>
                                                     <th scope="col">R</th>
@@ -441,7 +443,7 @@ const LiveScore = () => {
                                     <div className="col-lg-4">
                                         <div className="list-group">
                                             <div
-                                                className="list-group-item list-group-item-dark fw-bolder"
+                                                className="list-group-item bg-sport fw-bolder"
                                                 aria-current="true"
                                             >
                                                 The current link item
@@ -478,7 +480,7 @@ const LiveScore = () => {
                         </div>
 
                         {/* ScoreCard Start */}
-                        <div class={`tab-pane fade border px-2 shadow ${activeTab === 'scorecard' ? 'show active' : ''}`} id="scorecard" role="tabpanel" aria-labelledby="scorecard-tab">
+                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'scorecard' ? 'show active' : ''}`} id="scorecard" role="tabpanel" aria-labelledby="scorecard-tab">
                             <div className="tab p-3">
                                 <h5 className="text-warning">{ScoreCard?.status}</h5>
                                 <div className="border border-2 border-light rounde-2">
@@ -660,10 +662,110 @@ const LiveScore = () => {
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <div className="container mt-4">
+                        {/* Squads Start */}
+                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'squads' ? 'show active' : ''}`} id="squads" role="tabpanel" aria-labelledby="squads-tab">
+                            <div class="container tab p-3">
+                                <div className="bg-sport mb-4 shadow d-flex justify-content-between align-items-center fw-bold px-4 rounded-3">
+                                    <p className="pt-2">MLR</p>
+                                    <p className="pt-2">PRS</p>
+                                </div>
+                                <div className="border border-1 border-light rounded-3 shadow">
+                                    <p className="fw-bold fs-5 text-center">Playing Xl</p>
+                                    <hr />
+                                    <div className="row">
+                                        {PlayerData.map((items, index) => (
+                                            <div className="col-md-6 border-end">
+                                                <div className="row d-flex align-items-center justify-content-center">
+                                                    <div className="col-md-3 d-flex justify-content-end">
+                                                        <img
+                                                            src={items.img}
+                                                            className="h-50 w-25 ms-3"
+                                                            alt="Loading"
+                                                        />
+                                                    </div>
+                                                    <div className="col-md-9">
+                                                        <span className="fw-bold fs-6">{items.name}</span>
+                                                        <p className="fs-6">Batsman</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <hr />
+                                    <p className="fw-bold fs-5 text-center">Bench</p>
+                                    <hr />
+                                    <div className="row">
+                                        {BenchPlayerData.map((items, index) => (
+                                            <div className="col-md-6">
+                                                <div className="row  d-flex align-items-center justify-content-center">
+                                                    <div className="col-md-3 d-flex justify-content-end">
+                                                        <img
+                                                            src={items.img}
+                                                            className="h-50 w-25 ms-3"
+                                                            alt="Loading"
+                                                        />
+                                                    </div>
+                                                    <div className="col-md-9">
+                                                        <span className="fw-bold fs-6">{items.name}</span>
+                                                        <p className="fs-6">Batsman</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Points Table Start */}
+                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'points table' ? 'show active' : ''}`} id="points table" role="tabpanel" aria-labelledby="pointstable-tab">
+                            <div className="tab p-3">
+                                {/* Bowler  table */}
+                                <table class="table shadow table-responsive table-sm border border-2 border-light rounded">
+                                    <thead className="table-secondary">
+                                        <tr>
+                                            <th scope="col">Teams</th>
+                                            <th scope="col">Mat</th>
+                                            <th scope="col">Won</th>
+                                            <th scope="col">Lost</th>
+                                            <th scope="col">Tied</th>
+                                            <th scope="col">NR</th>
+                                            <th scope="col">Pts</th>
+                                            <th scope="col">NRr</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {PointsTableData.map((items, index) => (
+                                            <tr key={index}>
+                                                <td scope="row" className="fw-normal text-primary">
+                                                    {items.teams}
+                                                </td>
+                                                <td>{items.mat}</td>
+                                                <td>{items.won}</td>
+                                                <td>{items.lost}</td>
+                                                <td>{items.tied}</td>
+                                                <td>{items.nr}</td>
+                                                <td>{items.pts}</td>
+                                                <td>{items.nrr}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        {/* Match Facts Start */}
+                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'match facts' ? 'show active' : ''}`} id="match facts" role="tabpanel" aria-labelledby="matchfacts-tab">
+                            <div className="tab p-3">
+                            <div className="container mt-4">
                                             <div className="card">
-                                                <div className="card-header bg-light">
+                                                <div className="card-header bg-sport">
                                                     <h5 className="mb-0">Match Info</h5>
                                                 </div>
                                                 <div className="card-body">
@@ -773,133 +875,20 @@ const LiveScore = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Squads Start */}
-                        <div class={`tab-pane fade border px-2 shadow ${activeTab === 'squads' ? 'show active' : ''}`} id="squads" role="tabpanel" aria-labelledby="squads-tab">
-                            <div class="tab p-3">
-                                <div className="bg-secondary shadow d-flex justify-content-between align-items-center fw-bold px-4 rounded-3">
-                                    <p>MLR</p>
-                                    <p>PRS</p>
-                                </div>
-                                <div className="border border-1 border-light rounded-3 shadow">
-                                    <p className="fw-bold fs-5 text-center">Playing Xl</p>
-                                    <hr />
-                                    <div className="row">
-                                        {PlayerData.map((items, index) => (
-                                            <div className="col-md-6">
-                                                <div className="row d-flex align-items-center justify-content-center">
-                                                    <div className="col-md-3 d-flex justify-content-end">
-                                                        <img
-                                                            src={items.img}
-                                                            className="h-50 w-25 ms-3"
-                                                            alt="Loading"
-                                                        />
-                                                    </div>
-                                                    <div className="col-md-9">
-                                                        <span className="fw-bold fs-6">{items.name}</span>
-                                                        <p className="fs-6">Batsman</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <hr />
-                                    <p className="fw-bold fs-5 text-center">Bench</p>
-                                    <hr />
-                                    <div className="row">
-                                        {BenchPlayerData.map((items, index) => (
-                                            <div className="col-md-6">
-                                                <div className="row  d-flex align-items-center justify-content-center">
-                                                    <div className="col-md-3 d-flex justify-content-end">
-                                                        <img
-                                                            src={items.img}
-                                                            className="h-50 w-25 ms-3"
-                                                            alt="Loading"
-                                                        />
-                                                    </div>
-                                                    <div className="col-md-9">
-                                                        <span className="fw-bold fs-6">{items.name}</span>
-                                                        <p className="fs-6">Batsman</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Points Table Start */}
-                        <div class={`tab-pane fade border px-2 shadow ${activeTab === 'points table' ? 'show active' : ''}`} id="points table" role="tabpanel" aria-labelledby="pointstable-tab">
-                            <div className="tab p-3">
-                                {/* Bowler  table */}
-                                <table class="table shadow table-responsive table-sm border border-2 border-light rounded">
-                                    <thead className="table-secondary">
-                                        <tr>
-                                            <th scope="col">Teams</th>
-                                            <th scope="col">Mat</th>
-                                            <th scope="col">Won</th>
-                                            <th scope="col">Lost</th>
-                                            <th scope="col">Tied</th>
-                                            <th scope="col">NR</th>
-                                            <th scope="col">Pts</th>
-                                            <th scope="col">NRr</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {PointsTableData.map((items, index) => (
-                                            <tr key={index}>
-                                                <th scope="row" className="fw-normal text-primary">
-                                                    {items.teams}
-                                                </th>
-                                                <td>{items.mat}</td>
-                                                <td>{items.won}</td>
-                                                <td>{items.lost}</td>
-                                                <td>{items.tied}</td>
-                                                <td>{items.nr}</td>
-                                                <td>{items.pts}</td>
-                                                <td>{items.nrr}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
-                        {/* Match Facts Start */}
-                        <div class={`tab-pane fade border px-2 shadow ${activeTab === 'match facts' ? 'show active' : ''}`} id="match facts" role="tabpanel" aria-labelledby="matchfacts-tab">
-                            <div className="tab p-3">
-                                <h2>Ember</h2>
-                                <p>
-                                    The introduction of{" "}
-                                    <a href="https://www.emberjs.com/">Ember.js</a> to the
-                                    software market was 2015, and since then, it has gained
-                                    popularity with its wide application area. The features of
-                                    Ember.js support two-way data binding and hence, establish a
-                                    reliable platform for handling the complicated User
-                                    Interfaces. Popular websites like LinkedIn, Netflix,
-                                    Nordstrom, and many more use the Ember.JS platform for their
-                                    websites.
-                                </p>
                             </div>
                         </div>
 
 
                         {/* Overs Start */}
-                        <div class={`tab-pane fade border px-2 shadow ${activeTab === 'overs' ? 'show active' : ''}`} id="overs" role="tabpanel" aria-labelledby="overs-tab">
+                        {/* <div class={`tab-pane fade border px-2 shadow ${activeTab === 'overs' ? 'show active' : ''}`} id="overs" role="tabpanel" aria-labelledby="overs-tab">
                             <div className="tab p-3">
                                 <p>.......</p>
                             </div>
-                        </div>
+                        </div> */}
 
 
                         {/* Venue Info Start */}
-                        <div class={`tab-pane fade border px-2 shadow ${activeTab === 'venue info' ? 'show active' : ''}`} id="venue info" role="tabpanel" aria-labelledby="venueinfo-tab">
+                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'venue info' ? 'show active' : ''}`} id="venue info" role="tabpanel" aria-labelledby="venueinfo-tab">
                             <div className="tab p-3">
                                 <span className="fw-bold fs-3">Stadium</span>
                                 <p className="fw-bolder fs-5">Docklands Stadium</p>
