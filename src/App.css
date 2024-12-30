@@ -194,6 +194,10 @@ body{
   z-index: 2;
   position: relative;
 }
+.team-card-img{
+  width: 40px;
+  object-fit: contain;
+}
 
 .vs-icon img {
   width: 60px;
