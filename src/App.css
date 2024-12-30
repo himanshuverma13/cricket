@@ -69,6 +69,7 @@ body{
 }
 /* Cards (items) */
 .ag-courses_item {
+  width: 460px !important;
   padding: 15px;
   overflow: hidden;
   border-radius: 28px;
@@ -145,28 +146,30 @@ body{
 .slick-next {
   background-color: transparent; /* Ensure background is transparent */
   border: none;
-  font-size: 30px; /* Adjust size of the icon */
+  font-size: 30px !important; /* Adjust size of the icon */
   z-index: 10;
+  /* color: #0056b3 !important; */
   position: absolute;
-  top: 50%;
+  top: 50% !important;
   transform: translateY(-50%);
   transition: all 0.3s ease;
 }
 
 /* Position previous button (left) */
 .slick-prev {
-  left: 4px; /* Adjust positioning as needed */
+  left: 5px !important; /* Adjust positioning as needed */
 }
 
 /* Position next button (right) */
 .slick-next {
-  right: 20px; /* Adjust positioning as needed */
+  right: 5px !important; /* Adjust positioning as needed */
 }
 
 /* Hover effects for arrows */
 .slick-prev:hover,
 .slick-next:hover {
-  background-color: #f9b234;
+  background-color: #f9b234 ;
+  border-radius: 50% !important;
   color: #121212;
   transform: translateY(-50%) scale(1.1); /* Slight scale effect on hover */
 }
@@ -581,10 +584,14 @@ margin: 0px 10px;
 
 /* 0----------------------------- our css */
 .slick-initialized .slick-slide {
-  display: block;
-  margin: 0px 7px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-evenly !important;
+  /* margin: 0px 7px; */
 }
-
+.slick-track{
+  left: 21px !important;
+}
 .bg-sport{
   background-color:#dd968d !important;
 }
@@ -606,7 +613,7 @@ margin: 0px 10px;
   }
 }
 
-th{
+.table-bg th{
   background-color:#dd968d !important;
 }
 

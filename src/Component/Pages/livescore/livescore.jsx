@@ -11,7 +11,7 @@ const LiveScore = () => {
         setActiveTab(tab);
     };
 
-    let Tabs = ["commentry", "scorecard", "squads", "points table", "match facts", "venue info"];
+    let Tabs = ["commentry", "scorecard", "squads", "match facts", "venue info"];
 
     // const BatterData = [
     //     {
@@ -217,20 +217,25 @@ const LiveScore = () => {
                                                 }
                                             </div>
                                         </div>
-                                        <div className="text-secondary fw-light">
+                                        <div className="text-dark fs-5 fw-bold me-2">
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[0]?.score
                                             }
-                                            /
+                                            -
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[0]?.wickets
-                                            }
+                                             }
+                                        </div>
+                                        <div>
+                                          
+                                           (
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[0]?.overs
                                             }
+                                            )
                                         </div>
                                     </div>
                                     <div className="d-flex align-items-center mb-2">
@@ -243,21 +248,25 @@ const LiveScore = () => {
                                                 }
                                             </div>
                                         </div>
-                                        <div className="text-secondary fw-light">
+                                        <div className="text-dark fs-5 fw-bold me-2">
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[1]?.score
                                             }
-                                            /
+                                            -
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[1]?.wickets
                                             }
-                                            /
+                                        </div>
+
+                                        <div>
+                                             (
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[1]?.overs
                                             }
+                                            )
                                         </div>
                                     </div>
                                     <p className="text-warning fw-bold m-0 ">
@@ -273,7 +282,7 @@ const LiveScore = () => {
                                     <div className="col-lg-8">
                                         {/* Batter table */}
                                         <table className="table table-responsive table-sm border border-2 border-light rounded">
-                                            <thead className="table-secondary">
+                                            <thead className="table-bg">
                                                 <tr>
                                                     <th scope="col" className="ps-3">Batter</th>
                                                     <th scope="col">R </th>
@@ -355,7 +364,7 @@ const LiveScore = () => {
                                         {/* Bowler  table */}
 
                                         <table className="table table-responsive table-sm border border-2 border-light rounded">
-                                            <thead className="table-secondary">
+                                            <thead className="table-bg">
                                                 <tr>
                                                     <th scope="col" className="ps-3">Bowler</th>
                                                     <th scope="col">O</th>
@@ -496,45 +505,47 @@ const LiveScore = () => {
                                             {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
                                             {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
                                         </h3>
-                                        <table className="table table-bordered table-striped">
-                                            <thead className="thead-dark">
-                                                <tr>
-                                                    <th>Batsman Name</th>
-                                                    <th>Runs</th>
-                                                    <th>Balls</th>
-                                                    <th>Fours</th>
-                                                    <th>Sixes</th>
-                                                    <th>Strike Rate</th>
-                                                    <th>Out Description</th>
-                                                    <th>Is Captain</th>
-                                                    <th>Is Keeper</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {ScoreCard ? (
-                                                    <>
-                                                        {Object?.values(
-                                                            ScoreCard?.scoreCard[0]?.batTeamDetails
-                                                                ?.batsmenData || {}
-                                                        )?.map((bat, index) => (
-                                                            <tr key={index}>
-                                                                <td>{bat?.batName}</td>
-                                                                <td>{bat?.runs}</td>
-                                                                <td>{bat?.balls}</td>
-                                                                <td>{bat?.fours}</td>
-                                                                <td>{bat?.sixes}</td>
-                                                                <td>{bat?.strikeRate}</td>
-                                                                <td>{bat?.outDesc || "Not Out"}</td>
-                                                                <td>{bat?.isCaptain ? "Yes" : "No"}</td>
-                                                                <td>{bat?.isKeeper ? "Yes" : "No"}</td>
-                                                            </tr>
-                                                        ))}
-                                                    </>
-                                                ) : (
-                                                    <p>Loading...</p>
-                                                )}
-                                            </tbody>
-                                        </table>
+                                        <div className="table-responsive">
+                                            <table className="table table-bordered table-striped">
+                                                <thead className="table-bg">
+                                                    <tr>
+                                                        <th>Batsman Name</th>
+                                                        <th>Runs</th>
+                                                        <th>Balls</th>
+                                                        <th>Fours</th>
+                                                        <th>Sixes</th>
+                                                        <th>Strike Rate</th>
+                                                        <th>Out Description</th>
+                                                        <th>Is Captain</th>
+                                                        <th>Is Keeper</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {ScoreCard ? (
+                                                        <>
+                                                            {Object?.values(
+                                                                ScoreCard?.scoreCard[0]?.batTeamDetails
+                                                                    ?.batsmenData || {}
+                                                            )?.map((bat, index) => (
+                                                                <tr key={index}>
+                                                                    <td>{bat?.batName}</td>
+                                                                    <td>{bat?.runs}</td>
+                                                                    <td>{bat?.balls}</td>
+                                                                    <td>{bat?.fours}</td>
+                                                                    <td>{bat?.sixes}</td>
+                                                                    <td>{bat?.strikeRate}</td>
+                                                                    <td>{bat?.outDesc || "Not Out"}</td>
+                                                                    <td>{bat?.isCaptain ? "Yes" : "No"}</td>
+                                                                    <td>{bat?.isKeeper ? "Yes" : "No"}</td>
+                                                                </tr>
+                                                            ))}
+                                                        </>
+                                                    ) : (
+                                                        <p>Loading...</p>
+                                                    )}
+                                                </tbody>
+                                            </table>
+                                        </div>
 
                                         {/* ------------ */}
                                         <div className="container my-5">
@@ -546,7 +557,7 @@ const LiveScore = () => {
                                                 {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
                                             </h3>
                                             <table className="table table-bordered table-striped">
-                                                <thead className="thead-dark">
+                                                <thead className="table-bg">
                                                     <tr>
                                                         <th>Bowler Name</th>
                                                         <th>O</th>
@@ -584,52 +595,54 @@ const LiveScore = () => {
                                         <div className="container my-5">
                                             <h1 className="text-center mb-4">Batsmen Data</h1>
                                             {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
-                                            <table className="table table-bordered table-striped">
-                                                <thead className="thead-dark">
-                                                    <tr>
-                                                        <th>Batsman Name</th>
-                                                        <th>Runs</th>
-                                                        <th>Balls</th>
-                                                        <th>Fours</th>
-                                                        <th>Sixes</th>
-                                                        <th>Strike Rate</th>
-                                                        <th>Out Description</th>
-                                                        <th>Is Captain</th>
-                                                        <th>Is Keeper</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {ScoreCard ? (
-                                                        <>
-                                                            {Object?.values(
-                                                                ScoreCard?.scoreCard[1]?.batTeamDetails
-                                                                    ?.batsmenData || {}
-                                                            )?.map((bat, index) => (
-                                                                <tr key={index}>
-                                                                    <td>{bat?.batName}</td>
-                                                                    <td>{bat?.runs}</td>
-                                                                    <td>{bat?.balls}</td>
-                                                                    <td>{bat?.fours}</td>
-                                                                    <td>{bat?.sixes}</td>
-                                                                    <td>{bat?.strikeRate}</td>
-                                                                    <td>{bat?.outDesc || "Not Out"}</td>
-                                                                    <td>{bat?.isCaptain ? "Yes" : "No"}</td>
-                                                                    <td>{bat?.isKeeper ? "Yes" : "No"}</td>
-                                                                </tr>
-                                                            ))}
-                                                        </>
-                                                    ) : (
-                                                        <p>Loading...</p>
-                                                    )}
-                                                </tbody>
-                                            </table>
+                                            <div className="table-responsive">
+                                                <table className="table table-bordered table-striped">
+                                                    <thead className="table-bg">
+                                                        <tr>
+                                                            <th>Batsman Name</th>
+                                                            <th>Runs</th>
+                                                            <th>Balls</th>
+                                                            <th>Fours</th>
+                                                            <th>Sixes</th>
+                                                            <th>Strike Rate</th>
+                                                            <th>Out Description</th>
+                                                            <th>Is Captain</th>
+                                                            <th>Is Keeper</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {ScoreCard ? (
+                                                            <>
+                                                                {Object?.values(
+                                                                    ScoreCard?.scoreCard[1]?.batTeamDetails
+                                                                        ?.batsmenData || {}
+                                                                )?.map((bat, index) => (
+                                                                    <tr key={index}>
+                                                                        <td>{bat?.batName}</td>
+                                                                        <td>{bat?.runs}</td>
+                                                                        <td>{bat?.balls}</td>
+                                                                        <td>{bat?.fours}</td>
+                                                                        <td>{bat?.sixes}</td>
+                                                                        <td>{bat?.strikeRate}</td>
+                                                                        <td>{bat?.outDesc || "Not Out"}</td>
+                                                                        <td>{bat?.isCaptain ? "Yes" : "No"}</td>
+                                                                        <td>{bat?.isKeeper ? "Yes" : "No"}</td>
+                                                                    </tr>
+                                                                ))}
+                                                            </>
+                                                        ) : (
+                                                            <p>Loading...</p>
+                                                        )}
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
 
                                         <div className="container my-5">
                                             <h1 className="text-center mb-4">Bowler Data</h1>
                                             {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
                                             <table className="table table-bordered table-striped">
-                                                <thead className="thead-dark">
+                                                <thead className="table-bg">
                                                     <tr>
                                                         <th>Bowler Name</th>
                                                         <th>O</th>
@@ -674,7 +687,7 @@ const LiveScore = () => {
                                     <p className="pt-2">MLR</p>
                                     <p className="pt-2">PRS</p>
                                 </div>
-                                <div className="border border-1 border-light rounded-3 shadow">
+                                <div className="border border-1 border-light rounded-3 shadow pt-2">
                                     <p className="fw-bold fs-5 text-center">Playing Xl</p>
                                     <hr />
                                     <div className="row">
@@ -701,7 +714,7 @@ const LiveScore = () => {
                                     <hr />
                                     <div className="row">
                                         {BenchPlayerData.map((items, index) => (
-                                            <div className="col-md-6">
+                                            <div className="col-md-6 border-end">
                                                 <div className="row  d-flex align-items-center justify-content-center">
                                                     <div className="col-md-3 d-flex justify-content-end">
                                                         <img
@@ -722,169 +735,124 @@ const LiveScore = () => {
                             </div>
                         </div>
 
-                        {/* Points Table Start */}
-                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'points table' ? 'show active' : ''}`} id="points table" role="tabpanel" aria-labelledby="pointstable-tab">
-                            <div className="tab p-3">
-                                {/* Bowler  table */}
-                                <table class="table shadow table-responsive table-sm border border-2 border-light rounded">
-                                    <thead className="table-secondary">
-                                        <tr>
-                                            <th scope="col">Teams</th>
-                                            <th scope="col">Mat</th>
-                                            <th scope="col">Won</th>
-                                            <th scope="col">Lost</th>
-                                            <th scope="col">Tied</th>
-                                            <th scope="col">NR</th>
-                                            <th scope="col">Pts</th>
-                                            <th scope="col">NRr</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {PointsTableData.map((items, index) => (
-                                            <tr key={index}>
-                                                <td scope="row" className="fw-normal text-primary">
-                                                    {items.teams}
-                                                </td>
-                                                <td>{items.mat}</td>
-                                                <td>{items.won}</td>
-                                                <td>{items.lost}</td>
-                                                <td>{items.tied}</td>
-                                                <td>{items.nr}</td>
-                                                <td>{items.pts}</td>
-                                                <td>{items.nrr}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
 
                         {/* Match Facts Start */}
                         <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'match facts' ? 'show active' : ''}`} id="match facts" role="tabpanel" aria-labelledby="matchfacts-tab">
                             <div className="tab p-3">
-                            <div className="container mt-4">
-                                            <div className="card">
-                                                <div className="card-header bg-sport">
-                                                    <h5 className="mb-0">Match Info</h5>
+                                <div className="container mt-4">
+                                    <div className="card">
+                                        <div className="card-header bg-sport">
+                                            <h5 className="mb-0">Match Info</h5>
+                                        </div>
+                                        <div className="card-body">
+                                            {/* Match Details */}
+                                            <div className="mb-4">
+                                                <h6 className="fw-bold">Match:</h6>
+                                                <p>
+                                                    Australia vs India, 4th Test, India tour of
+                                                    Australia, 2024-25
+                                                </p>
+                                            </div>
+
+                                            {/* Date and Time */}
+                                            <div className="row mb-4">
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Date:</h6>
+                                                    <p>
+                                                        Thursday, December 26, 2024 - Monday, December
+                                                        30, 2024
+                                                    </p>
                                                 </div>
-                                                <div className="card-body">
-                                                    {/* Match Details */}
-                                                    <div className="mb-4">
-                                                        <h6 className="fw-bold">Match:</h6>
-                                                        <p>
-                                                            Australia vs India, 4th Test, India tour of
-                                                            Australia, 2024-25
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Time:</h6>
+                                                    <p>5:00 AM</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Toss and Venue */}
+                                            <div className="row mb-4">
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Toss:</h6>
+                                                    <p>Australia won the toss and opt Batting</p>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Venue:</h6>
+                                                    <p>Melbourne Cricket Ground, Melbourne</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Umpires */}
+                                            <div className="row mb-4">
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Umpires:</h6>
+                                                    <p>Joel Wilson, Michael Gough</p>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Third Umpire:</h6>
+                                                    <p>Sharfuddoula</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Match Referee */}
+                                            <div className="mb-4">
+                                                <h6 className="fw-bold">Match Referee:</h6>
+                                                <p>Andy Pycroft</p>
+                                            </div>
+
+                                            {/* Australia Squad */}
+                                            <div className="mb-4">
+                                                <h6 className="fw-bold">Australia Squad:</h6>
+                                                <div className="ms-3">
+                                                    <div className="mb-2">
+                                                        <strong>Playing: </strong>
+                                                        <p className="mb-1">
+                                                            Usman Khawaja, Sam Konstas, Marnus
+                                                            Labuschagne, Steven Smith, Travis Head,
+                                                            Mitchell Marsh, Alex Carey (wk), Pat Cummins
+                                                            (c), Mitchell Starc, Nathan Lyon, Scott Boland
                                                         </p>
                                                     </div>
-
-                                                    {/* Date and Time */}
-                                                    <div className="row mb-4">
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Date:</h6>
-                                                            <p>
-                                                                Thursday, December 26, 2024 - Monday, December
-                                                                30, 2024
-                                                            </p>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Time:</h6>
-                                                            <p>5:00 AM</p>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Toss and Venue */}
-                                                    <div className="row mb-4">
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Toss:</h6>
-                                                            <p>Australia won the toss and opt Batting</p>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Venue:</h6>
-                                                            <p>Melbourne Cricket Ground, Melbourne</p>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Umpires */}
-                                                    <div className="row mb-4">
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Umpires:</h6>
-                                                            <p>Joel Wilson, Michael Gough</p>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Third Umpire:</h6>
-                                                            <p>Sharfuddoula</p>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Match Referee */}
-                                                    <div className="mb-4">
-                                                        <h6 className="fw-bold">Match Referee:</h6>
-                                                        <p>Andy Pycroft</p>
-                                                    </div>
-
-                                                    {/* Australia Squad */}
-                                                    <div className="mb-4">
-                                                        <h6 className="fw-bold">Australia Squad:</h6>
-                                                        <div className="ms-3">
-                                                            <div className="mb-2">
-                                                                <strong>Playing: </strong>
-                                                                <p className="mb-1">
-                                                                    Usman Khawaja, Sam Konstas, Marnus
-                                                                    Labuschagne, Steven Smith, Travis Head,
-                                                                    Mitchell Marsh, Alex Carey (wk), Pat Cummins
-                                                                    (c), Mitchell Starc, Nathan Lyon, Scott Boland
-                                                                </p>
-                                                            </div>
-                                                            <div>
-                                                                <strong>Bench: </strong>
-                                                                <p className="mb-0">
-                                                                    Beau Webster, Sean Abbott, Josh Inglis, Jhye
-                                                                    Richardson, Andrew McDonald, Andre Borovec,
-                                                                    Daniel Vettori, Michael Di Venuto, Clint McKay
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* India Squad */}
                                                     <div>
-                                                        <h6 className="fw-bold">India Squad:</h6>
-                                                        <div className="ms-3">
-                                                            <div className="mb-2">
-                                                                <strong>Playing: </strong>
-                                                                <p className="mb-1">
-                                                                    Yashasvi Jaiswal, KL Rahul, Rohit Sharma (c),
-                                                                    Virat Kohli, Rishabh Pant (wk), Ravindra
-                                                                    Jadeja, Nitish Kumar Reddy, Washington Sundar,
-                                                                    Jasprit Bumrah, Mohammed Siraj, Akash Deep
-                                                                </p>
-                                                            </div>
-                                                            <div>
-                                                                <strong>Bench: </strong>
-                                                                <p className="mb-0">
-                                                                    Shubman Gill, Tanush Kotian, Dhruv Jurel,
-                                                                    Devdutt Padikkal, Sarfaraz Khan, Abhimanyu
-                                                                    Easwaran, Prasidh Krishna, Harshit Rana,
-                                                                    Gautam Gambhir, Abhishek Nayar, Ryan ten
-                                                                    Doeschate, T Dilip, Morne Morkel
-                                                                </p>
-                                                            </div>
-                                                        </div>
+                                                        <strong>Bench: </strong>
+                                                        <p className="mb-0">
+                                                            Beau Webster, Sean Abbott, Josh Inglis, Jhye
+                                                            Richardson, Andrew McDonald, Andre Borovec,
+                                                            Daniel Vettori, Michael Di Venuto, Clint McKay
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* India Squad */}
+                                            <div>
+                                                <h6 className="fw-bold">India Squad:</h6>
+                                                <div className="ms-3">
+                                                    <div className="mb-2">
+                                                        <strong>Playing: </strong>
+                                                        <p className="mb-1">
+                                                            Yashasvi Jaiswal, KL Rahul, Rohit Sharma (c),
+                                                            Virat Kohli, Rishabh Pant (wk), Ravindra
+                                                            Jadeja, Nitish Kumar Reddy, Washington Sundar,
+                                                            Jasprit Bumrah, Mohammed Siraj, Akash Deep
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <strong>Bench: </strong>
+                                                        <p className="mb-0">
+                                                            Shubman Gill, Tanush Kotian, Dhruv Jurel,
+                                                            Devdutt Padikkal, Sarfaraz Khan, Abhimanyu
+                                                            Easwaran, Prasidh Krishna, Harshit Rana,
+                                                            Gautam Gambhir, Abhishek Nayar, Ryan ten
+                                                            Doeschate, T Dilip, Morne Morkel
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-
-                        {/* Overs Start */}
-                        {/* <div class={`tab-pane fade border px-2 shadow ${activeTab === 'overs' ? 'show active' : ''}`} id="overs" role="tabpanel" aria-labelledby="overs-tab">
-                            <div className="tab p-3">
-                                <p>.......</p>
-                            </div>
-                        </div> */}
 
 
                         {/* Venue Info Start */}
