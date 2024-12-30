@@ -335,7 +335,7 @@ body{
 }
 
 .matches-table th {
-  background-color:#dd968d;
+  background-color:#00343c;
   /* background-color: #eaeaea; */
   /* background-image: linear-gradient(to top left, #f5f5f1 0%, #e50914 74%) !important; */
   color: #fff;
@@ -537,7 +537,7 @@ button.btn:hover:not(:disabled) {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .schedule-box-heading{
-  background: #dd968d !important;
+  background: #00343c!important;
   /* background-image: linear-gradient(to left top, #f5f5f1 0%, #e50914 74%) !important; */
   /* background-image: linear-gradient(to right top, #da9586, #e2a49a, #e9b4ae, #f0c4c1, #f5d5d4, #f9cecd, #fcc7c5, #ffc0be, #ff9e99, #ff7b73, #ff524c, #fc0b22); */
   
@@ -545,15 +545,14 @@ button.btn:hover:not(:disabled) {
 
 /* -------------- series-section css --------------  */
 .bg-heading{
-  background-color: red;
-  text-shadow: 5px 5px 10px white;
-
+  background-color: #00343c;
+  /* text-shadow: 5px 5px 10px white; */
 }
 .nav-link{
   color: #19454b !important;
 }
 .nav-tabs .nav-link.active{
-  background-color: red !important;
+  background-color: #00343c !important;
   color: white !important;
 }
 
@@ -589,15 +588,15 @@ margin: 0px 10px;
 /* 0----------------------------- our css */
 .slick-initialized .slick-slide {
   display: flex !important;
-  align-items: center !important;
+  align-items: center !important; 
   justify-content: space-evenly !important;
   /* margin: 0px 7px; */
 }
-.slick-track{
-  left: 21px !important;
-}
+/* .slick-track{
+  left: 5px !important;
+} */
 .bg-sport{
-  background-color:#dd968d !important;
+  background-color:#00343c !important;
 }
 
 .news-item, .most-read-item {
@@ -619,7 +618,7 @@ margin: 0px 10px;
 
 
 .table-bg th{
-  background-color:#dd968d !important;
+  background-color:#00343c !important;
 }
 
 /* ---------------- Livescore Css------------------ */

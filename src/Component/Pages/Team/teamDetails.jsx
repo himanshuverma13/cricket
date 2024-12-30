@@ -42,7 +42,7 @@ const TeamDetails = () => {
                 </div>
               </div>
           ) : (
-              <h2 className="schedule-box-heading rounded-3 shadow p-2 mb-3">{player?.name}</h2>
+              <h2 className="schedule-box-heading rounded-3 text-white shadow p-2 mb-3">{player?.name}</h2>
             )
         )}
         </div>
