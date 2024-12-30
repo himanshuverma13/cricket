@@ -15,7 +15,7 @@ const CardSlider = () => {
     dots: true,
     infinite: true,
     speed: 1000,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -33,16 +33,16 @@ const CardSlider = () => {
         },
       },
     ],
-    prevArrow: (
-      <div className="slick-prev">
-        <FaChevronLeft />
-      </div>
-    ), // Ensure icons are rendered
-    nextArrow: (
-      <div className="slick-next">
-        <FaChevronRight />
-      </div>
-    ),
+    // prevArrow: (
+    //   <div className="slick-prev">
+    //     <FaChevronLeft />
+    //   </div>
+    // ), // Ensure icons are rendered
+    // nextArrow: (
+    //   <div className="slick-next">
+    //     <FaChevronRight />
+    //   </div>
+    // ),
   };
 
   useEffect(() => {
