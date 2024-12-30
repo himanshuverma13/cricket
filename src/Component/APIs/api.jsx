@@ -80,3 +80,13 @@ export const GetScoreCardDataAPI = async(payload)=>{
     }
 } 
 
+//  get  Squads Data API data 
+export const GetSquadsDataAPI = async(payload)=>{
+    try {
+        let response = await axiosInstance.get(`${URL}/matches/getSquads?matchId=${payload}&teamId=${payload}`)
+        return  response?.data?.data 
+    } catch (error) {
+        console.log('error: ', error);
+    }
+} 
+

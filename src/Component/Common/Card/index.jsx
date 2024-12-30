@@ -16,8 +16,8 @@ const CardSlider = () => {
     speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
+    // autoplay: true,
+    // autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 979,
@@ -98,12 +98,14 @@ const CardSlider = () => {
                       </div>
                       <div className="d-flex align-items-center justify-content-evenly mt-4">
                         <div className="team1">
-                          <div className="team-name">{course?.matchHeader?.team1?.name}</div>
+                          <img className="team-card-img" src={course?.team1Image} alt="" />
+                          <div className="team-name fw-bold">{course?.matchHeader?.team1?.shortName}</div>
                           <div className="score">{course?.scoreCard?.[0]?.scoreDetails?.runs}</div>
                         </div>
                         <div className="vs-icon">V/S</div>
                         <div className="team2">
-                          <div className="team-name">{course?.matchHeader?.team2?.name}</div>
+                        <img className="team-card-img" src={course?.team2Image} alt="" />
+                          <div className="team-name fw-bold">{course?.matchHeader?.team2?.shortName}</div>
                           <div className="score">{course?.scoreCard?.[1]?.scoreDetails?.runs}</div>
                         </div>
                       </div>

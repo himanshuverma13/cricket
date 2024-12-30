@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // Images
 import Logo from "../../asset/img/icon/IND.png";
 import { useParams } from "react-router-dom";
-import { GetCommentariesAPI, GetMatchDetailsAPI, GetScoreCardDataAPI } from "../../APIs/api";
+import { GetCommentariesAPI, GetMatchDetailsAPI, GetScoreCardDataAPI, GetSquadsDataAPI } from "../../APIs/api";
 
 const LiveScore = () => {
     const [activeTab, setActiveTab] = useState("commentry");
@@ -154,6 +154,7 @@ const LiveScore = () => {
     const [Commentries, setCommentries] = useState();
     const [ScoreCard, setScoreCard] = useState();
     const [MatchInfo, setMatchInfo] = useState();
+    const [Squads, setSquads] = useState();
 
     const params = useParams();
 
@@ -162,14 +163,14 @@ const LiveScore = () => {
             const response = await GetCommentariesAPI(91805);
             const scoreCardData = await GetScoreCardDataAPI(91805);
             const matchInfo = await GetMatchDetailsAPI(91805);
+            // const squad = await GetSquadsDataAPI()
+            // console.log('squad: ', squad);
 
-            console.log(
-                "response: ",
-                scoreCardData?.scoreCard[0]?.bowlTeamDetails?.bowlersData
-            );
+          
             setCommentries(response);
             setScoreCard(scoreCardData);
             setMatchInfo(matchInfo);
+            // setSquads(squad);
         } catch (error) {
             console.log("error: ", error);
         }
