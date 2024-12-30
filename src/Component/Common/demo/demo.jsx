@@ -400,3 +400,50 @@
 // };
 
 // export default CourseSlider;
+
+
+
+
+
+
+
+
+
+
+
+{/* <div class="row justify-content-center">
+<div class="col-lg-6 col-12 px-3 pt-2 pb-lg-2">
+    <div class="shadow-sm mb-4 rounded-xl">
+        <div class="dropdown-item bg-light mb-3 rounded-xl">
+            <input type="checkbox" id="dropdownOne" class="d-none" />
+            <label for="dropdownOne" class="btn btn-light fw-semibold w-100 text-start rounded-xl">
+                What technologies do you use?
+            </label>
+            <div class="content
+             mt-2 border p-3 rounded">
+                <p>
+                    We in IFT utilize technologies depending on the type of projects we are working on. 
+                    The technologies on which we generally work on and have expertise in are:
+                    <strong>Front-end:</strong> HTML, CSS, JavaScript and frameworks like React, Angular, or Vue.js.
+                    <strong>Back-end:</strong> Python, Java, C#, PHP, Node.js.
+                    <strong>Databases:</strong> MySQL, Oracle, MongoDB, etc.
+                    <strong>Version Control:</strong> Git tools.
+                    <strong>Project Management Tools:</strong> Jira and Asana.
+                </p>
+            </div>
+        </div>
+
+        <div class="dropdown-item bg-light mb-3 rounded-xl">
+            <input type="checkbox" id="dropdownTwo" class="d-none" />
+            <label for="dropdownTwo" class="btn btn-light fw-semibold w-100 text-start rounded-xl">
+                What qualifications do you need to trade stocks?
+            </label>
+            <div class="content mt-2 border p-3 rounded">
+                <p>
+                    Anyone can safely start investing/trading in stocks, but there is always a risk of losing money. So, it's important to approach it with proper research, education, and a long-term perspective. Hence, it's better to have a degree in relevant subjects like management, business, economy, or finance.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div> */}
