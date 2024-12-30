@@ -64,7 +64,7 @@ const Team = () => {
                 <div>
                     <div class="tab-content p-0">
                         <div class={`tab-pane fade border px-2 shadow ${activeTab === 'international' ? 'show active' : ''}`} id="international" role="tabpanel" aria-labelledby="international-tab">
-                            <div class="row team_container p-4">
+                            <div class="row team_container bg-white p-4">
 
                                 <div class="col-lg-6">
                                 
@@ -406,7 +406,7 @@ const Team = () => {
 
 
                         <div className={`tab-pane fade  border px-2 shadow ${activeTab === 'league' ? 'show active' : ''}`} id="league" role="tabpanel" aria-labelledby="league-tab">
-                            <div className="row team_container p-4">
+                            <div className="row team_container bg-white p-4">
 
                                 <div className="col-lg-6">
 
@@ -2413,7 +2413,7 @@ const Team = () => {
 
 
                         <div className={`tab-pane fade border px-2 shadow ${activeTab === 'domestic' ? 'show active' : ''}`} id="domestic" role="tabpanel" aria-labelledby="domestic-tab">
-                            <div className="row team_container p-4">
+                            <div className="row team_container bg-white p-4">
 
                                 <div className="col-lg-6">
 
@@ -5400,7 +5400,7 @@ const Team = () => {
 
 
                         <div className={`tab-pane fade border px-2 shadow ${activeTab === 'women' ? 'show active' : ''}`} id="women" role="tabpanel" aria-labelledby="women-tab">
-                            <div className="row team_container p-4">
+                            <div className="row team_container bg-white p-4">
 
                                 <div className="col-lg-6">
 

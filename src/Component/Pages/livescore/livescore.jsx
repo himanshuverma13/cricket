@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Logo from "../../asset/img/icon/IND.png";
 import { useParams } from "react-router-dom";
 import { GetCommentariesAPI, GetMatchDetailsAPI, GetScoreCardDataAPI, GetSquadsDataAPI } from "../../APIs/api";
+import moment from "moment/moment";
 
 const LiveScore = () => {
     const [activeTab, setActiveTab] = useState("commentry");
@@ -154,7 +155,7 @@ const LiveScore = () => {
     const [Commentries, setCommentries] = useState();
     const [ScoreCard, setScoreCard] = useState();
     const [MatchInfo, setMatchInfo] = useState();
-    const [Squads, setSquads] = useState();
+    // const [Squads, setSquads] = useState();
 
     const params = useParams();
 
@@ -175,6 +176,16 @@ const LiveScore = () => {
             console.log("error: ", error);
         }
     };
+
+    const FetchSquadDetails = async(team1,team2)=>{
+        try {
+            const responseTeam1 = await GetSquadsDataAPI(91805,team1);
+            const responseTeam2 = await GetSquadsDataAPI(91805,team2);
+            // setSquads(response);
+        } catch (error) {
+            console.log("error: ", error);
+        }
+    }
 
     useEffect(() => {
         FetchMatchDetails();
@@ -764,89 +775,114 @@ const LiveScore = () => {
                                                         30, 2024
                                                     </p>
                                                 </div>
-                                                <div className="col-md-6">
-                                                    <h6 className="fw-bold">Time:</h6>
-                                                    <p>5:00 AM</p>
-                                                </div>
-                                            </div>
 
-                                            {/* Toss and Venue */}
-                                            <div className="row mb-4">
-                                                <div className="col-md-6">
-                                                    <h6 className="fw-bold">Toss:</h6>
-                                                    <p>Australia won the toss and opt Batting</p>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <h6 className="fw-bold">Venue:</h6>
-                                                    <p>Melbourne Cricket Ground, Melbourne</p>
-                                                </div>
-                                            </div>
-
-                                            {/* Umpires */}
-                                            <div className="row mb-4">
-                                                <div className="col-md-6">
-                                                    <h6 className="fw-bold">Umpires:</h6>
-                                                    <p>Joel Wilson, Michael Gough</p>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <h6 className="fw-bold">Third Umpire:</h6>
-                                                    <p>Sharfuddoula</p>
-                                                </div>
-                                            </div>
-
-                                            {/* Match Referee */}
-                                            <div className="mb-4">
-                                                <h6 className="fw-bold">Match Referee:</h6>
-                                                <p>Andy Pycroft</p>
-                                            </div>
-
-                                            {/* Australia Squad */}
-                                            <div className="mb-4">
-                                                <h6 className="fw-bold">Australia Squad:</h6>
-                                                <div className="ms-3">
-                                                    <div className="mb-2">
-                                                        <strong>Playing: </strong>
-                                                        <p className="mb-1">
-                                                            Usman Khawaja, Sam Konstas, Marnus
-                                                            Labuschagne, Steven Smith, Travis Head,
-                                                            Mitchell Marsh, Alex Carey (wk), Pat Cummins
-                                                            (c), Mitchell Starc, Nathan Lyon, Scott Boland
+                                                <div className="card-body">
+                                                    {/* Match Details */}
+                                                    <div className="mb-4">
+                                                        <h6 className="fw-bold">Match:</h6>
+                                                        <p>
+                                                        {MatchInfo?.matchInfo?.team1?.name} VS {MatchInfo?.matchInfo?.team2?.name}
+                                                        {MatchInfo?.matchInfo?.matchDescription}
                                                         </p>
                                                     </div>
-                                                    <div>
-                                                        <strong>Bench: </strong>
-                                                        <p className="mb-0">
-                                                            Beau Webster, Sean Abbott, Josh Inglis, Jhye
-                                                            Richardson, Andrew McDonald, Andre Borovec,
-                                                            Daniel Vettori, Michael Di Venuto, Clint McKay
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                            {/* India Squad */}
-                                            <div>
-                                                <h6 className="fw-bold">India Squad:</h6>
-                                                <div className="ms-3">
-                                                    <div className="mb-2">
-                                                        <strong>Playing: </strong>
-                                                        <p className="mb-1">
-                                                            Yashasvi Jaiswal, KL Rahul, Rohit Sharma (c),
-                                                            Virat Kohli, Rishabh Pant (wk), Ravindra
-                                                            Jadeja, Nitish Kumar Reddy, Washington Sundar,
-                                                            Jasprit Bumrah, Mohammed Siraj, Akash Deep
-                                                        </p>
+                                                    {/* Date and Time */}
+                                                    <div className="row mb-4">
+                                                        <div className="col-md-6">
+                                                            <h6 className="fw-bold">Date:</h6>
+                                                            <p>
+                                                            {moment(MatchInfo?.matchInfo?.matchStartTimestamp).format('MMMM Do YYYY')} - {moment(MatchInfo?.matchInfo?.matchCompleteTimestamp).format('MMMM Do YYYY')}
+                                                            </p>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <h6 className="fw-bold">Time:</h6>
+                                                            <p>{moment(MatchInfo?.matchInfo?.matchStartTimestamp).format('LT')}</p>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <strong>Bench: </strong>
-                                                        <p className="mb-0">
-                                                            Shubman Gill, Tanush Kotian, Dhruv Jurel,
-                                                            Devdutt Padikkal, Sarfaraz Khan, Abhimanyu
-                                                            Easwaran, Prasidh Krishna, Harshit Rana,
-                                                            Gautam Gambhir, Abhishek Nayar, Ryan ten
-                                                            Doeschate, T Dilip, Morne Morkel
-                                                        </p>
+
+                                                    {/* Toss and Venue */}
+                                                    <div className="row mb-4">
+                                                        <div className="col-md-6">
+                                                            <h6 className="fw-bold">Toss:</h6>
+                                                            <p>{MatchInfo?.matchInfo?.tossResults?.tossWinnerName} won the toss and opt {MatchInfo?.matchInfo?.tossResults?.decision}</p>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <h6 className="fw-bold">Venue:</h6>
+                                                            <p>{MatchInfo?.venueInfo?.ground}</p>
+                                                        </div>
                                                     </div>
+
+                                                    {/* Umpires */}
+                                                    <div className="row mb-4">
+                                                        <div className="col-md-6">
+                                                            <h6 className="fw-bold">Umpires:</h6>
+                                                            <p>{MatchInfo?.matchInfo?.umpire1?.name}, {MatchInfo?.matchInfo?.umpire2?.name}</p>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <h6 className="fw-bold">Third Umpire:</h6>
+                                                            <p>{MatchInfo?.matchInfo?.umpire3?.name}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Match Referee */}
+                                                    <div className="mb-4">
+                                                        <h6 className="fw-bold">Match Referee:</h6>
+                                                        <p>{MatchInfo?.matchInfo?.referee?.name}</p>
+                                                    </div>
+
+                                                   {/* Team2 Squad */}
+                                                   <div className="mb-4">
+                                                        <h6 className="fw-bold">{MatchInfo?.matchInfo?.team1?.name}  Squad:</h6>
+                                                        <div className="ms-3">
+                                                            <div className="mb-2">
+                                                               <div> <strong>Playing: </strong></div>
+                                                                    
+                                                                    {MatchInfo?.matchInfo?.team1?.playerDetails?.map((i) => 
+                                                                    <span className="mb-1">
+                                                                        {i?.substitute == false ?  `${i?.fullName} ${i?.captain == true ? "(C)": ''} ${i?.keeper == true ? "(WK)": ''} , ` : null } 
+                                                                    
+                                                                    </span> 
+                                                                    )}
+                                                            </div>
+                                                            <div>
+                                                               <div> <strong>Bench: </strong></div>
+                                                               {MatchInfo?.matchInfo?.team1?.playerDetails?.map((i) => 
+                                                                    <span className="mb-1">
+                                                                        {i?.substitute == true ?  `${i?.fullName} , ` : null } 
+                                                                    
+                                                                    </span> 
+                                                                    )}
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    {/* Team2 Squad */}
+                                                    <div className="mb-4">
+                                                        <h6 className="fw-bold">{MatchInfo?.matchInfo?.team2?.name}  Squad:</h6>
+                                                        <div className="ms-3">
+                                                            <div className="mb-2">
+                                                               <div> <strong>Playing: </strong></div>
+                                                                    
+                                                                    {MatchInfo?.matchInfo?.team2?.playerDetails?.map((i) => 
+                                                                    <span className="mb-1">
+                                                                        {i?.substitute == false ?  `${i?.fullName} ${i?.captain == true ? "(C)": ''} ${i?.keeper == true ? "(WK)": ''} , ` : null } 
+                                                                    
+                                                                    </span> 
+                                                                    )}
+                                                            </div>
+                                                            <div>
+                                                               <div> <strong>Bench: </strong></div>
+                                                               {MatchInfo?.matchInfo?.team2?.playerDetails?.map((i) => 
+                                                                    <span className="mb-1">
+                                                                        {i?.substitute == true ?  `${i?.fullName} , ` : null } 
+                                                                    
+                                                                    </span> 
+                                                                    )}
+                                                            </div>
+                                                        </div>
+
+                                            
                                                 </div>
                                             </div>
                                         </div>
