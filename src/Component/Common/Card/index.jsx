@@ -20,8 +20,8 @@ const CardSlider = () => {
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 979,
@@ -144,7 +144,7 @@ const CardSlider = () => {
                                 alt={`${course?.matchHeader?.team1?.shortName} logo`}
                               />
                             </div>
-                            <div className="team-name">
+                            <div className="team-name fw-bold">
                               {course?.matchHeader?.team1?.shortName}
                             </div>
                             <div className="score">
@@ -160,7 +160,7 @@ const CardSlider = () => {
                                 alt={`${course?.matchHeader?.team2?.shortName} logo`}
                               />
                             </div>
-                            <div className="team-name">
+                            <div className="team-name fw-bold">
                               {course?.matchHeader?.team2?.shortName}
                             </div>
                             <div className="score">
