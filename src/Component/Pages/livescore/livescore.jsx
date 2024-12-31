@@ -34,6 +34,7 @@ const LiveScore = () => {
         try {
             const response = await GetCommentariesAPI(params?.id);
             const scoreCardData = await GetScoreCardDataAPI(params?.id);
+            console.log('scoreCardData: ', scoreCardData);
             const matchInfo = await GetMatchDetailsAPI(params?.id);
 
             setCommentries(response);
@@ -374,26 +375,23 @@ const LiveScore = () => {
                                         >
                                             <div className="d-flex align-items-center">
                                                 <h5 className="text-white m-0">
-                                                    {ScoreCard?.matchHeader?.team2?.name}
+                                                    {ScoreCard?.matchHeader?.team1?.name}
                                                 </h5>{" "}
                                             </div>
                                             <div className="d-flex align-items-center ">
                                                 <div className=" fs-5 fw-bold me-2">
                                                     {
-                                                        Commentries?.miniscore?.matchScoreDetails
-                                                            ?.inningsScoreList[0]?.score
+                                                        ScoreCard?.scoreCard[0]?.scoreDetails?.runs
                                                     }
                                                     -
                                                     {
-                                                        Commentries?.miniscore?.matchScoreDetails
-                                                            ?.inningsScoreList[0]?.wickets
+                                                        ScoreCard?.scoreCard[0]?.scoreDetails?.wickets
                                                     }
                                                 </div>
                                                 <div>
                                                     (
                                                     {
-                                                        Commentries?.miniscore?.matchScoreDetails
-                                                            ?.inningsScoreList[0]?.overs
+                                                        ScoreCard?.scoreCard[0]?.scoreDetails?.overs
                                                     }
                                                     )
                                                 </div>
@@ -422,8 +420,8 @@ const LiveScore = () => {
                                                         {ScoreCard ? (
                                                             <>
                                                                 {Object?.values(
-                                                                    ScoreCard?.scoreCard[1]?.batTeamDetails
-                                                                        ?.batsmenData || {}
+                                                                    ScoreCard?.scoreCard[0]?.batTeamDetails
+                                                                        ?.batsmenData ?? []
                                                                 )?.map((bat, index) => (
                                                                     <tr key={index}>
                                                                         <td>{bat?.batName}</td>
@@ -463,8 +461,8 @@ const LiveScore = () => {
                                                         {ScoreCard ? (
                                                             <>
                                                                 {Object?.values(
-                                                                    ScoreCard?.scoreCard[1]?.bowlTeamDetails
-                                                                        ?.bowlersData
+                                                                    ScoreCard?.scoreCard[0]?.bowlTeamDetails
+                                                                        ?.bowlersData ?? []
                                                                 )?.map((bat, index) => (
                                                                     <tr key={index}>
                                                                         <td>{bat?.bowlName}</td>
@@ -498,26 +496,23 @@ const LiveScore = () => {
                                         >
                                             <div className="d-flex align-items-center">
                                                 <h5 className="text-white m-0">
-                                                    {ScoreCard?.matchHeader?.team1?.name}
+                                                    {ScoreCard?.matchHeader?.team2?.name}
                                                 </h5>{" "}
                                             </div>
                                             <div className="d-flex align-items-center ">
                                                 <div className=" fs-5 fw-bold me-2">
                                                     {
-                                                        Commentries?.miniscore?.matchScoreDetails
-                                                            ?.inningsScoreList[1]?.score
+                                                        ScoreCard?.scoreCard[1]?.scoreDetails?.runs
                                                     }
                                                     -
                                                     {
-                                                        Commentries?.miniscore?.matchScoreDetails
-                                                            ?.inningsScoreList[1]?.wickets
+                                                        ScoreCard?.scoreCard[1]?.scoreDetails?.wickets
                                                     }
                                                 </div>
                                                 <div>
                                                     (
                                                     {
-                                                        Commentries?.miniscore?.matchScoreDetails
-                                                            ?.inningsScoreList[1]?.overs
+                                                        ScoreCard?.scoreCard[1]?.scoreDetails?.overs
                                                     }
                                                     )
 
@@ -549,8 +544,8 @@ const LiveScore = () => {
                                                             {ScoreCard ? (
                                                                 <>
                                                                     {Object?.values(
-                                                                        ScoreCard?.scoreCard[0]?.batTeamDetails
-                                                                            ?.batsmenData || {}
+                                                                        ScoreCard?.scoreCard[1]?.batTeamDetails
+                                                                            ?.batsmenData ?? []
                                                                     )?.map((bat, index) => (
                                                                         <tr key={index}>
                                                                             <td>{bat?.batName}</td>
@@ -591,8 +586,8 @@ const LiveScore = () => {
                                                         {ScoreCard ? (
                                                             <>
                                                                 {Object?.values(
-                                                                    ScoreCard?.scoreCard[0]?.bowlTeamDetails
-                                                                        ?.bowlersData
+                                                                    ScoreCard?.scoreCard[1]?.bowlTeamDetails
+                                                                        ?.bowlersData ?? []
                                                                 )?.map((bat, index) => (
                                                                     <tr key={index}>
                                                                         <td>{bat?.bowlName}</td>

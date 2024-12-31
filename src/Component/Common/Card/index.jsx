@@ -59,6 +59,14 @@ const CardSlider = () => {
     getCardApi();
   }, []);
 
+  const sortedMatches = Matches?.sort((a, b) => {
+    if (a?.matchState === "In Progress" && b?.matchState !== "In Progress") return -1;
+    if (a?.matchState !== "In Progress" && b?.matchState === "In Progress") return 1;
+    return 0;
+  });
+  console.log('sortedMatches: ', sortedMatches);
+
+
   return (
     <div className="background-img">
       <div className="h-50 d-flex align-items-center justify-content-center">
@@ -78,7 +86,7 @@ const CardSlider = () => {
         <div className="slider-container overflow-hidden">
           {Matches.length > 0 ? (
             <Slider {...settings}>
-              {Matches.map((course, index) => {
+              {sortedMatches?.map((course, index) => {
                 const colorIndex = colorPattern[index % colorPattern.length];
                 const color = colr[colorIndex];
 
@@ -144,7 +152,7 @@ const CardSlider = () => {
                                 alt={`${course?.matchHeader?.team1?.shortName} logo`}
                               />
                             </div>
-                            <div className="team-name">
+                            <div className="team-name fw-bold">
                               {course?.matchHeader?.team1?.shortName}
                             </div>
                             <div className="score">
@@ -160,7 +168,7 @@ const CardSlider = () => {
                                 alt={`${course?.matchHeader?.team2?.shortName} logo`}
                               />
                             </div>
-                            <div className="team-name">
+                            <div className="team-name fw-bold">
                               {course?.matchHeader?.team2?.shortName}
                             </div>
                             <div className="score">
