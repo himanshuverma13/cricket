@@ -48,12 +48,12 @@ const NewsPage = () => {
 
   return (
     <>
-      <div className="news-page min-vh-100">
+      <div className="news-page pt-4 px-3 min-vh-100">
       <div className="text-center mb-4">
         <span className="text-white bg-heading fs-3 text-uppercase rounded-2 px-3 py-2">N E W S</span>
         </div>
-        <div className="row gap-3">
-          <div className="news-list col-lg-8">
+        <div className="row">
+          <div className="news-list col-lg-8 p-2">
             <h3>Cricket News</h3>
             {SportsNews?.map((news, index) => (
               <div key={index} className="news-item">
@@ -72,8 +72,8 @@ const NewsPage = () => {
               </div>
             ))}
           </div>
-          <aside className="sidebar col-lg-3">
-          <div className="container py-2">
+          <div className="sidebar col-lg-4">
+           <div className="container py-2">
               {/* Header */}
               <div className="d-flex align-items-center mb-2">
                <hr className="border border-dark w-100" />
@@ -83,15 +83,15 @@ const NewsPage = () => {
               </div>
 
               {/* Table */}
-              <div className="d-flex border rounded py-2 bg-white shadow-sm">
+              <div className="d-flex align-items-center justify-content-center border rounded py-2 bg-white shadow-sm">
                 {sportsData.map((sport, index) => (
-                  <div
+                  <button
                     key={index}
-                    className="d-flex align-items-center justify-content-center mx-2 border-end"
+                    className="d-flex align-items-center justify-content-center mx-2 px-1 rounded-2 bg-sport text-white"
                   >
-                    <span className="fw-bold">{sport.name}</span>
+                    <span className="fw-bold me-1">{sport.name}</span>
                     <span className="fs-4">{sport.value}</span>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>  
@@ -109,7 +109,7 @@ const NewsPage = () => {
               </div>
             ))}
             
-          </aside>
+          </div>
         </div>
         <div className="sidebar mt-4">
           <div className="row g-4">

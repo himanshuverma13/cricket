@@ -167,7 +167,7 @@ const LiveScore = () => {
             // const squad = await GetSquadsDataAPI()
             // console.log('squad: ', squad);
 
-          
+
             setCommentries(response);
             setScoreCard(scoreCardData);
             setMatchInfo(matchInfo);
@@ -177,10 +177,10 @@ const LiveScore = () => {
         }
     };
 
-    const FetchSquadDetails = async(team1,team2)=>{
+    const FetchSquadDetails = async (team1, team2) => {
         try {
-            const responseTeam1 = await GetSquadsDataAPI(91805,team1);
-            const responseTeam2 = await GetSquadsDataAPI(91805,team2);
+            const responseTeam1 = await GetSquadsDataAPI(91805, team1);
+            const responseTeam2 = await GetSquadsDataAPI(91805, team2);
             // setSquads(response);
         } catch (error) {
             console.log("error: ", error);
@@ -238,11 +238,11 @@ const LiveScore = () => {
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[0]?.wickets
-                                             }
+                                            }
                                         </div>
                                         <div>
-                                          
-                                           (
+
+                                            (
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[0]?.overs
@@ -273,7 +273,7 @@ const LiveScore = () => {
                                         </div>
 
                                         <div>
-                                             (
+                                            (
                                             {
                                                 Commentries?.miniscore?.matchScoreDetails
                                                     ?.inningsScoreList[1]?.overs
@@ -464,7 +464,7 @@ const LiveScore = () => {
                                     <div className="col-lg-4">
                                         <div className="list-group">
                                             <div
-                                                className="list-group-item bg-sport fw-bolder"
+                                                className="list-group-item bg-sport text-white fw-bolder"
                                                 aria-current="true"
                                             >
                                                 The current link item
@@ -695,7 +695,7 @@ const LiveScore = () => {
                         {/* Squads Start */}
                         <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'squads' ? 'show active' : ''}`} id="squads" role="tabpanel" aria-labelledby="squads-tab">
                             <div class="container tab p-3">
-                                <div className="bg-sport mb-4 shadow d-flex justify-content-between align-items-center fw-bold px-4 rounded-3">
+                                <div className="bg-sport mb-4 shadow text-white d-flex justify-content-between align-items-center fw-bold px-4 rounded-3">
                                     <p className="pt-2">MLR</p>
                                     <p className="pt-2">PRS</p>
                                 </div>
@@ -751,119 +751,144 @@ const LiveScore = () => {
                         {/* Match Facts Start */}
                         <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'match facts' ? 'show active' : ''}`} id="match facts" role="tabpanel" aria-labelledby="matchfacts-tab">
                             <div className="tab p-3">
-                            <div className="container mt-4">
-                                            <div className="card">
-                                                <div className="card-header bg-sport">
-                                                    <h5 className="mb-0">Match Info</h5>
+                                <div className="container mt-4">
+                                    <div className="card">
+                                        <div className="card-header bg-sport text-white">
+                                            <h5 className="mb-0">Match Info</h5>
+                                        </div>
+                                        <div className="card-body">
+                                            {/* Match Details */}
+                                            <div className="mb-1 border-bottom">
+                                                <h6 className="fw-bold">Match:</h6>
+                                                <p>
+                                                    Australia vs India, 4th Test, India tour of
+                                                    Australia, 2024-25
+                                                </p>
+                                            </div>
+
+                                            {/* Date and Time */}
+                                            <div className="row border-bottom pt-1">
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Date:</h6>
+                                                    <p>
+                                                        Thursday, December 26, 2024 - Monday, December
+                                                        30, 2024
+                                                    </p>
                                                 </div>
-                                                <div className="card-body">
-                                                    {/* Match Details */}
-                                                    <div className="mb-4">
-                                                        <h6 className="fw-bold">Match:</h6>
-                                                        <p>
+
+                                                {/* <div className=""> */}
+                                                {/* Match Details */}
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Match:</h6>
+                                                    <p>
                                                         {MatchInfo?.matchInfo?.team1?.name} VS {MatchInfo?.matchInfo?.team2?.name}
                                                         {MatchInfo?.matchInfo?.matchDescription}
-                                                        </p>
-                                                    </div>
-
-                                                    {/* Date and Time */}
-                                                    <div className="row mb-4">
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Date:</h6>
-                                                            <p>
-                                                            {moment(MatchInfo?.matchInfo?.matchStartTimestamp).format('MMMM Do YYYY')} - {moment(MatchInfo?.matchInfo?.matchCompleteTimestamp).format('MMMM Do YYYY')}
-                                                            </p>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Time:</h6>
-                                                            <p>{moment(MatchInfo?.matchInfo?.matchStartTimestamp).format('LT')}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Toss and Venue */}
-                                                    <div className="row mb-4">
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Toss:</h6>
-                                                            <p>{MatchInfo?.matchInfo?.tossResults?.tossWinnerName} won the toss and opt {MatchInfo?.matchInfo?.tossResults?.decision}</p>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Venue:</h6>
-                                                            <p>{MatchInfo?.venueInfo?.ground}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Umpires */}
-                                                    <div className="row mb-4">
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Umpires:</h6>
-                                                            <p>{MatchInfo?.matchInfo?.umpire1?.name}, {MatchInfo?.matchInfo?.umpire2?.name}</p>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <h6 className="fw-bold">Third Umpire:</h6>
-                                                            <p>{MatchInfo?.matchInfo?.umpire3?.name}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Match Referee */}
-                                                    <div className="mb-4">
-                                                        <h6 className="fw-bold">Match Referee:</h6>
-                                                        <p>{MatchInfo?.matchInfo?.referee?.name}</p>
-                                                    </div>
-
-                                                   {/* Team2 Squad */}
-                                                   <div className="mb-4">
-                                                        <h6 className="fw-bold">{MatchInfo?.matchInfo?.team1?.name}  Squad:</h6>
-                                                        <div className="ms-3">
-                                                            <div className="mb-2">
-                                                               <div> <strong>Playing: </strong></div>
-                                                                    
-                                                                    {MatchInfo?.matchInfo?.team1?.playerDetails?.map((i) => 
-                                                                    <span className="mb-1">
-                                                                        {i?.substitute == false ?  `${i?.fullName} ${i?.captain == true ? "(C)": ''} ${i?.keeper == true ? "(WK)": ''} , ` : null } 
-                                                                    
-                                                                    </span> 
-                                                                    )}
-                                                            </div>
-                                                            <div>
-                                                               <div> <strong>Bench: </strong></div>
-                                                               {MatchInfo?.matchInfo?.team1?.playerDetails?.map((i) => 
-                                                                    <span className="mb-1">
-                                                                        {i?.substitute == true ?  `${i?.fullName} , ` : null } 
-                                                                    
-                                                                    </span> 
-                                                                    )}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Team2 Squad */}
-                                                    <div className="mb-4">
-                                                        <h6 className="fw-bold">{MatchInfo?.matchInfo?.team2?.name}  Squad:</h6>
-                                                        <div className="ms-3">
-                                                            <div className="mb-2">
-                                                               <div> <strong>Playing: </strong></div>
-                                                                    
-                                                                    {MatchInfo?.matchInfo?.team2?.playerDetails?.map((i) => 
-                                                                    <span className="mb-1">
-                                                                        {i?.substitute == false ?  `${i?.fullName} ${i?.captain == true ? "(C)": ''} ${i?.keeper == true ? "(WK)": ''} , ` : null } 
-                                                                    
-                                                                    </span> 
-                                                                    )}
-                                                            </div>
-                                                            <div>
-                                                               <div> <strong>Bench: </strong></div>
-                                                               {MatchInfo?.matchInfo?.team2?.playerDetails?.map((i) => 
-                                                                    <span className="mb-1">
-                                                                        {i?.substitute == true ?  `${i?.fullName} , ` : null } 
-                                                                    
-                                                                    </span> 
-                                                                    )}
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    </p>
                                                 </div>
                                             </div>
+
+                                            {/* Date and Time */}
+                                            <div className="row border-bottom pt-1">
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Date:</h6>
+                                                    <p>
+                                                        {moment(MatchInfo?.matchInfo?.matchStartTimestamp).format('MMMM Do YYYY')} - {moment(MatchInfo?.matchInfo?.matchCompleteTimestamp).format('MMMM Do YYYY')}
+                                                    </p>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Time:</h6>
+                                                    <p>{moment(MatchInfo?.matchInfo?.matchStartTimestamp).format('LT')}</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Toss and Venue */}
+                                            <div className="row border-bottom pt-1">
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Toss:</h6>
+                                                    <p>{MatchInfo?.matchInfo?.tossResults?.tossWinnerName} won the toss and opt {MatchInfo?.matchInfo?.tossResults?.decision}</p>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Venue:</h6>
+                                                    <p>{MatchInfo?.venueInfo?.ground}</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Umpires */}
+                                            <div className="row border-bottom pt-1 mb-2">
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Umpires:</h6>
+                                                    <p>{MatchInfo?.matchInfo?.umpire1?.name}, {MatchInfo?.matchInfo?.umpire2?.name}</p>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <h6 className="fw-bold">Third Umpire:</h6>
+                                                    <p>{MatchInfo?.matchInfo?.umpire3?.name}</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Match Referee */}
+                                            <div className="mb-2 border-bottom">
+                                                <h6 className="fw-bold">Match Referee:</h6>
+                                                <p>{MatchInfo?.matchInfo?.referee?.name}</p>
+                                            </div>
+
+                                            {/* Team2 Squad */}
+                                            <div className="mb-2 border-bottom pb-2">
+                                                <h6 className="fw-bold">{MatchInfo?.matchInfo?.team1?.name}  Squad:</h6>
+                                                <div className="ms-3">
+                                                    <div className="mb-2">
+                                                        <div> <strong>Playing: </strong></div>
+
+                                                        {MatchInfo?.matchInfo?.team1?.playerDetails?.map((i) =>
+                                                            <span className="mb-1">
+                                                                {i?.substitute == false ? `${i?.fullName} ${i?.captain == true ? "(C)" : ''} ${i?.keeper == true ? "(WK)" : ''} , ` : null}
+
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <div>
+                                                        <div> <strong>Bench: </strong></div>
+                                                        {MatchInfo?.matchInfo?.team1?.playerDetails?.map((i) =>
+                                                            <span className="mb-1">
+                                                                {i?.substitute == true ? `${i?.fullName} , ` : null}
+
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            {/* Team2 Squad */}
+                                            <div className="mb-4">
+                                                <h6 className="fw-bold">{MatchInfo?.matchInfo?.team2?.name}  Squad:</h6>
+                                                <div className="ms-3">
+                                                    <div className="mb-2">
+                                                        <div> <strong>Playing: </strong></div>
+
+                                                        {MatchInfo?.matchInfo?.team2?.playerDetails?.map((i) =>
+                                                            <span className="mb-1">
+                                                                {i?.substitute == false ? `${i?.fullName} ${i?.captain == true ? "(C)" : ''} ${i?.keeper == true ? "(WK)" : ''} , ` : null}
+
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <div>
+                                                        <div> <strong>Bench: </strong></div>
+                                                        {MatchInfo?.matchInfo?.team2?.playerDetails?.map((i) =>
+                                                            <span className="mb-1">
+                                                                {i?.substitute == true ? `${i?.fullName} , ` : null}
+
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            {/* </div> */}
                                         </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -877,9 +902,9 @@ const LiveScore = () => {
                             </div>
                         </div>
                     </div>
-
                 </section>
             </div>
+
         </>
     );
 };
