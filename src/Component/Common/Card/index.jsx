@@ -97,7 +97,7 @@ const CardSlider = () => {
                         ></div>
 
                         <div className="d-flex justify-content-between align-items-center">
-                          <div className="match-date z-2">
+                          <div className="match-date text-center z-2">
                             <div className="text-center fw-bold">
                               {moment(
                                 course?.matchHeader?.matchCompleteTimestamp
@@ -148,7 +148,8 @@ const CardSlider = () => {
                               {course?.matchHeader?.team1?.shortName}
                             </div>
                             <div className="score">
-                              {course?.scoreCard?.[0]?.scoreDetails?.runs}
+                              {course?.scoreCard?.[0]?.scoreDetails?.runs}/{course?.scoreCard?.[0]?.scoreDetails?.wickets} ({course?.scoreCard?.[0]?.scoreDetails?.overs})
+                              
                             </div>
                           </div>
                           <div className="vs-icon z-2">V/S </div>
@@ -163,7 +164,7 @@ const CardSlider = () => {
                               {course?.matchHeader?.team2?.shortName}
                             </div>
                             <div className="score">
-                              {course?.scoreCard?.[1]?.scoreDetails?.runs}
+                              {course?.scoreCard?.[1]?.scoreDetails?.runs}/{course?.scoreCard?.[1]?.scoreDetails?.wickets} ({course?.scoreCard?.[1]?.scoreDetails?.overs})
                             </div>
                           </div>
                         </div>
@@ -264,8 +265,12 @@ const CardSlider = () => {
                   {loading ? (
                     <Skeleton width={40} />
                   ) : (
-                    Matches
-                    ?.scoreCard?.[0]?.scoreDetails?.runs
+                    <span>
+
+                    {Matches?.scoreCard?.[0]?.scoreDetails?.runs} / {Matches
+                    ?.scoreCard?.[0]?.scoreDetails?.wickets} ({Matches
+                      ?.scoreCard?.[0]?.scoreDetails?.overs})
+                    </span>
                   )}
                 </div>
               </div>
