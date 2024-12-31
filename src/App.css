@@ -369,7 +369,7 @@ body{
 .news-list {
   /* flex: 3; */
   background-color: white;
-  /* padding: 9px 15pxs; */
+  /* padding: 9px 15px; */
   border-radius: 20px;
 }
 .news-list h3{
@@ -379,7 +379,7 @@ body{
 
 .sidebar {
   /* flex: 1; */
-  padding-left: 20px;
+  /* padding-left: 20px; */
   background-color: white;
   padding: 15px;
   border-radius: 20px;
