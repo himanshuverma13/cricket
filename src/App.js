@@ -23,7 +23,7 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/team-details/:id" element={<TeamDetails />} />
         <Route path="/news" element={<News />} />
-        <Route path="/livescore" element={<LiveScore />} />
+        <Route path="/livescore/:id" element={<LiveScore />} />
 
       </Routes>
     </Router>
