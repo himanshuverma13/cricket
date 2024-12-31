@@ -362,14 +362,14 @@ body{
 /* ===========================  News  ================================= */
 
 .news-page {
-  /* padding: 20px; */
+  padding: 20px;
   /* background-color: rgba(249, 249, 251); */
 }
 
 .news-list {
   /* flex: 3; */
   background-color: white;
-  /* padding: 9px 15px; */
+  /* padding: 9px 15pxs; */
   border-radius: 20px;
 }
 .news-list h3{
@@ -596,7 +596,7 @@ margin: 0px 10px;
   background-color:#00343c !important;
 }
 
-.news-item, .most-read-item {
+/* .news-item, .most-read-item {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
@@ -611,7 +611,7 @@ margin: 0px 10px;
   .news-item img{
     margin: auto;
   }
-}
+} */
 
 
 .table-bg th{
@@ -621,7 +621,7 @@ margin: 0px 10px;
 
 /* ---------------- Livescore Css------------------ */
 .livescore-img{
-  height: 35px;
+  height: 40px;
 }
 
   .content {
