@@ -11,9 +11,9 @@ const NewsPage = () => {
   const [SportsNews, setSportsNews] = useState();
 
   const sportsData = [
-    { name: "CRICKET", value:<MdSportsCricket className="text-danger" /> },
+    { name: "CRICKET", value: <MdSportsCricket className="text-danger" /> },
     { name: "FOOTBALL", value: <IoFootball /> },
-    { name: "TENNIS", value: <MdOutlineSportsTennis className="text-info"/> },
+    { name: "TENNIS", value: <MdOutlineSportsTennis className="text-info" /> },
   ];
 
   const FetchNews = async () => {
@@ -49,14 +49,14 @@ const NewsPage = () => {
   return (
     <>
       <div className="news-page pt-4 px-3 min-vh-100">
-      <div className="text-center mb-4">
-        <span className="text-white bg-heading fs-3 text-uppercase rounded-2 px-3 py-2">N E W S</span>
+        <div className="text-center mb-4">
+          <span className="text-white bg-heading fs-3 text-uppercase rounded-2 px-3 py-2">N E W S</span>
         </div>
-        <div className="row gap-2">
+        <div className="row gap-2 justify-content-around">
           <div className="news-list col-lg-8 p-2">
-            <h3>Cricket News</h3>
+            <h3 className="ms-2">Cricket News</h3>
             {SportsNews?.map((news, index) => (
-              <div key={index} className="news-item">
+              <div key={index} className="news-item shadow py-2">
                 <img src={news?.image} alt={news?.title} />
                 <div className="news-details">
                   <h4>{news?.title}</h4>
@@ -73,11 +73,11 @@ const NewsPage = () => {
             ))}
           </div>
           <div className="sidebar col-lg-3">
-           <div className="container py-2">
+            <div className="container py-2">
               {/* Header */}
               <div className="d-flex align-items-center mb-2">
-               <hr className="border border-dark w-100" />
-                
+                <hr className="border border-dark w-100" />
+
                 <div className="px-3 py-1 bg-secondary text-white">SPORTS</div>
                 <hr className="border border-dark w-100" />
               </div>
@@ -94,10 +94,10 @@ const NewsPage = () => {
                   </button>
                 ))}
               </div>
-            </div>  
+            </div>
             <h4>Most Read</h4>
             {SportsNews?.map((item, index) => (
-              <div key={index} className="most-read-item">
+              <div key={index} className="most-read-item border-bottom pb-2">
                 <img src={item?.image} alt={item?.title} />
                 <div>
                   <h6>{item?.title}</h6>
@@ -108,7 +108,7 @@ const NewsPage = () => {
                 </div>
               </div>
             ))}
-            
+
           </div>
         </div>
         <div className="sidebar mt-4">
