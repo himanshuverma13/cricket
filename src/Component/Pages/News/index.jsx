@@ -52,7 +52,7 @@ const NewsPage = () => {
       <div className="text-center mb-4">
         <span className="text-white bg-heading fs-3 text-uppercase rounded-2 px-3 py-2">N E W S</span>
         </div>
-        <div className="row">
+        <div className="row gap-2">
           <div className="news-list col-lg-8 p-2">
             <h3>Cricket News</h3>
             {SportsNews?.map((news, index) => (
@@ -72,7 +72,7 @@ const NewsPage = () => {
               </div>
             ))}
           </div>
-          <div className="sidebar col-lg-4">
+          <div className="sidebar col-lg-3">
            <div className="container py-2">
               {/* Header */}
               <div className="d-flex align-items-center mb-2">
@@ -87,10 +87,10 @@ const NewsPage = () => {
                 {sportsData.map((sport, index) => (
                   <button
                     key={index}
-                    className="d-flex align-items-center justify-content-center mx-2 px-1 rounded-2 bg-sport text-white"
+                    className="d-flex align-items-center justify-content-center mx-1 px-1 rounded-2 bg-sport text-white"
                   >
-                    <span className="fw-bold me-1">{sport.name}</span>
-                    <span className="fs-4">{sport.value}</span>
+                    <span className="fw-normal fs-6 me-1">{sport.name}</span>
+                    <span className="fs-5">{sport.value}</span>
                   </button>
                 ))}
               </div>

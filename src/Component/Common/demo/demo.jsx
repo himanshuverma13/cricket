@@ -298,7 +298,7 @@
 
 //             // Use the color from the colr array
 //             const color = colr[colorIndex];
-          
+
 //                 return (
 //                   <div className="ag-courses_item" key={index}>
 //                     <div className="ag-courses-item_link">
@@ -447,3 +447,71 @@
     </div>
 </div>
 </div> */}
+
+
+
+
+
+
+
+
+
+
+
+{/* <div class="dropdown-item bg-light mb-3 rounded">
+    <input type="checkbox" id="dropdownOne" class="d-none" />
+    <label for="dropdownOne" class="btn bg-sport text-white fw-semibold w-100 text-start rounded-xl">
+        <h5 className="text-white">{ScoreCard?.status}</h5>
+    </label>
+    <div class="container content mt-2 border p-3 rounded">
+        <h1 className="text-center mb-4">Batsmen Data</h1>
+        <h3>
+            {ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} :{" "}
+            {ScoreCard?.scoreCard[0]?.inningsId} Innings{" "}
+            {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
+            {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
+        </h3>
+        <div className="table-responsive">
+            <table className="table table-bordered table-striped">
+                <thead className="table-bg">
+                    <tr>
+                        <th>Batsman Name</th>
+                        <th>Runs</th>
+                        <th>Balls</th>
+                        <th>Fours</th>
+                        <th>Sixes</th>
+                        <th>Strike Rate</th>
+                        <th>Out Description</th>
+                        <th>Is Captain</th>
+                        <th>Is Keeper</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {ScoreCard ? (
+                        <>
+                            {Object?.values(
+                                ScoreCard?.scoreCard[0]?.batTeamDetails
+                                    ?.batsmenData || {}
+                            )?.map((bat, index) => (
+                                <tr key={index}>
+                                    <td>{bat?.batName}</td>
+                                    <td>{bat?.runs}</td>
+                                    <td>{bat?.balls}</td>
+                                    <td>{bat?.fours}</td>
+                                    <td>{bat?.sixes}</td>
+                                    <td>{bat?.strikeRate}</td>
+                                    <td>{bat?.outDesc || "Not Out"}</td>
+                                    <td>{bat?.isCaptain ? "Yes" : "No"}</td>
+                                    <td>{bat?.isKeeper ? "Yes" : "No"}</td>
+                                </tr>
+                            ))}
+                        </>
+                    ) : (
+                        <p>Loading...</p>
+                    )}
+                </tbody>
+            </table>
+        </div>
+
+        {/* ------------ */}
+//       

@@ -353,204 +353,212 @@ const LiveScore = () => {
               </div>
             </div>
 
-            {/* ScoreCard Start */}
-            <div
-              class={`tab-pane fade border bg-white px-2 shadow ${
-                activeTab === "scorecard" ? "show active" : ""
-              }`}
-              id="scorecard"
-              role="tabpanel"
-              aria-labelledby="scorecard-tab"
-            >
-              <div className="tab p-3">
-                <h5 className="text-warning">{ScoreCard?.status}</h5>
-                <div className="border border-2 border-light rounde-2">
-                  <p className="ms-2">
-                    Melbourne Renegades Innings <span>127-6 (15.5 Ov)</span>
-                  </p>
+                        {/* ScoreCard Start */}
+                        <div class={`tab-pane fade border bg-white px-2 shadow ${activeTab === 'scorecard' ? 'show active' : ''}`} id="scorecard" role="tabpanel" aria-labelledby="scorecard-tab">
+                            <div className="tab p-3">
+                                <div className="px-2">
+                                    <p className="ms-2 text-warning fw-bold pt-2 fs-4">
+                                        Melbourne Renegades Innings <span>127-6 (15.5 Ov)</span>
+                                    </p>
+                                    <div className="dropdown-item  bg-white shadow mb-3 rounded">
+                                        <input type="checkbox" id="dropdownOne" className="livecore-accordian d-none" />
+                                        <label for="dropdownOne" className="btn bg-sport text-white fw-semibold w-100 text-start rounded-xl">
+                                            <h5 className="text-white">{ScoreCard?.status}</h5>
+                                        </label>
+                                        <div className="container content mt-2 border p-3 rounded">
+                                            <h1 className="text-center mb-4">Batsmen Data</h1>
+                                            <h3>
+                                                {ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} :{" "}
+                                                {ScoreCard?.scoreCard[0]?.inningsId} Innings{" "}
+                                                {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
+                                                {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
+                                            </h3>
+                                            <div className="table-responsive">
+                                                <table className="table table-bordered table-striped">
+                                                    <thead className="table-bg">
+                                                        <tr>
+                                                            <th>Batsman Name</th>
+                                                            <th>Runs</th>
+                                                            <th>Balls</th>
+                                                            <th>Fours</th>
+                                                            <th>Sixes</th>
+                                                            <th>Strike Rate</th>
+                                                            <th>Out Description</th>
+                                                            <th>Is Captain</th>
+                                                            <th>Is Keeper</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {ScoreCard ? (
+                                                            <>
+                                                                {Object?.values(
+                                                                    ScoreCard?.scoreCard[0]?.batTeamDetails
+                                                                        ?.batsmenData || {}
+                                                                )?.map((bat, index) => (
+                                                                    <tr key={index}>
+                                                                        <td>{bat?.batName}</td>
+                                                                        <td>{bat?.runs}</td>
+                                                                        <td>{bat?.balls}</td>
+                                                                        <td>{bat?.fours}</td>
+                                                                        <td>{bat?.sixes}</td>
+                                                                        <td>{bat?.strikeRate}</td>
+                                                                        <td>{bat?.outDesc || "Not Out"}</td>
+                                                                        <td>{bat?.isCaptain ? "Yes" : "No"}</td>
+                                                                        <td>{bat?.isKeeper ? "Yes" : "No"}</td>
+                                                                    </tr>
+                                                                ))}
+                                                            </>
+                                                        ) : (
+                                                            <p>Loading...</p>
+                                                        )}
+                                                    </tbody>
+                                                </table>
+                                            </div>
 
-                  <div className="container my-5">
-                    <h1 className="text-center mb-4">Batsmen Data</h1>
-                    <h3>
-                      {ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} :{" "}
-                      {ScoreCard?.scoreCard[0]?.inningsId} Innings{" "}
-                      {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
-                      {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
-                    </h3>
-                    <div className="table-responsive">
-                      <table className="table table-bordered table-striped">
-                        <thead className="table-bg">
-                          <tr>
-                            <th>Batsman Name</th>
-                            <th>Runs</th>
-                            <th>Balls</th>
-                            <th>Fours</th>
-                            <th>Sixes</th>
-                            <th>Strike Rate</th>
-                            <th>Out Description</th>
-                            <th>Is Captain</th>
-                            <th>Is Keeper</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {ScoreCard ? (
-                            <>
-                              {Object?.values(
-                                ScoreCard?.scoreCard[0]?.batTeamDetails
-                                  ?.batsmenData || {}
-                              )?.map((bat, index) => (
-                                <tr key={index}>
-                                  <td>{bat?.batName}</td>
-                                  <td>{bat?.runs}</td>
-                                  <td>{bat?.balls}</td>
-                                  <td>{bat?.fours}</td>
-                                  <td>{bat?.sixes}</td>
-                                  <td>{bat?.strikeRate}</td>
-                                  <td>{bat?.outDesc || "Not Out"}</td>
-                                  <td>{bat?.isCaptain ? "Yes" : "No"}</td>
-                                  <td>{bat?.isKeeper ? "Yes" : "No"}</td>
-                                </tr>
-                              ))}
-                            </>
-                          ) : (
-                            <p>Loading...</p>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
+                                            {/* ------------ */}
+                                            <div className="container my-5">
+                                                <h1 className="text-center mb-4">Bowler Data</h1>
+                                                <h3>
+                                                    {ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} :{" "}
+                                                    {ScoreCard?.scoreCard[0]?.inningsId} Innings{" "}
+                                                    {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
+                                                    {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
+                                                </h3>
+                                                <table className="table table-bordered table-striped">
+                                                    <thead className="table-bg">
+                                                        <tr>
+                                                            <th>Bowler Name</th>
+                                                            <th>O</th>
+                                                            <th>M</th>
+                                                            <th>R</th>
+                                                            <th>W</th>
+                                                            <th>ECO</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {ScoreCard ? (
+                                                            <>
+                                                                {Object?.values(
+                                                                    ScoreCard?.scoreCard[0]?.bowlTeamDetails
+                                                                        ?.bowlersData
+                                                                )?.map((bat, index) => (
+                                                                    <tr key={index}>
+                                                                        <td>{bat?.bowlName}</td>
+                                                                        <td>{bat?.overs}</td>
+                                                                        <td>{bat?.maidens}</td>
+                                                                        <td>{bat?.runs}</td>
+                                                                        <td>{bat?.wickets}</td>
+                                                                        <td>{bat?.economy}</td>
+                                                                    </tr>
+                                                                ))}
+                                                            </>
+                                                        ) : (
+                                                            <p>Loading...</p>
+                                                        )}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                    {/* ------------ */}
-                    <div className="container my-5">
-                      <h1 className="text-center mb-4">Bowler Data</h1>
-                      <h3>
-                        {ScoreCard?.scoreCard[1]?.batTeamDetails?.batTeamName} :{" "}
-                        {ScoreCard?.scoreCard[0]?.inningsId} Innings{" "}
-                        {ScoreCard?.scoreCard[1]?.scoreDetails?.runs}-
-                        {ScoreCard?.scoreCard[1]?.scoreDetails?.wickets}{" "}
-                      </h3>
-                      <table className="table table-bordered table-striped">
-                        <thead className="table-bg">
-                          <tr>
-                            <th>Bowler Name</th>
-                            <th>O</th>
-                            <th>M</th>
-                            <th>R</th>
-                            <th>W</th>
-                            <th>ECO</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {ScoreCard ? (
-                            <>
-                              {Object?.values(
-                                ScoreCard?.scoreCard[0]?.bowlTeamDetails
-                                  ?.bowlersData
-                              )?.map((bat, index) => (
-                                <tr key={index}>
-                                  <td>{bat?.bowlName}</td>
-                                  <td>{bat?.overs}</td>
-                                  <td>{bat?.maidens}</td>
-                                  <td>{bat?.runs}</td>
-                                  <td>{bat?.wickets}</td>
-                                  <td>{bat?.economy}</td>
-                                </tr>
-                              ))}
-                            </>
-                          ) : (
-                            <p>Loading...</p>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
+                                    <div class="dropdown-item bg-white shadow mb-3 rounded">
+                                        <input type="checkbox" id="dropdownTwo" class="livecore-accordian d-none" />
+                                        <label for="dropdownTwo" class="btn bg-sport text-white fw-semibold w-100 text-start rounded">
+                                            What qualifications do you need to trade stocks?
+                                        </label>
+                                        <div class="content mt-2 border p-3 rounded">
+                                            {/* ---------------- */}
+                                            <div className="container my-5">
+                                                <h1 className="text-center mb-4">Batsmen Data</h1>
+                                                {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
+                                                <div className="table-responsive">
+                                                    <table className="table table-bordered table-striped">
+                                                        <thead className="table-bg">
+                                                            <tr>
+                                                                <th>Batsman Name</th>
+                                                                <th>Runs</th>
+                                                                <th>Balls</th>
+                                                                <th>Fours</th>
+                                                                <th>Sixes</th>
+                                                                <th>Strike Rate</th>
+                                                                <th>Out Description</th>
+                                                                <th>Is Captain</th>
+                                                                <th>Is Keeper</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {ScoreCard ? (
+                                                                <>
+                                                                    {Object?.values(
+                                                                        ScoreCard?.scoreCard[1]?.batTeamDetails
+                                                                            ?.batsmenData || {}
+                                                                    )?.map((bat, index) => (
+                                                                        <tr key={index}>
+                                                                            <td>{bat?.batName}</td>
+                                                                            <td>{bat?.runs}</td>
+                                                                            <td>{bat?.balls}</td>
+                                                                            <td>{bat?.fours}</td>
+                                                                            <td>{bat?.sixes}</td>
+                                                                            <td>{bat?.strikeRate}</td>
+                                                                            <td>{bat?.outDesc || "Not Out"}</td>
+                                                                            <td>{bat?.isCaptain ? "Yes" : "No"}</td>
+                                                                            <td>{bat?.isKeeper ? "Yes" : "No"}</td>
+                                                                        </tr>
+                                                                    ))}
+                                                                </>
+                                                            ) : (
+                                                                <p>Loading...</p>
+                                                            )}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
 
-                    {/* ---------------- */}
-                    <div className="container my-5">
-                      <h1 className="text-center mb-4">Batsmen Data</h1>
-                      {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
-                      <div className="table-responsive">
-                        <table className="table table-bordered table-striped">
-                          <thead className="table-bg">
-                            <tr>
-                              <th>Batsman Name</th>
-                              <th>Runs</th>
-                              <th>Balls</th>
-                              <th>Fours</th>
-                              <th>Sixes</th>
-                              <th>Strike Rate</th>
-                              <th>Out Description</th>
-                              <th>Is Captain</th>
-                              <th>Is Keeper</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {ScoreCard ? (
-                              <>
-                                {Object?.values(
-                                  ScoreCard?.scoreCard[1]?.batTeamDetails
-                                    ?.batsmenData || {}
-                                )?.map((bat, index) => (
-                                  <tr key={index}>
-                                    <td>{bat?.batName}</td>
-                                    <td>{bat?.runs}</td>
-                                    <td>{bat?.balls}</td>
-                                    <td>{bat?.fours}</td>
-                                    <td>{bat?.sixes}</td>
-                                    <td>{bat?.strikeRate}</td>
-                                    <td>{bat?.outDesc || "Not Out"}</td>
-                                    <td>{bat?.isCaptain ? "Yes" : "No"}</td>
-                                    <td>{bat?.isKeeper ? "Yes" : "No"}</td>
-                                  </tr>
-                                ))}
-                              </>
-                            ) : (
-                              <p>Loading...</p>
-                            )}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                                            <div className="container my-5">
+                                                <h1 className="text-center mb-4">Bowler Data</h1>
+                                                {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
+                                                <table className="table table-bordered table-striped">
+                                                    <thead className="table-bg">
+                                                        <tr>
+                                                            <th>Bowler Name</th>
+                                                            <th>O</th>
+                                                            <th>M</th>
+                                                            <th>R</th>
+                                                            <th>W</th>
+                                                            <th>ECO</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {ScoreCard ? (
+                                                            <>
+                                                                {Object?.values(
+                                                                    ScoreCard?.scoreCard[1]?.bowlTeamDetails
+                                                                        ?.bowlersData
+                                                                )?.map((bat, index) => (
+                                                                    <tr key={index}>
+                                                                        <td>{bat?.bowlName}</td>
+                                                                        <td>{bat?.overs}</td>
+                                                                        <td>{bat?.maidens}</td>
+                                                                        <td>{bat?.runs}</td>
+                                                                        <td>{bat?.wickets}</td>
+                                                                        <td>{bat?.economy}</td>
+                                                                    </tr>
+                                                                ))}
+                                                            </>
+                                                        ) : (
+                                                            <p>Loading...</p>
+                                                        )}
+                                                    </tbody>
+                                                </table>
+                                            </div>
 
-                    <div className="container my-5">
-                      <h1 className="text-center mb-4">Bowler Data</h1>
-                      {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
-                      <table className="table table-bordered table-striped">
-                        <thead className="table-bg">
-                          <tr>
-                            <th>Bowler Name</th>
-                            <th>O</th>
-                            <th>M</th>
-                            <th>R</th>
-                            <th>W</th>
-                            <th>ECO</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {ScoreCard ? (
-                            <>
-                              {Object?.values(
-                                ScoreCard?.scoreCard[1]?.bowlTeamDetails
-                                  ?.bowlersData
-                              )?.map((bat, index) => (
-                                <tr key={index}>
-                                  <td>{bat?.bowlName}</td>
-                                  <td>{bat?.overs}</td>
-                                  <td>{bat?.maidens}</td>
-                                  <td>{bat?.runs}</td>
-                                  <td>{bat?.wickets}</td>
-                                  <td>{bat?.economy}</td>
-                                </tr>
-                              ))}
-                            </>
-                          ) : (
-                            <p>Loading...</p>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
 
             {/* Squads Start */}
             <div
