@@ -627,6 +627,6 @@ margin: 0px 10px;
   .content {
     display: none;
   }
-  input[type="checkbox"]:checked + label + .content {
+  input.livecore-accordian:checked + label + .content {
     display: block;
   }
