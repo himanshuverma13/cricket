@@ -284,7 +284,7 @@ const Home = () => {
             <div className="row">
               <div>
                 <h1 className="bg-sport shadow px-3 py-1 text-light border rounded-2">
-                  Cricket <MdSportsCricket />
+                  Cricket <MdSportsCricket className="mb-1" />
                 </h1>
               </div>
               {/* Smaller News */}
@@ -355,7 +355,7 @@ const Home = () => {
             <div className="row">
               <div>
                 <h1 className="bg-sport shadow px-3 py-1 text-light border rounded-2">
-                  Football <IoFootball />
+                  Football <IoFootball className="mb-1" />
                 </h1>
               </div>
               {/* Smaller News */}
@@ -439,7 +439,7 @@ const Home = () => {
               ))}
             </div> */}
               <h1 className="bg-sport shadow px-3 py-1 text-light border rounded-2">
-                Tennis <MdOutlineSportsTennis />
+                Tennis <MdOutlineSportsTennis className="mb-1" />
               </h1>
 
               <div className="row g-4">
