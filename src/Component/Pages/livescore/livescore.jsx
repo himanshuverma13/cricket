@@ -173,138 +173,142 @@ const LiveScore = () => {
                                 <div className="row">
                                     <div className="col-lg-8">
                                         {/* Batter table */}
-                                        <table className="table table-responsive table-sm border border-2 border-light rounded">
-                                            <thead className="table-bg">
-                                                <tr>
-                                                    <th scope="col" className="ps-3">
-                                                        Batter
-                                                    </th>
-                                                    <th scope="col">R </th>
-                                                    <th scope="col">B</th>
-                                                    <th scope="col">4s</th>
-                                                    <th scope="col">6s</th>
-                                                    <th scope="col">SR</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {[Commentries]?.map((batter, index) => (
-                                                    <>
-                                                        <tr key={index}>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanStriker?.batName}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanStriker?.batRuns}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanStriker?.batBalls}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanStriker?.batFours}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanStriker?.batSixes}
-                                                            </td>
-                                                            <td>
-                                                                {
-                                                                    batter?.miniscore?.batsmanStriker
-                                                                        ?.batStrikeRate
-                                                                }
-                                                            </td>
-                                                        </tr>
-                                                        <tr key={index}>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanNonStriker?.batName}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanNonStriker?.batRuns}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanNonStriker?.batBalls}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanNonStriker?.batFours}
-                                                            </td>
-                                                            <td>
-                                                                {batter?.miniscore?.batsmanNonStriker?.batSixes}
-                                                            </td>
-                                                            <td>
-                                                                {
-                                                                    batter?.miniscore?.batsmanNonStriker
-                                                                        ?.batStrikeRate
-                                                                }
-                                                            </td>
-                                                        </tr>
-                                                    </>
-                                                ))}
-                                            </tbody>
-                                        </table>
+                                        <div className="table-responsive">
+                                            <table className="table table-sm border border-2 border-light rounded">
+                                                <thead className="table-bg">
+                                                    <tr>
+                                                        <th scope="col" className="ps-3">
+                                                            Batter
+                                                        </th>
+                                                        <th scope="col">R </th>
+                                                        <th scope="col">B</th>
+                                                        <th scope="col">4s</th>
+                                                        <th scope="col">6s</th>
+                                                        <th scope="col">SR</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {[Commentries]?.map((batter, index) => (
+                                                        <>
+                                                            <tr key={index}>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanStriker?.batName}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanStriker?.batRuns}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanStriker?.batBalls}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanStriker?.batFours}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanStriker?.batSixes}
+                                                                </td>
+                                                                <td>
+                                                                    {
+                                                                        batter?.miniscore?.batsmanStriker
+                                                                            ?.batStrikeRate
+                                                                    }
+                                                                </td>
+                                                            </tr>
+                                                            <tr key={index}>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanNonStriker?.batName}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanNonStriker?.batRuns}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanNonStriker?.batBalls}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanNonStriker?.batFours}
+                                                                </td>
+                                                                <td>
+                                                                    {batter?.miniscore?.batsmanNonStriker?.batSixes}
+                                                                </td>
+                                                                <td>
+                                                                    {
+                                                                        batter?.miniscore?.batsmanNonStriker
+                                                                            ?.batStrikeRate
+                                                                    }
+                                                                </td>
+                                                            </tr>
+                                                        </>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
 
                                         {/* Bowler  table */}
 
-                                        <table className="table table-responsive table-sm border border-2 border-light rounded">
-                                            <thead className="table-bg">
-                                                <tr>
-                                                    <th scope="col" className="ps-3">
-                                                        Bowler
-                                                    </th>
-                                                    <th scope="col">O</th>
-                                                    <th scope="col">M</th>
-                                                    <th scope="col">R</th>
-                                                    <th scope="col">W</th>
-                                                    <th scope="col">ECO</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {[Commentries].map((bowler, index) => (
-                                                    <>
-                                                        <tr key={index}>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerStriker?.bowlName}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerStriker?.bowlOvs}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerStriker?.bowlMaidens}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerStriker?.bowlRuns}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerStriker?.bowlWkts}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerStriker?.bowlEcon}
-                                                            </td>
-                                                        </tr>
-                                                        <tr key={index}>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerNonStriker?.bowlName}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerNonStriker?.bowlOvs}
-                                                            </td>
-                                                            <td>
-                                                                {
-                                                                    bowler?.miniscore?.bowlerNonStriker
-                                                                        ?.bowlMaidens
-                                                                }
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerNonStriker?.bowlRuns}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerNonStriker?.bowlWkts}
-                                                            </td>
-                                                            <td>
-                                                                {bowler?.miniscore?.bowlerNonStriker?.bowlEcon}
-                                                            </td>
-                                                        </tr>
-                                                    </>
-                                                ))}
-                                            </tbody>
-                                        </table>
+                                        <div className="table-responsive">
+                                            <table className="table table-sm border border-2 border-light rounded">
+                                                <thead className="table-bg">
+                                                    <tr>
+                                                        <th scope="col" className="ps-3">
+                                                            Bowler
+                                                        </th>
+                                                        <th scope="col">O</th>
+                                                        <th scope="col">M</th>
+                                                        <th scope="col">R</th>
+                                                        <th scope="col">W</th>
+                                                        <th scope="col">ECO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {[Commentries].map((bowler, index) => (
+                                                        <>
+                                                            <tr key={index}>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerStriker?.bowlName}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerStriker?.bowlOvs}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerStriker?.bowlMaidens}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerStriker?.bowlRuns}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerStriker?.bowlWkts}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerStriker?.bowlEcon}
+                                                                </td>
+                                                            </tr>
+                                                            <tr key={index}>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerNonStriker?.bowlName}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerNonStriker?.bowlOvs}
+                                                                </td>
+                                                                <td>
+                                                                    {
+                                                                        bowler?.miniscore?.bowlerNonStriker
+                                                                            ?.bowlMaidens
+                                                                    }
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerNonStriker?.bowlRuns}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerNonStriker?.bowlWkts}
+                                                                </td>
+                                                                <td>
+                                                                    {bowler?.miniscore?.bowlerNonStriker?.bowlEcon}
+                                                                </td>
+                                                            </tr>
+                                                        </>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
 
                                         {[Commentries].map((i, index) => (
                                             <>
@@ -448,7 +452,7 @@ const LiveScore = () => {
                                                 <h1 className="text-center mb-2">Bowler Data</h1>
                                                 <div className="table-responsives">
                                                     <table className="table table-bordered table-striped">
-                                                        <thead className="table-bg">s
+                                                        <thead className="table-bg">
                                                             <tr>
                                                                 <th>Bowler Name</th>
                                                                 <th>O</th>

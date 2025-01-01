@@ -529,7 +529,7 @@ const Home = () => {
                 <div className="upcoming-matches">
                   <h3>Upcoming Matches</h3>
                   <div className="table-responsive">
-                    <table className="matches-table">
+                    <table className="table matches-table">
                       <thead>
                         <tr>
                           <th>Team 1</th>
