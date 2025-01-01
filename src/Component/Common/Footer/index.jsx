@@ -5,12 +5,12 @@ import Logo from "../../asset/img/Logo/logo.png"
 const Footer = () => {
   return (
     <footer className="footer text-white">
-      <div className="footer-top flex items-center justify-between px-6">
-        <div className="flex items-center">
+      <div className="footer-top d-flex align-items-center justify-between px-6">
+        <div className="d-flex align-items-center">
           <img
             src={Logo}
-            alt="MG Lion Logo"
-            className="footer-logo ms-5"
+            alt="Loading"
+            className="footer-logo"
           />
         </div>
         <div className="d-flex align-items-center" style={{ gap: "2rem", paddingRight: "10px" }}>
