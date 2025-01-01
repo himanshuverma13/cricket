@@ -156,7 +156,7 @@ const CardSlider = () => {
                               {course?.matchHeader?.team1?.shortName}
                             </div>
                             <div className="score">
-                              {course?.scoreCard?.[0]?.scoreDetails?.runs}/{course?.scoreCard?.[0]?.scoreDetails?.wickets} ({course?.scoreCard?.[0]?.scoreDetails?.overs})
+                              {course?.scoreCard?.[0]?.scoreDetails?.runs}/{course?.scoreCard?.[0]?.scoreDetails?.wickets} ({course?.scoreCard?.[0] ? course?.scoreCard?.[0]?.scoreDetails?.overs : 0})
                               
                             </div>
                           </div>
@@ -172,7 +172,7 @@ const CardSlider = () => {
                               {course?.matchHeader?.team2?.shortName}
                             </div>
                             <div className="score">
-                              {course?.scoreCard?.[1]?.scoreDetails?.runs}/{course?.scoreCard?.[1]?.scoreDetails?.wickets} ({course?.scoreCard?.[1]?.scoreDetails?.overs})
+                              {course?.scoreCard?.[1]?.scoreDetails?.runs}/{course?.scoreCard?.[1]?.scoreDetails?.wickets} ({course?.scoreCard?.[1] ? course?.scoreCard?.[1]?.scoreDetails?.overs : 0})
                             </div>
                           </div>
                         </div>
