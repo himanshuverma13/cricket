@@ -9,6 +9,7 @@ import {
     GetScoreCardDataAPI,
     GetSquadsDataAPI,
 } from "../../APIs/api";
+import { FaChevronDown } from "react-icons/fa";
 import moment from "moment/moment";
 
 const LiveScore = () => {
@@ -394,6 +395,8 @@ const LiveScore = () => {
                                                     }
                                                     )
                                                 </div>
+
+                                                <FaChevronDown className="fs-4 ms-4" />
                                             </div>
                                         </label>
                                         <div className="container content mt-2 border p-3 rounded">
@@ -512,7 +515,9 @@ const LiveScore = () => {
                                                         ScoreCard?.scoreCard[1]?.scoreDetails?.overs
                                                     }
                                                     )
+
                                                 </div>
+                                                <FaChevronDown className="fs-4 ms-4" />
                                             </div>
                                         </label>
                                         <div class="content mt-2 border p-3 rounded">

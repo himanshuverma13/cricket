@@ -56,18 +56,23 @@ const NewsPage = () => {
           <div className="news-list col-lg-8 p-2">
             <h3 className="ms-2">Cricket News</h3>
             {SportsNews?.map((news, index) => (
-              <div key={index} className="news-item shadow py-2">
-                <img src={news?.image} alt={news?.title} />
-                <div className="news-details">
-                  <h4>{news?.title}</h4>
-                  <p>{news?.description}</p>
-                  <span>
-                    {moment(news?.publishedAt)
-                      ?.subtract(10, "days")
-                      ?.calendar()}{" "}
-                    • {moment(news?.publishedAt)?.format("LT")} •{" "}
-                    {news?.source?.name}
-                  </span>
+              <div key={index} className="news-item shadow p-2">
+                <div className="row">
+                  <div className="col-lg-4">
+                    <img src={news?.image} alt={news?.title} />
+                  </div>
+                  <div className="col-lg-8 news-details">
+                    <h4>{news?.title}</h4>
+                    <p>{news?.description}</p>
+                    <span>
+                      {moment(news?.publishedAt)
+                        ?.subtract(10, "days")
+                        ?.calendar()}{" "}
+                      • {moment(news?.publishedAt)?.format("LT")} •{" "}
+                      {news?.source?.name}
+                    </span>
+                  </div>
+
                 </div>
               </div>
             ))}
@@ -89,8 +94,8 @@ const NewsPage = () => {
                     key={index}
                     className="d-flex align-items-center justify-content-center mx-1 px-1 rounded-2 bg-sport text-white"
                   >
-                    <span className="fw-normal fs-6 me-1">{sport.name}</span>
-                    <span className="fs-5">{sport.value}</span>
+                    <span className="fw-normal me-1">{sport.name}</span>
+                    <span className="fs-5 mb-1">{sport.value}</span>
                   </button>
                 ))}
               </div>
