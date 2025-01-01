@@ -49,7 +49,7 @@ const Navbar = () => {
                 { path: "/team", label: "Team" },
                 { path: "/news", label: "News" },
               ].map(({ path, label }) => (
-                <li className="nav-item" key={path}>
+                <li className="nav-item" key={path} onClick={toggleNavbar}>
                   <NavLink
                     className={({ isActive }) =>
                       `nav-link fonst-size-18 text-white fw-bold ${
@@ -57,6 +57,7 @@ const Navbar = () => {
                       }`
                     }
                     to={path}
+                    
                     style={({ isActive }) =>
                       isActive
                         ? {
