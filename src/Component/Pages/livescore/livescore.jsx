@@ -636,18 +636,18 @@ const LiveScore = () => {
                                             {Squad1?.players?.["playing XI"]?.map((items, index) => (
                                                 <div className=" border-end " key={index}>
                                                     <div className="row d-flex align-items-center justify-content-center">
-                                                        <div className="col-md-3 d-flex justify-content-end">
+                                                        <div className="col-md-6 d-flex justify-content-">
                                                             <img
                                                                 src={getTeamsImg?.a}
-                                                                className="h-50 w-25 ms-3"
+                                                                className="ms-3 squad-img h-50"
                                                                 alt="Loading"
                                                             />
-                                                        </div>
-                                                        <div className="col-md-9">
-                                                            <span className="fw-bold fs-6">
+                                                        <div className="mx-4">
+                                                            <div className="fw-bold  fs-6">
                                                                 {items?.fullName}
-                                                            </span>
+                                                            </div>
                                                             <p className="fs-6">{items?.role}</p>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -657,18 +657,18 @@ const LiveScore = () => {
                                             {Squad2?.players?.["playing XI"]?.map((items, index) => (
                                                 <div className="" key={index}>
                                                     <div className="row d-flex align-items-center justify-content-center">
-                                                        <div className="col-md-3 d-flex justify-content-end">
+                                                        <div className="col-md-6 d-flex justify-content-">
                                                             <img
                                                                 src={getTeamsImg?.b}
-                                                                className="h-50 w-25 ms-3"
+                                                                className="ms-3 squad-img h-50"
                                                                 alt="Loading"
                                                             />
-                                                        </div>
-                                                        <div className="col-md-9">
-                                                            <span className="fw-bold fs-6">
+                                                        <div className="mx-4">
+                                                            <div className="fw-bold  fs-6">
                                                                 {items?.fullName}
-                                                            </span>
+                                                            </div>
                                                             <p className="fs-6">{items?.role}</p>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -682,19 +682,20 @@ const LiveScore = () => {
                                         <div className="col-lg-6">
                                             {Squad1?.players?.bench?.map((items, index) => (
                                                 <div className=" border-end" key={index}>
-                                                    <div className="row  d-flex align-items-center justify-content-center">
-                                                        <div className="col-md-3 d-flex justify-content-end">
+                                                
+                                                    <div className="row d-flex align-items-center justify-content-center">
+                                                        <div className="col-md-6 d-flex justify-content-">
                                                             <img
                                                                 src={getTeamsImg?.a}
-                                                                className="h-50 w-25 ms-3"
+                                                                className="ms-3 squad-img h-50"
                                                                 alt="Loading"
                                                             />
-                                                        </div>
-                                                        <div className="col-md-9">
-                                                            <span className="fw-bold fs-6">
+                                                        <div className="mx-4">
+                                                            <div className="fw-bold  fs-6">
                                                                 {items?.fullName}
-                                                            </span>
+                                                            </div>
                                                             <p className="fs-6">{items?.role}</p>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -703,19 +704,19 @@ const LiveScore = () => {
                                         <div className="col-lg-6">
                                             {Squad2?.players?.bench?.map((items, index) => (
                                                 <div className="" key={index}>
-                                                    <div className="row  d-flex align-items-center justify-content-center">
-                                                        <div className="col-md-3 d-flex justify-content-end">
+                                                    <div className="row d-flex align-items-center justify-content-center">
+                                                        <div className="col-md-6 d-flex justify-content-">
                                                             <img
                                                                 src={getTeamsImg?.b}
-                                                                className="h-50 w-25 ms-3"
+                                                                className="ms-3 squad-img h-50"
                                                                 alt="Loading"
                                                             />
-                                                        </div>
-                                                        <div className="col-md-9">
-                                                            <span className="fw-bold fs-6">
+                                                        <div className="mx-4">
+                                                            <div className="fw-bold  fs-6">
                                                                 {items?.fullName}
-                                                            </span>
+                                                            </div>
                                                             <p className="fs-6">{items?.role}</p>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
