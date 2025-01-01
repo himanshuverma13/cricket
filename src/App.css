@@ -122,7 +122,9 @@ body{
   .ag-courses_item {
     flex-basis: calc(50% - 40px); /* More space between items */
     margin: 0 15px 30px; /* Adjust margin for smaller screens */
+    width: 350px !important;
   }
+  
   .ag-courses-item_title {
     font-size: 24px;
   }
@@ -132,6 +134,7 @@ body{
   .ag-courses_item {
     flex-basis: 100%;
     margin: 0 0 20px; /* Reduce margin for smaller screens */
+    width: 325px !important;
   }
   .ag-courses-item_title {
     font-size: 24px;
@@ -427,6 +430,9 @@ body{
 @media (max-width: 768px) {
   .news-page {
     flex-direction: column;
+  }
+  .ag-courses_item {
+    width: 325px !important;
   }
 
   .sidebar {

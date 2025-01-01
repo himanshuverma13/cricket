@@ -214,7 +214,7 @@ const Schedule = () => {
                                 </div>
                               </td>
                               <td>
-                                {moment(matchDetail?.startDt)?.format("LT")}
+                                {moment(Number(matchDetail?.startDate))?.format("LT")}
                               </td>
                             </tr>
                           ))
