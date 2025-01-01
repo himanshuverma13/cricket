@@ -450,7 +450,7 @@ const LiveScore = () => {
                                             {/* ------------ */}
                                             <div className="container my-3">
                                                 <h1 className="text-center mb-2">Bowler Data</h1>
-                                                <div className="table-responsives">
+                                                <div className="table-responsive">
                                                     <table className="table table-bordered table-striped">
                                                         <thead className="table-bg">
                                                             <tr>
@@ -577,7 +577,7 @@ const LiveScore = () => {
                                             <div className="container my-3">
                                                 <h1 className="text-center mb-2">Bowler Data</h1>
                                                 {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
-                                                <divs className="table-responsive">
+                                                <div className="table-responsive">
                                                     <table className="table table-bordered table-striped">
                                                         <thead className="table-bg">
                                                             <tr>
@@ -611,7 +611,7 @@ const LiveScore = () => {
                                                             )}
                                                         </tbody>
                                                     </table>
-                                                </divs>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
