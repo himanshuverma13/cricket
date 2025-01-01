@@ -636,3 +636,8 @@ margin: 0px 10px;
   input.livecore-accordian:checked + label + .content {
     display: block;
   }
+
+  /* squad css  */
+  .squad-img{
+    width: 40px !important;
+  }
