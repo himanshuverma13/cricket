@@ -85,8 +85,8 @@ const Schedule = () => {
                             match.matchInfo.map((matchDetail) => (
                               <tr key={matchDetail?.matchId}>
                                 <th scope="row">{matchIndex + 1}</th>
-                                <td>{match.seriesName}</td>
-                                <td>
+                                <td className="text-nowrap">{match.seriesName}</td>
+                                <td className="text-nowrap">
                                   <div>{matchDetail?.matchDesc}</div>
                                   <div>
                                     {matchDetail?.venueInfo?.ground},{" "}
@@ -94,7 +94,7 @@ const Schedule = () => {
                                     {matchDetail?.venueInfo?.country}
                                   </div>
                                 </td>
-                                <td>
+                                <td className="text-nowrap">
                                   {moment(matchDetail?.startDt)?.format("LT")}
                                 </td>
                               </tr>
