@@ -541,13 +541,13 @@ const Home = () => {
                       </thead>
                       <tbody>
                         {matches.map((match, index) => (
-                          <tr key={index}>
-                            <td>{match.team1}</td>
-                            <td>VS</td>
-                            <td>{match.team2}</td>
-                            <td>{match.date}</td>
-                            <td>{match.location}</td>
-                          </tr>
+                           <tr key={index}>
+                           <td className="text-nowrap">{match.team1}</td>
+                           <td className="text-nowrap">VS</td>
+                           <td className="text-nowrap">{match.team2}</td>
+                           <td className="text-nowrap">{match.date}</td>
+                           <td className="text-nowrap">{match.location}</td>
+                         </tr>
                         ))}
                       </tbody>
                     </table>

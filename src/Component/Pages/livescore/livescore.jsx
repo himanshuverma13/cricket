@@ -191,7 +191,7 @@ const LiveScore = () => {
                                                     {[Commentries]?.map((batter, index) => (
                                                         <>
                                                             <tr key={index}>
-                                                                <td>
+                                                                <td className="text-nowrap">
                                                                     {batter?.miniscore?.batsmanStriker?.batName}
                                                                 </td>
                                                                 <td>
@@ -262,7 +262,7 @@ const LiveScore = () => {
                                                     {[Commentries].map((bowler, index) => (
                                                         <>
                                                             <tr key={index}>
-                                                                <td>
+                                                                <td className="text-nowrap">
                                                                     {bowler?.miniscore?.bowlerStriker?.bowlName}
                                                                 </td>
                                                                 <td>
@@ -450,7 +450,7 @@ const LiveScore = () => {
                                             {/* ------------ */}
                                             <div className="container my-3">
                                                 <h1 className="text-center mb-2">Bowler Data</h1>
-                                                <div className="table-responsives">
+                                                <div className="table-responsive">
                                                     <table className="table table-bordered table-striped">
                                                         <thead className="table-bg">
                                                             <tr>
@@ -577,7 +577,7 @@ const LiveScore = () => {
                                             <div className="container my-3">
                                                 <h1 className="text-center mb-2">Bowler Data</h1>
                                                 {/* <h3>{ScoreCard?.scoreCard[0]?.batTeamDetails?.batTeamName} : {ScoreCard?.scoreCard[1]?.inningsId} Innings {ScoreCard?.scoreCard[0]?.scoreDetails?.runs}-{ScoreCard?.scoreCard[0]?.scoreDetails?.wickets} </h3> */}
-                                                <divs className="table-responsive">
+                                                <div className="table-responsive">
                                                     <table className="table table-bordered table-striped">
                                                         <thead className="table-bg">
                                                             <tr>
@@ -611,7 +611,7 @@ const LiveScore = () => {
                                                             )}
                                                         </tbody>
                                                     </table>
-                                                </divs>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -640,7 +640,7 @@ const LiveScore = () => {
                                             {Squad1?.players?.["playing XI"]?.map((items, index) => (
                                                 <div className=" border-end " key={index}>
                                                     <div className="row d-flex align-items-center justify-content-center">
-                                                        <div className="col-md-6 d-flex justify-content-">
+                                                        <div className="col-md-6 d-flex">
                                                             <img
                                                                 src={getTeamsImg?.a}
                                                                 className="ms-3 squad-img h-50"
